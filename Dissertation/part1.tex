@@ -1,525 +1,507 @@
-\chapter{Оформление различных элементов}\label{ch:ch1}
+\chapter{Задача о сдавливаниии круглого идеально жесткопластического слоя}\label{ch:ch1}
 
-\section{Форматирование текста}\label{sec:ch1/sec1}
+\section{Постановка задачи и асимптотические разложения}\label{sec:ch1/sec1}
 
-Мы можем сделать \textbf{жирный текст} и \textit{курсив}.
+Пренебрегая начальными упругими деформациями, вязкостью и незначительным упрочнением, материал, имеющий плотность $\varrho$, полагается несжимемым идеально жесткопластическим, удовлетворяющим тензорно линейным определеяющим соотношениям и скалярному определяющему соотношению -- квадратичному критерию Мизеса-Генки $\sigma_{u} = \sigma_{s}$, где $\sigma_{u} = \sqrt{\utilde{s} : \utilde{s}}$ -- интенсивность напряжения, $\utilde{s}$ -- девиатор напряжения, $\sigma_{s}$ -- предел текучести.
 
-\section{Ссылки}\label{sec:ch1/sec2}
-
-Сошлёмся на библиографию.
-Одна ссылка: \cite[с.~54]{Sokolov}\cite[с.~36]{Gaidaenko}.
-Две ссылки: \cite{Sokolov,Gaidaenko}.
-Ссылка на собственные работы: \cite{vakbib1, confbib2}.
-Много ссылок: %\cite[с.~54]{Lermontov,Management,Borozda} % такой «фокус»
-%вызывает biblatex warning относительно опции sortcites, потому что неясно, к
-%какому источнику относится уточнение о страницах, а bibtex об этой проблеме
-%даже не предупреждает
-\cite{Lermontov, Management, Borozda, Marketing, Constitution, FamilyCode,
-Gost.7.0.53, Razumovski, Lagkueva, Pokrovski, Methodology, Berestova,
-Kriger}%
-\ifnumequal{\value{bibliosel}}{0}{% Примеры для bibtex8
-    \cite{Sirotko, Lukina, Encyclopedia, Nasirova}%
-}{% Примеры для biblatex через движок biber
-    \cite{Sirotko2, Lukina2, Encyclopedia2, Nasirova2}%
-}%
-.
-И~ещё немного ссылок:~\cite{Article,Book,Booklet,Conference,Inbook,Incollection,Manual,Mastersthesis,
-Misc,Phdthesis,Proceedings,Techreport,Unpublished}
-% Следует обратить внимание, что пробел после запятой внутри \cite{}
-% обрабатывается ожидаемо, а пробел перед запятой, может вызывать проблемы при
-% обработке ссылок.
-\cite{medvedev2006jelektronnye, CEAT:CEAT581, doi:10.1080/01932691.2010.513279,
-Gosele1999161,Li2007StressAnalysis, Shoji199895, test:eisner-sample,
-test:eisner-sample-shorted, AB_patent_Pomerantz_1968, iofis_patent1960}
-\ifnumequal{\value{bibliosel}}{0}{% Примеры для bibtex8
-}{% Примеры для biblatex через движок biber
-    \cite{patent2h, patent3h, patent2}%
-}%
-.
-
-\ifnumequal{\value{bibliosel}}{0}{% Примеры для bibtex8
-Попытка реализовать несколько ссылок на конкретные страницы
-для \texttt{bibtex} реализации библиографии:
-[\citenum{Sokolov}, с.~54; \citenum{Gaidaenko}, с.~36].
-}{% Примеры для biblatex через движок biber
-Несколько источников (мультицитата):
-% Тут специально написано по-разному тире, для демонстрации, что
-% применение специальных тире в настоящий момент в biblatex приводит к непоказу
-% "с.".
-\cites[vii--x, 5, 7]{Sokolov}[v"--~x, 25, 526]{Gaidaenko}[vii--x, 5, 7]{Techreport},
-работает только в \texttt{biblatex} реализации библиографии.
-}%
-
-Ссылки на собственные работы:~\cite{vakbib1, confbib1}
-
-Сошлёмся на приложения: Приложение~\cref{app:A}, Приложение~\cref{app:B2}.
-
-Сошлёмся на формулу: формула~\cref{eq:equation1}.
-
-Сошлёмся на изображение: рисунок~\cref{fig:knuth}.
-
-Стандартной практикой является добавление к ссылкам префикса, характеризующего тип элемента.
-Это не является строгим требованием, но~позволяет лучше ориентироваться в документах большого размера.
-Например, для ссылок на~рисунки используется префикс \textit{fig},
-для ссылки на~таблицу "--- \textit{tab}.
-
-В таблице \cref{tab:tab_pref} приложения~\cref{app:B4} приведён список рекомендуемых
-к использованию стандартных префиксов.
-
-\section{Формулы}\label{sec:ch1/sec3}
-
-Благодаря пакету \textit{icomma}, \LaTeX~одинаково хорошо воспринимает
-в~качестве десятичного разделителя и запятую (\(3,1415\)), и точку (\(3.1415\)).
-
-\subsection{Ненумерованные одиночные формулы}\label{subsec:ch1/sec3/sub1}
-
-Вот так может выглядеть формула, которую необходимо вставить в~строку
-по~тексту: \(x \approx \sin x\) при \(x \to 0\).
-
-А вот так выглядит ненумерованная отдельностоящая формула c подстрочными
-и надстрочными индексами:
-\[
-(x_1+x_2)^2 = x_1^2 + 2 x_1 x_2 + x_2^2
-\]
-
-Формула с неопределенным интегралом:
-\[
-\int f(\alpha+x)=\sum\beta
-\]
-
-При использовании дробей формулы могут получаться очень высокие:
-\[
-  \frac{1}{\sqrt{2}+
-  \displaystyle\frac{1}{\sqrt{2}+
-  \displaystyle\frac{1}{\sqrt{2}+\cdots}}}
-\]
-
-В формулах можно использовать греческие буквы:
-%Все \original... команды заранее, ради этого примера, определены в Dissertation\userstyles.tex
-\[
-\alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta\theta%
-\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho\varrho%
-\sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega\Gamma\Delta%
-\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega
-\]
-\[%https://texfaq.org/FAQ-boldgreek
-\boldsymbol{\alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta%
-\theta\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho%
-\varrho\sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega\Gamma%
-\Delta\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega}
-\]
-
-Для добавления формул можно использовать пары \verb+$+\dots\verb+$+ и \verb+$$+\dots\verb+$$+,
-но~они считаются устаревшими.
-Лучше использовать их функциональные аналоги \verb+\(+\dots\verb+\)+ и \verb+\[+\dots\verb+\]+.
-
-\subsection{Ненумерованные многострочные формулы}\label{subsec:ch1/sec3/sub2}
-
-Вот так можно написать две формулы, не нумеруя их, чтобы знаки <<равно>> были
-строго друг под другом:
-\begin{align}
-  f_W & =  \min \left( 1, \max \left( 0, \frac{W_{soil} / W_{max}}{W_{crit}} \right)  \right), \nonumber \\
-  f_T & =  \min \left( 1, \max \left( 0, \frac{T_s / T_{melt}}{T_{crit}} \right)  \right), \nonumber
-\end{align}
-
-Выровнять систему ещё и по переменной \( x \) можно, используя окружение
-\verb|alignedat| из пакета \verb|amsmath|. Вот так:
-\[
-    |x| = \left\{
-    \begin{alignedat}{2}
-        &&x, \quad &\text{eсли } x\geqslant 0 \\
-        &-&x, \quad & \text{eсли } x<0
-    \end{alignedat}
-    \right.
-\]
-Здесь первый амперсанд (в исходном \LaTeX\ описании формулы) означает
-выравнивание по~левому краю, второй "--- по~\( x \), а~третий "--- по~слову
-<<если>>. Команда \verb|\quad| делает большой горизонтальный пробел.
-
-Ещё вариант:
-\[
-    |x|=
-    \begin{cases}
-    \phantom{-}x, \text{если } x \geqslant 0 \\
-    -x, \text{если } x<0
-    \end{cases}
-\]
-
-Кроме того, для  нумерованных формул \verb|alignedat| делает вертикальное
-выравнивание номера формулы по центру формулы. Например, выравнивание
-компонент вектора:
+Пусть течение происходит в области
 \begin{equation}
-\label{eq:2p3}
-\begin{alignedat}{2}
-{\mathbf{N}}_{o1n}^{(j)} = \,{\sin} \phi\,n\!\left(n+1\right)
-         {\sin}\theta\,
-         \pi_n\!\left({\cos} \theta\right)
-         \frac{
-               z_n^{(j)}\!\left( \rho \right)
-              }{\rho}\,
-           &{\boldsymbol{\hat{\mathrm e}}}_{r}\,+   \\
-+\,
-{\sin} \phi\,
-         \tau_n\!\left({\cos} \theta\right)
-         \frac{
-            \left[\rho z_n^{(j)}\!\left( \rho \right)\right]^{\prime}
-              }{\rho}\,
-            &{\boldsymbol{\hat{\mathrm e}}}_{\theta}\,+   \\
-+\,
-{\cos} \phi\,
-         \pi_n\!\left({\cos} \theta\right)
-         \frac{
-            \left[\rho z_n^{(j)}\!\left( \rho \right)\right]^{\prime}
-              }{\rho}\,
-            &{\boldsymbol{\hat{\mathrm e}}}_{\phi}\:.
-\end{alignedat}
+  \Omega_{t} = \{0 \le r \le R(t), -h(t) \le z \le h(t), 0 \le \theta < 2\pi\},
 \end{equation}
-
-Ещё об отступах. Иногда для лучшей <<читаемости>> формул полезно
-немного исправить стандартные интервалы \LaTeX\ с учётом логической
-структуры самой формулы. Например в формуле~\cref{eq:2p3} добавлен
-небольшой отступ \verb+\,+ между основными сомножителями, ниже
-результат применения всех вариантов отступа:
-\begin{align*}
-\backslash! &\quad f(x) = x^2\! +3x\! +2 \\
-  \mbox{по-умолчанию} &\quad f(x) = x^2+3x+2 \\
-\backslash, &\quad f(x) = x^2\, +3x\, +2 \\
-\backslash{:} &\quad f(x) = x^2\: +3x\: +2 \\
-\backslash; &\quad f(x) = x^2\; +3x\; +2 \\
-\backslash \mbox{space} &\quad f(x) = x^2\ +3x\ +2 \\
-\backslash \mbox{quad} &\quad f(x) = x^2\quad +3x\quad +2 \\
-\backslash \mbox{qquad} &\quad f(x) = x^2\qquad +3x\qquad +2
-\end{align*}
-
-Можно использовать разные математические алфавиты:
-\begin{align}
-\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ} \nonumber \\
-\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ} \nonumber \\
-\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ} \nonumber
-\end{align}
-
-Посмотрим на систему уравнений на примере аттрактора Лоренца:
-
-\[
-\left\{
-  \begin{array}{rl}
-    \dot x = & \sigma (y-x) \\
-    \dot y = & x (r - z) - y \\
-    \dot z = & xy - bz
-  \end{array}
-\right.
-\]
-
-А для вёрстки матриц удобно использовать многоточия:
-\[
-\left(
-  \begin{array}{ccc}
-    a_{11} & \ldots & a_{1n} \\
-    \vdots & \ddots & \vdots \\
-    a_{n1} & \ldots & a_{nn} \\
-  \end{array}
-\right)
-\]
-
-\subsection{Нумерованные формулы}\label{subsec:ch1/sec3/sub3}
-
-А вот так пишется нумерованная формула:
+с границей $\partial\Omega = \Gamma = \Gamma_{1} \cup \Gamma_{2} \cup \Gamma_{3}$, причем $h(t) \ll R(t)$ для любого $t \ge 0$. В начальный момент времени область, занятая материалом, имела вид
 \begin{equation}
-  \label{eq:equation1}
-  e = \lim_{n \to \infty} \left( 1+\frac{1}{n} \right) ^n
+  \Omega_{0} = \{0 \le r \le R_{0}, -h_{0} \le z \le h_{0}, 0 \le \theta < 2\pi\}, \quad \partial\Omega_{0} = \Gamma_{0}
 \end{equation}
+поэтому в силу несжимаемости $R^{2} h=R^{2}_{0} h_{0}$.
 
-Нумерованных формул может быть несколько:
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.6\linewidth]{ch1/layer}
+    }
+    \caption{Представление круглого слоя}
+    \label{fig:ch1/layer}
+\end{figure}
+Взаимную скорость сближения плит обозначим $2V$, поэтому кинематическое условие непротекания сквозь границы $\Gamma_{1}$ и $\Gamma_{2}$ имеет вид
 \begin{equation}
-  \label{eq:equation2}
-  \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{k^2} = \frac{\pi^2}{6}
+  \label{eq:ch1/sec1/boundary/kinematic}
+  v_{z}\lvert_{z=\pm h} = \mp V
 \end{equation}
+Касательная составляющая скорости (в данном случае $v_{r}$) на указаных границах идеальной среды, как известно, не задаётся.
 
-Впоследствии на формулы~\cref{eq:equation1, eq:equation2} можно ссылаться.
+В некоторый момент времени $0 < t < h_{0}/V = t_*$, где $t_*$ -- момент схлопывания слоя, относительно шести функций -- независимых компонент девиатора напряжений $s_{rr}$, $s_{rz}$ и $s_{\theta\theta}$, давления $p$ и компонент скорости $v_{r}$ и $v_{z}$ -- должна выполнятся замкнутая система уравнений динамической теории идеальной пластичности для цилиндрических координат:
+\begin{subequations}
+  \label{eqs:ch1/sec1/general}
+  \begin{gather}
+    \label{eqs:ch1/sec1/general/motion:1}
+    -p_{,r}+s_{rr,r}+s_{rz,z}+\frac{s_{rr}-s_{\theta\theta}}{r} = \varrho \left(v_{r;t}+v_{r} v_{r,r} + v_{z} v_{r,z} \right)
+    \\
+    \label{eqs:ch1/sec1/general/motion:2}
+    -p_{,z}+s_{rz,r}+\frac{s_{rz}}{r}-(s_{rr}+s_{\theta\theta})_{,z} = \varrho \left(v_{z;t}+v_{r} v_{z,r} + v_{z} v_{z,z} \right)
+    \\
+    \label{eqs:ch1/sec1/general/plasticity}
+    s^2_{rr}+s^2_{\theta\theta}+s_{rr} s_{\theta\theta} + s^2_{rz}=\tau^2_{s}
+    \\
+    \label{eqs:ch1/sec1/general/coax:1}
+    s_{rr} \frac{v_{r}}{r} = s_{\theta\theta} v_{r,r}
+    \\
+    \label{eqs:ch1/sec1/general/coax:2}
+    s_{rr} (v_{r,z}+v_{z,r}) = 2 s_{rz} v_{r,r}
+    \\
+    \label{eqs:ch1/sec1/general/uncompress}
+    v_{r,r}+\frac{v_{r}}{r}+v_{z,z} = 0
+  \end{gather}
+\end{subequations}
+Кроме выполнения условия \cref{eq:ch1/sec1/boundary/kinematic} на жестких контактирующих поверхностях потребуем, что бы модуль касательного напряжения $s_{rz}$ достигал на границах $\Gamma_{1}$ и $\Gamma_{2}$ своего максимального значения:
+\begin{equation}
+  \label{eq:ch1/sec1/boundary/force}
+  \lvert s_{rz}\lvert_{z=\pm h} = m(r) \tau_{s}, \quad 0 < m \le 1,
+\end{equation}
+где $m$ -- функция удовлетворяющая уравнению первого порядка с разделяющимися переменными \autocite{Georgievsky:2008}:
+\begin{equation}
+  \label{eq:ch1/sec1/m}
+  \frac{dm}{dr}=\frac{m}{2r}\left(1+\frac{m\sqrt{1-m^2}}{\arcsin m}\right)
+\end{equation}
+Из \cref{eq:ch1/sec1/m} видно, что функция $m$ не может быть тождественно равна отличной от нуля константе. Это существенно усложняет и отличает настоящее решение от соответствующего решения классической задачи Прандтля, в постановке которой $m = \pm m_0$, где параметр $\mu_0$  имеет смысл коэффициента шероховатости плит.
 
-Сделать так, чтобы номер формулы стоял напротив средней строки, можно,
-используя окружение \verb|multlined| (пакет \verb|mathtools|) вместо
-\verb|multline| внутри окружения \verb|equation|. Вот так:
-\begin{equation} % \tag{S} % tag - вписывает свой текст
-  \label{eq:equation3}
+В реальном процессе сжатия слоя граница $\Gamma_{3}$, естественно, свободна от напряжений, однако в математической постановке рассматриваемой здесь краевой задачи в её классическом варианте данное условие не ставится. Поэтому других, помимо \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force}, граничных условий в задаче не предполагается, а область вблизи границы $\Gamma_{3}$ (на расстояниях порядка $h$) трактуется как зона краевого эффекта.
+
+Введем малый параметр $\alpha = \frac{h(t)}{R(t)} \ll 1$ и проведем разложение всех неизвестных величин, входящих в систему уравнений \cref{eqs:ch1/sec1/general}, в ряды по целым степеням параметра:
+\begin{subequations}
+  \label{eqs:ch1/series}
+  \begin{gather}
+    v_{r}\left(r, z, t\right) = V \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}, \quad N \ge 1
+    \\
+    v_{z}\left(r, z, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}}
+    \\
+    s_{ij}\left(r, z, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad (ij)\in\{rr, rz, \theta\theta\}
+    \\
+    p\left(r, z, t \right) = \tau_{s} \sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}}, \quad M \ge 1
+  \end{gather}
+\end{subequations}
+Коэффициенты рядов \cref{eqs:ch1/series} -- безразмерны и являются функциями безразмерных координат $\rho, \xi, \tau$ :
+\begin{equation}
+  \label{eq:ch1/coordinates}
+  \rho = \frac{r}{R} = \frac{\alpha r}{h}, \quad \xi = \frac{z}{h}, \quad \tau = V \frac{t}{h}
+\end{equation}
+Наличие в \cref{eqs:ch1/series} членов $\alpha^{-n} \; \uindex{v}{-n}_{r}$ и $\alpha^{-m} \; \uindex{p}{-m}$ обусловлено стремлением $v_{r}$ и $p$ к бесконечности, при $\alpha\rightarrow 0$, что ясно из физических соображений.
+Обратимся к геометрическому условию несжимаемости и выразим малый параметр и координаты \cref{eq:ch1/coordinates} как эволюционные функции:
+\begin{subequations}
+  \begin{gather}
+    \left(R^2 h\right)^. = 0, \quad \dot{R} = -\dot{h} \frac{R}{2h}= V \frac{R}{2h}\nonumber
+    \\
+    \dot{\alpha} = \left(\frac{h}{R}\right)^. = \frac{\dot{h}R - h\dot{R}}{h^2} = -\frac{3 V}{2 h} \alpha
+    \\
+    \dot{\rho} = \left(\frac{\alpha r}{h}\right)^. = r \frac{\dot{\alpha} h - \alpha \dot{h}}{h^2} = -\frac{V}{2h}\rho
+    \\
+    \dot{\xi} = \left(\frac{z}{h}\right)^. = -\frac{z \dot{h}}{h^2} = \frac{V}{h}\xi
+    \\
+    \dot{\tau} = \left(V \frac{t}{h}\right)^. = V \frac{h - t\dot{h}}{h^2} = \frac{V}{h} \left(1+\tau\right)
+  \end{gather}
+\end{subequations}
+Подставляя выражения \cref{eqs:ch1/series} в систему \cref{eqs:ch1/sec1/general} и учитывая, что полная производная по времени представляется в виде
+\begin{equation*}
+  \uindex{v}{k}_{i;t} = \uindex{v}{k}_{i,\rho} \dot{\rho} + \uindex{v}{k}_{i,\xi} \dot{\xi} + \uindex{v}{k}_{i,\tau} \dot{\tau}
+\end{equation*}
+получим следующую систему:
+\begin{subequations}
+  \label{eqs:ch1/sec1/substituted}
+  \begin{gather}
+    \label{eqs:ch1/sec1/substituted/motion:1}
     \begin{multlined}
-        1+ 2+3+4+5+6+7+\dots + \\
-        + 50+51+52+53+54+55+56+57 + \dots + \\
-        + 96+97+98+99+100=5050
+      -\sum_{k=-M}^{\infty}{\alpha^{k+1} \; \uindex{p}{k}_{,\rho}} +
+      \sum_{k=0}^{\infty}{\alpha^{k}\left(
+      \alpha \ \uindex{s}{k}_{rr,\rho} +
+      \uindex{s}{k}_{rz,\xi} +
+      \frac{\alpha}{\rho}\left(\ \uindex{s}{k}_{rr} - \uindex{s}{k}_{\theta\theta}\right)
+      \right)} \unl{=}
+      \frac{\varrho V^2}{\tau_{s}}\left(
+      \sum_{k=-N}^{\infty}{\alpha^{k}\left(
+        -\uindex{v}{k}_{r,\rho} \frac{\rho}{2} +
+        \uindex{v}{k}_{r,\xi} \xi +
+        \uindex{v}{k}_{r,\tau} \left(1+\tau\right) -
+        \frac{3 k}{2} \ \uindex{v}{k}_{r}
+        \right)}
+      \unl[1]{+}
+      \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}} +
+      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r,\xi}}
+      \right)
     \end{multlined}
+    \\
+    \label{eqs:ch1/sec1/substituted/motion:2}
+    \begin{multlined}
+      -\sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}_{,\xi}} + \sum_{k=0}^{\infty}{\alpha^{k}\left(
+      \alpha \ \uindex{s}{k}_{rz,\rho} +
+      \frac{\alpha}{\rho} \ \uindex{s}{k}_{rz} -
+      \left(\ \uindex{s}{k}_{rr,\xi} + \uindex{s}{k}_{\theta\theta,\xi}\right)
+      \right)} \unl{=} \frac{\varrho V^2}{\tau_{s}}\left(
+      \sum_{k=0}^{\infty}{\alpha^{k}\left(
+        -\uindex{v}{k}_{z,\rho} \frac{\rho}{2} +
+        \uindex{v}{k}_{z,\xi} \xi +
+        \uindex{v}{k}_{z,\tau} \left(1+\tau\right) -
+        \frac{3 k}{2} \ \uindex{v}{k}_{z}
+        \right)} \unl[1]{+}  \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{z,\rho}} +
+      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z,\xi}}
+      \right)
+    \end{multlined}
+    \\
+    \label{eqs:ch1/sec1/substituted/plasticity}
+    \begin{multlined}
+      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}}\right)^2+
+      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}}\right) \unl{+}
+      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}}+
+      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rz}}\right)^2 = 1
+    \end{multlined}
+    \\
+    \label{eqs:ch1/sec1/substituted/coax:1}
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \frac{\alpha}{\rho} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} =
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}
+    \\
+    \label{eqs:ch1/sec1/substituted/coax:2}
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \left(
+    \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r,\xi}} +
+    \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{z,\rho}}
+    \right) =
+    2 \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rz}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}
+    \\
+    \label{eqs:ch1/sec1/substituted/uncompress}
+    \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}+
+    \frac{\alpha}{\rho}\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}+
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z,\xi}} = 0
+  \end{gather}
+\end{subequations}
+Возникший в правой части уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/motion:2} коэффициент равен обратному числу Эйлера
+\begin{equation*}
+  \text{Eu}^{-1} = \frac{\varrho V^2}{\tau_{s}}.
+\end{equation*}
+Данная величина мала \todo{почему?}и как видно из её определения фиксирована. По сравнению с ней порядок малости $\alpha(t)$ при течении времени от 0 до $t_*$ растёт до бесконечности. Это позволяет записать
+\begin{equation*}
+  \text{Eu}^{-1} = O\left(\alpha^\beta(t)\right), \text{ причем } \beta \rightarrow 0 \text{ при } t \rightarrow t_*
+\end{equation*}
+Применительно к динамическому анализу интерес представляет $0 < \beta \le 2$. Отыскание решений проведем для целочисленных значений входящих в этот диапозон.
+
+Обратимся к системе двух последних уравнений \cref{eqs:ch1/sec1/substituted/coax:2, eqs:ch1/sec1/substituted/uncompress}. Из \cref{eqs:ch1/sec1/substituted/coax:2} сразу следует, что $\uindex{v}{-N}_{r,\xi} = 0$, а решая дифференциальное уравнение \cref{eqs:ch1/sec1/substituted/uncompress} и требуя конечности членов разложения, получаем, что $\uindex{v}{-N}_{r} = 0$. Аналогичные рассуждения применимы последовательно для $\uindex{v}{-N+1}_{r}$, затем $\uindex{v}{-N+2}_{r}$ и далее вплоть до $\uindex{v}{-2}_{r}$.
+Учитывая, что первый ненулевой член радиальной компоненты скорости $\uindex{v}{-1}_{r}$, и принимая, что $\beta \ge 1$ определим из уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/motion:2} порядок малости для функции давления $p$. Для $M \ge 2$ имеем:
+\begin{equation*}
+  -\uindex{p}{-M}_{,\rho} = 0, \quad -\uindex{p}{-M}_{,\xi} = 0 \text{ и, следовательно, } \ \uindex{p}{-M} = \uindex{p}{-M}_{0}(\tau)
+\end{equation*}
+Здесь $\uindex{p}{-M}_{0}$ -- гидростатическая постоянная, не дающая вклад в уравнение движения и однозначно определяемая заданием внешнего давления. Поэтому, без ограничения общности, можно считать, что $M=1$.
+
+Аналогично \cref{eq:ch1/sec/m} введем коэффициент шероховатости поверхности, зависящий от безразмерного радиуса:
+\begin{equation}
+  \label{eq:ch1/sec1/mu}
+  \mu(\rho) = m(r/R), \quad \frac{d\mu}{dr}=\frac{\mu}{2r}\left(1+\frac{\mu\sqrt{1-\mu^2}}{\arcsin\mu}\right)
+\end{equation}
+Вообще говоря уравнение \cref{eq:ch1/sec1/mu} определяет функцию $\mu(\rho)$ с точностью до домножения на константу. Её график, при условии $\mu(1) = 1$, приведен на рисунке ниже:
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.6\linewidth]{ch1/mu}
+    }
+    \caption{Вид функции $\mu(\rho)$, при $\mu(1)=1$}
+    \label{fig:ch1/mu}
+\end{figure}
+Вид функции $\mu(\rho)$ при другом граничном условии на правом конце может быть получен масштабированием по оси $\rho$.
+
+\section{Построение решения}\label{sec:ch1/sec2}
+\subsection{Переход от квазистатического к динамическому режиму деформирования}\label{subsec:ch1/sec2/sub1}
+
+Рассмотрим случай $\beta=2$, который соответствует моменту перехода от квазистатического к динамическому режиму деформирования.
+Положим $\text{Eu}^{-1} = C_2 \alpha^2$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch1/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
+\begin{subequations}
+  \label{eqs:ch1/sec2/sub1/main}
+  \begin{gather}
+    \label{eqs:ch1/sec2/sub1/-1/motion:2}
+    -\uindex{p}{-1}_{,\xi} = 0
+    \\
+    \label{eqs:ch1/sec2/sub1/-1/coax:2}
+    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r,\xi} = 0
+    \\
+    \label{eqs:ch1/sec2/sub1/0/motion:1}
+    -\uindex{p}{-1}_{,\rho}+\uindex{s}{0}_{rz,\xi} = 0
+    \\
+    \label{eqs:ch1/sec2/sub1/0/motion:2}
+    -\uindex{p}{0}_{,\xi} - \uindex{s}{0}_{rr,\xi} - \uindex{s}{0}_{\theta\theta,\xi} = 0
+    \\
+    \label{eqs:ch1/sec2/sub1/0/plasticity}
+    \left(\uindex{s}{0}_{rr}\right)^2 + \left(\uindex{s}{0}_{\theta\theta}\right)^2 + \uindex{s}{0}_{rr}\; \uindex{s}{0}_{\theta\theta} + \left(\uindex{s}{0}_{rz}\right)^2 = 1
+    \\
+    \label{eqs:ch1/sec2/sub1/0/coax:1}
+    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r} / \rho = \uindex{s}{0}_{\theta\theta} \uindex{v}{-1}_{r,\rho}
+    \\
+    \label{eqs:ch1/sec2/sub1/0/coax:2}
+    \uindex{s}{0}_{rr} \; \uindex{v}{0}_{r,\xi} = 2 \uindex{s}{0}_{rz} \; \uindex{v}{-1}_{r,\rho}
+    \\
+    \label{eqs:ch1/sec2/sub1/0/uncompress}
+    \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
+  \end{gather}
+\end{subequations}
+Граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force} при этом примут вид
+\begin{equation}
+  \label{eq:ch1/sec1/sub1/boundary/0}
+  \uindex{v}{0}_{z}\lvert_{\xi=\pm 1} = \mp 1, \quad \lvert \uindex{s}{0}_{rz}\lvert_{\xi=\pm 1} = \mu(\rho)
+\end{equation}
+Из уравнений \cref{eqs:ch1/sec2/sub1/-1/motion:2, eqs:ch1/sec2/sub1/-1/coax:2} вытекает
+\begin{equation*}
+  \uindex{p}{-1} = \uindex{f}{-1}_{p}(\rho, \tau), \quad \uindex{v}{-1}_{r} = \uindex{f}{-1}_{v_{r}}(\rho, \tau).
+\end{equation*}
+Подставив выражение $\uindex{v}{-1}_{r}$ в уравнение \cref{eqs:ch1/sec2/sub1/0/uncompress} и решив дифференциальное уравнение, получим выражение для $\uindex{v}{0}_{z}$:
+\begin{equation*}
+  \uindex{v}{0}_{z} = \uindex{f}{0}_{v_{z}}(\rho, \tau) -\xi \left(\ \uindex{f}{-1}_{v_{r},\rho} + \uindex{f}{-1}_{v_{r}} / \rho\right)
+\end{equation*}
+Подстановка данного равенства в кинематические граничные условия \cref{eq:ch1/sec1/sub1/boundary/0} и использование их линейной комбинации позволяет определить неизвестные функции интегрирования:
+\begin{gather*}
+  \uindex{f}{0}_{v_{z}} = 0\\
+  \uindex{f}{-1}_{v_{r},\rho} + \uindex{f}{-1}_{v_{r}} / \rho = 0
+\end{gather*}
+Окончательно получаем
+\begin{gather}
+  \label{sol:ch1/sec2/sub1/vr/-1}
+  \uindex{v}{-1}_{r} = \uindex{f}{-1}_{v_{r}} = \rho / 2
+  \\
+  \label{sol:ch1/sec2/sub1/vz/0}
+  \uindex{v}{0}_{z} =  -\xi
+\end{gather}
+Из уравнения \cref{eqs:ch1/sec2/sub1/0/motion:1} следует линейность функции $\uindex{s}{0}_{rz}$ по $\xi$, что в силу также естественно требуемой нечетности позволяет записать
+\begin{equation*}
+  \uindex{s}{0}_{rz} = \uindex{K}{0}_{s_{rz}}(\rho) \xi
+\end{equation*}
+Функцию $\uindex{K}{0}_{s_{rz}}$ определим из силовых граничных условий \cref{eq:ch1/sec1/sub1/boundary/0}:
+\begin{equation*}
+  \uindex{K}{0}_{s_{rz}} = -\hat{s}\mu(\rho), \quad \hat{s} = \pm1
+\end{equation*}
+Таким образом получаем
+\begin{gather*}
+  \uindex{s}{0}_{rz} = -\mu \hat{s} \xi
+  \\
+  \uindex{p}{-1} = \uindex{f}{-1}_{p} = \uindex{g}{-1}_{p}(\tau) - \hat{s} \int_0^\rho \mu(\zeta) d\zeta
+\end{gather*}
+В соответствии с физико-механическим смыслом процесса сжатия и растекания слоя сингулярная составляющая давления $\uindex{p}{-1}$ максимальна в центре слоя, то есть в окрестности $\rho = 0$ , и убывает до нуля вблизи границы $\rho=1$. Данное обстоятельство позволяет определить, что $\hat{s} = 1$ и тогда окончательно имеем
+\begin{gather}
+  \label{sol:ch1/sec2/sub1/srz/0}
+  \uindex{s}{0}_{rz} = -\mu \xi
+  \\
+  \label{sol:ch1/sec2/sub1/p/-1}
+  \uindex{p}{-1} = \uindex{g}{-1}_{p}(\tau) - \int_0^\rho \mu(\zeta) d\zeta = \int_\rho^1 \mu(\zeta) d\zeta + \uindex{p}{-1}_{0}(\tau)
+\end{gather}
+С учетом вышесказанного уравнение \cref{eqs:ch1/sec2/sub1/0/coax:1} даст равенство $\uindex{s}{0}_{rr} = \uindex{s}{0}_{\theta\theta}$ и тогда из условия пластичности \cref{eqs:ch1/sec2/sub1/0/plasticity} выразим
+\begin{equation}
+  \label{sol:ch1/sec2/sub1/srr+stt/0}
+  \uindex{s}{0}_{rr} = \ \uindex{s}{0}_{\theta\theta} = \sqrt{\left(1-\mu^2\xi^2\right) / 3}
+\end{equation}
+Подставив все найденные функции в \cref{eqs:ch1/sec2/sub1/0/motion:2, eqs:ch1/sec2/sub1/0/coax:2} и решив дифференциальные уравнения найдем
+\begin{equation}
+  \label{sol:ch1/sec2/sub1/p+vr/0}
+  \uindex{p}{0} = \uindex{f}{0}_{p}(\rho, \tau) - \frac{2}{3} \sqrt{3\left(1-\mu^2\xi^2\right)}, \quad \uindex{v}{0}_{r} = \uindex{f}{0}_{v_{r}}(\rho, \tau) + \frac{1}{\mu} \sqrt{3\left(1-\mu^2\xi^2\right)}
+\end{equation}
+Для нахождение неизвестных функций $\uindex{f}{0}_{p}$ и $\uindex{f}{0}_{v_{r}}$ выпишем следующее по $\alpha$ приближение уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/uncompress}, а также граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force}:
+\begin{subequations}
+  \begin{gather}
+    \label{eqs:ch1/sec2/sub1/1/motion:1}
+    -\uindex{p}{0}_{,\rho} + \uindex{s}{0}_{rr,\rho} + \uindex{s}{1}_{rz,\xi} = C_2 \left(3\rho / 4\right)
+    \\
+    \label{eqs:ch1/sec2/sub1/1/uncompress}
+    \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho + \uindex{v}{1}_{z,\xi} = 0
+    \\
+    \label{eq:ch1/sec2/sub1/boundary/1}
+    \uindex{v}{1}_{z}\lvert_{\xi=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{rz}\lvert_{\xi=\pm 1} = 0
+  \end{gather}
+\end{subequations}
+Функция $\uindex{v}{1}_{z}$ является непрерывной, поэтому имеет место равенство
+\begin{equation}
+  \begin{multlined}
+    0 = \uindex{v}{1}_{z}\lvert_{\xi= 1} - \uindex{v}{1}_{z}\lvert_{\xi= -1} = \int_{-1}^{1}{\uindex{v}{1}_{z,\xi}d\xi} = -\int_{-1}^{1}{\left( \ \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho\right)d\xi} \unl{=}
+    \frac{\sqrt{3}}{\mu^2 \rho}\left(\mu\sqrt{1-\mu^2} + \left(1-\frac{2\mu'}{\mu}\right)\arcsin{\mu}\right) + 2 \uindex{f}{0}_{v_{r}} / \rho + 2 \uindex{f}{0}_{v_{r},\rho}
+  \end{multlined}
+\end{equation}
+Решая данное дифференциальное уравнение, подставив $\mu'$ из \cref{eq:ch1/sec1/mu}, получим выражение для $\uindex{f}{0}_{v_{r}}$:
+\begin{equation}
+  \uindex{f}{0}_{v_{r}} = \uindex{g}{0}_{v_{r}}(\tau) / \rho,
+\end{equation}
+причем с учетом требования конечности членов ряда, следует положить $\uindex{g}{0}_{v_{r}} = 0$.
+Аналогичные операции проведем над функцией $\uindex{s}{1}_{rz}$:
+\begin{gather}
+  \begin{multlined}
+    0 = \uindex{s}{1}_{rz}\lvert_{\xi= 1} - \uindex{s}{1}_{rz}\lvert_{\xi= -1} = \int_{-1}^{1}{\uindex{s}{1}_{rz,\xi}d\xi} = -\int_{-1}^{1}{\left( \ \uindex{p}{0}_{,\rho} - \uindex{s}{0}_{rr,\rho} + 3 C_2 \rho / 4\right)d\xi} \unl{=}
+    2\left( \ \uindex{f}{0}_{p,\rho} + 3 C_2 \rho / 4\right) - \frac{d}{d\rho}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi
+  \end{multlined}
+  \\
+  \uindex{f}{0}_{p} = -\frac{3}{8}C_2\rho^2 + \frac{1}{2}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi + \uindex{g}{0}_{p}(\tau) =
+  \frac{3}{8}C_2 \left(1-\rho^2\right) + \frac{1}{2}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi + \uindex{p}{0}_{0}(\tau)
+\end{gather}
+
+\subsection{Развитый процесс динамического деформирования}\label{subsec:ch1/sec2/sub2}
+
+Рассмотрим случай $\beta=1$, который соответствует моменту с сильным влиянием динамики в процессе сдавливания слоя.
+Положим $\text{Eu}^{-1} = C_1 \alpha$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch1/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
+\begin{subequations}
+  \label{eqs:ch1/sec2/sub2/main}
+  \begin{gather}
+    \label{eqs:ch1/sec2/sub2/-1/motion:2}
+    -\uindex{p}{-1}_{,\xi} = 0
+    \\
+    \label{eqs:ch1/sec2/sub2/-1/coax:2}
+    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r,\xi} = 0
+    \\
+    \label{eqs:ch1/sec2/sub2/0/motion:1}
+    \begin{multlined}
+      -\uindex{p}{-1}_{,\rho}+\uindex{s}{0}_{rz,\xi} = C_1 \left(
+      -\frac{\rho}{2} \ \uindex{v}{-1}_{r,\rho} + \xi \ \uindex{v}{-1}_{r,\xi} + \left(1+\tau\right) \ \uindex{v}{-1}_{r,\tau} \unl[1]{+} \frac{3}{2} \ \uindex{v}{-1}_{r} + \uindex{v}{-1}_{r} \ \uindex{v}{-1}_{r,\rho} + \uindex{v}{0}_{z} \ \uindex{v}{-1}_{r,\xi}
+      \right)
+    \end{multlined}
+    \\
+    \label{eqs:ch1/sec2/sub2/0/motion:2}
+    -\uindex{p}{0}_{,\xi} - \uindex{s}{0}_{rr,\xi} - \uindex{s}{0}_{\theta\theta,\xi} = 0
+    \\
+    \label{eqs:ch1/sec2/sub2/0/plasticity}
+    \left(\uindex{s}{0}_{rr}\right)^2 + \left(\uindex{s}{0}_{\theta\theta}\right)^2 + \uindex{s}{0}_{rr}\; \uindex{s}{0}_{\theta\theta} + \left(\uindex{s}{0}_{rz}\right)^2 = 1
+    \\
+    \label{eqs:ch1/sec2/sub2/0/coax:1}
+    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r} / \rho = \uindex{s}{0}_{\theta\theta} \uindex{v}{-1}_{r,\rho}
+    \\
+    \label{eqs:ch1/sec2/sub2/0/coax:2}
+    \uindex{s}{0}_{rr} \; \uindex{v}{0}_{r,\xi} = 2 \uindex{s}{0}_{rz} \; \uindex{v}{-1}_{r,\rho}
+    \\
+    \label{eqs:ch1/sec2/sub2/0/uncompress}
+    \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
+  \end{gather}
+\end{subequations}
+Как и в предыдущем пункте граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force} примут вид
+\begin{equation}
+  \label{eq:ch1/sec1/sub2/boundary/0}
+  \uindex{v}{0}_{z}\lvert_{\xi=\pm 1} = \mp 1, \quad \lvert \uindex{s}{0}_{rz}\lvert_{\xi=\pm 1} = \mu
+\end{equation}
+Из уравнений \cref{eqs:ch1/sec2/sub2/-1/motion:2, eqs:ch1/sec2/sub2/-1/coax:2} вытекает
+\begin{equation*}
+  \uindex{p}{-1} = \uindex{f}{-1}_{p}(\rho, \tau), \quad \uindex{v}{-1}_{r} = \uindex{f}{-1}_{v_{r}}(\rho, \tau).
+\end{equation*}
+Подставив выражение $\uindex{v}{-1}_{r}$ в уравнение \cref{eqs:ch1/sec2/sub2/0/uncompress} и решив дифференциальное уравнение, получим выражение для $\uindex{v}{0}_{z}$:
+\begin{equation*}
+  \uindex{v}{0}_{z} = \uindex{f}{0}_{v_{z}}(\rho, \tau) -\xi \left(\ \uindex{f}{-1}_{v_{r},\rho} + \uindex{f}{-1}_{v_{r}} / \rho\right)
+\end{equation*}
+Подстановка данного равенства в кинематические граничные условия \cref{eq:ch1/sec1/sub2/boundary/0} и использование их линейной комбинации позволяет определить неизвестные функции интегрирования:
+\begin{gather*}
+  \uindex{f}{0}_{v_{z}} = 0
+  \\
+  \uindex{f}{-1}_{v_{r},\rho} + \uindex{f}{-1}_{v_{r}} / \rho = 0
+\end{gather*}
+Окончательно получаем
+\begin{gather}
+  \label{sol:ch1/sec2/sub2/vr/-1}
+  \uindex{v}{-1}_{r} = \uindex{f}{-1}_{v_{r}} = \rho / 2
+  \\
+  \label{sol:ch1/sec2/sub2/vz/0}
+  \uindex{v}{0}_{z} =  -\xi
+\end{gather}
+С учетом \cref{sol:ch1/sec2/sub2/vr/-1} уравнение \cref{eqs:ch1/sec2/sub2/0/motion:1} примет вид
+\begin{equation*}
+  -\uindex{p}{-1}_{,\rho}+\uindex{s}{0}_{rz,\xi} = C_1 \left(3 \rho / 4\right)
+\end{equation*}
+Решая его относительно $\uindex{s}{0}_{rz}$ и используя силовые граничные условия \cref{eq:ch1/sec1/sub2/boundary/0} придем к
+\begin{gather*}
+  \uindex{s}{0}_{rz} = 3 C_1 \xi \rho / 4 + \xi \uindex{f}{-1}_{p,\rho} + \uindex{f}{0}_{s_{rz}}(\rho, \tau)
+  \\
+  \uindex{f}{0}_{s_{rz}} = 0
+  \\
+  3 C_1 \rho / 4 + \uindex{f}{-1}_{p,\rho} = -2 \mu \hat{s}, \quad \hat{s} = \pm 1
+  \\
+  \uindex{p}{-1} = \uindex{f}{-1}_{p} = - \frac{3}{8}C_1\rho^2 + \uindex{g}{-1}_{p}(\tau) - \hat{s} \int_0^\rho \mu(\zeta)d\zeta
+\end{gather*}
+В силу тех же рассуждений, что приводились в \ref{subsec:ch1/sec2/sub1} следует положить $\hat{s} = 1$. Тогда найденные функции можно записать в следующем виде:
+\begin{gather}
+  \label{sol:ch1/sec2/sub2/srz/0}
+  \uindex{s}{0}_{rz} = -\mu \xi
+  \\
+  \label{sol:ch1/sec2/sub2/p/-1}
+  \uindex{p}{-1} = - \frac{3}{8}C_1\rho^2 + \uindex{g}{-1}_{p}(\tau) - \int_0^\rho \mu(\zeta)d\zeta = \frac{3}{8}C_1\left(1-\rho^2\right) + \int_\rho^1 \mu(\zeta)d\zeta + \uindex{p}{-1}_{0}(\tau)
+\end{gather}
+С учетом вышесказанного уравнение \cref{eqs:ch1/sec2/sub2/0/coax:1} даст равенство $\uindex{s}{0}_{rr} = \uindex{s}{0}_{\theta\theta}$ и тогда из условия пластичности \cref{eqs:ch1/sec2/sub2/0/plasticity} выразим
+\begin{equation}
+  \label{sol:ch1/sec2/sub2/srr+stt/0}
+  \uindex{s}{0}_{rr} = \ \uindex{s}{0}_{\theta\theta} = \sqrt{\left(1-\mu^2\xi^2\right) / 3}
+\end{equation}
+Подставив все найденные функции в \cref{eqs:ch1/sec2/sub2/0/motion:2, eqs:ch1/sec2/sub2/0/coax:2} и решив дифференциальные уравнения найдем
+\begin{equation}
+  \label{sol:ch1/sec2/sub2/p+vr/0}
+  \uindex{p}{0} = \uindex{f}{0}_{p}(\rho, \tau) - \frac{2}{3} \sqrt{3\left(1-\mu^2\xi^2\right)}, \quad \uindex{v}{0}_{r} = \uindex{f}{0}_{v_{r}}(\rho, \tau) + \frac{1}{\mu} \sqrt{3\left(1-\mu^2\xi^2\right)}
+\end{equation}
+Для нахождение неизвестных функций $\uindex{f}{0}_{p}$ и $\uindex{f}{0}_{v_{r}}$ выпишем следующее по $\alpha$ приближение уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/uncompress}, а также граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force}:
+\begin{subequations}
+  \begin{gather}
+    \label{eqs:ch1/sec2/sub2/1/motion:1}
+    -\uindex{p}{0}_{,\rho}+\uindex{s}{0}_{rr,\rho}+\uindex{s}{1}_{rz,\xi} = C_1 \left(\ \uindex{v}{0}_{r} / 2 + \left(1+\tau\right)\uindex{v}{0}_{r,\tau}\right)
+    \\
+    \label{eqs:ch1/sec2/sub2/1/uncompress}
+    \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho + \uindex{v}{1}_{z,\xi} = 0
+    \\
+    \label{eq:ch1/sec2/sub2/boundary/1}
+    \uindex{v}{1}_{z}\lvert_{\xi=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{rz}\lvert_{\xi=\pm 1} = 0
+  \end{gather}
+\end{subequations}
+Функция $\uindex{v}{1}_{z}$ является непрерывной, поэтому имеет место равенство
+\begin{equation}
+  \begin{multlined}
+    0 = \uindex{v}{1}_{z}\lvert_{\xi= 1} - \uindex{v}{1}_{z}\lvert_{\xi= -1} = \int_{-1}^{1}{\uindex{v}{1}_{z,\xi}d\xi} = -\int_{-1}^{1}{\left( \ \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho\right)d\xi} \unl{=}
+    \frac{\sqrt{3}}{\mu^2 \rho}\left(\mu\sqrt{1-\mu^2} + \left(1-\frac{2\mu'}{\mu}\right)\arcsin{\mu}\right) + 2 \uindex{f}{0}_{v_{r}} / \rho + 2 \uindex{f}{0}_{v_{r},\rho}
+  \end{multlined}
+\end{equation}
+Решая данное дифференциальное уравнение, подставив $\mu'$ из \cref{eq:ch1/sec1/mu}, получим выражение для $\uindex{f}{0}_{v_{r}}$:
+\begin{equation}
+  \uindex{f}{0}_{v_{r}} = \uindex{g}{0}_{v_{r}}(\tau) / \rho,
+\end{equation}
+причем с учетом требования конечности членов ряда, следует положить $\uindex{g}{0}_{v_{r}} = 0$.
+Аналогичные операции проведем над функцией $\uindex{s}{1}_{rz}$:
+\begin{gather}
+  \begin{multlined}
+    0 = \uindex{s}{1}_{rz}\lvert_{\xi= 1} - \uindex{s}{1}_{rz}\lvert_{\xi= -1} = \int_{-1}^{1}{\uindex{s}{1}_{rz,\xi}d\xi} = -\int_{-1}^{1}{\left( \ \uindex{p}{0}_{,\rho} - \uindex{s}{0}_{rr,\rho} + C_1 \uindex{v}{0}_{r} / 2\right)d\xi} \unl{=}
+    2 \uindex{f}{0}_{p,\rho} + C_1 \int_{-1}^{1} \uindex{v}{0}_{r} d\xi  - \frac{d}{d\rho}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi
+  \end{multlined}
+  \\
+  \uindex{f}{0}_{p} = -C_1 \int\left(\int_{-1}^{1} \uindex{v}{0}_{r} d\xi\right) d\rho + \frac{1}{2}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi + \uindex{g}{0}_{p}(\tau)
+\end{gather}
+Выражение $\int\left(\int_{-1}^{1} \uindex{v}{0}_{r} d\xi\right) d\rho$ может быть вычисленно только при задании функции $\mu(\rho)$. Однако возможно упрощение данного выражения:
+\begin{gather*}
+  \int_{-1}^{1} \uindex{v}{0}_{r} d\xi = \frac{\sqrt{3}\arcsin\mu}{\mu^2}\left(1+\frac{\mu\sqrt{1-\mu^2}}{\arcsin\mu}\right) = \frac{\sqrt{3}\arcsin\mu}{\mu^2} \frac{2\rho}{\mu}\mu' = f(\rho)
+  \\
+  \int f d\rho = \int\frac{\sqrt{3}\arcsin\mu}{\mu^2} \frac{2\rho}{\mu}d\mu = -\int \rho d\frac{\sqrt{3}\arcsin\mu}{\mu^2}\left(1+\frac{\mu\sqrt{1-\mu^2}}{\arcsin\mu}\right)
+  \\
+  \int f d\rho + \int \rho d f = \int(f \frac{d\rho}{d\rho} + \frac{d f}{d\rho}\rho)d\rho = \int \frac{d}{d\rho}\left(f \rho\right) d\rho = 0
+  \\
+  \frac{d}{d\rho}\left(f \rho\right) = 0 \Rightarrow f \rho = \uindex{C}{0}_{p} \Rightarrow f = \uindex{C}{0}_{p} / \rho, \quad \uindex{C}{0}_{p} = \const
+  \\
+  \int f d\rho = \int \frac{c}{\rho} d\rho = \uindex{C}{0}_{p} \log \rho,
+\end{gather*}
+где константа $\uindex{C}{0}_{p}$ определяется по функции $\mu$. Тогда выражение $\uindex{f}{0}_{p}$ можно периписать в виде
+\begin{equation}
+  \uindex{f}{0}_{p} = C_1 \left(1- \uindex{C}{0}_{p} \log\rho\right) + \frac{1}{2}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi + \uindex{p}{0}_{0}(\tau)
 \end{equation}
 
-Уравнения~\cref{eq:subeq_1,eq:subeq_2} демонстрируют возможности
-окружения \verb|\subequations|.
+\section{Анализ решения}\label{sec:ch1/sec3}
+
+Полученные решения \cref{sol:ch1/sec2/sub1/p/-1,sol:ch1/sec2/sub1/srz/0,sol:ch1/sec2/sub1/vr/-1,sol:ch1/sec2/sub1/vz/0,sol:ch1/sec2/sub1/srr+stt/0,sol:ch1/sec2/sub1/vz/0,sol:ch1/sec2/sub1/p+vr/0} и \cref{sol:ch1/sec2/sub2/p/-1,sol:ch1/sec2/sub2/srz/0,sol:ch1/sec2/sub2/vr/-1,sol:ch1/sec2/sub2/vz/0,sol:ch1/sec2/sub2/srr+stt/0,sol:ch1/sec2/sub2/vz/0,sol:ch1/sec2/sub2/p+vr/0} являются приближенными и с точностью $O(\alpha)$ совпадают, за исключением функции давления, с квазистатическим решением \autocite{Georgievsky:2008}:
 \begin{subequations}
-    \label{eq:subeq_1}
-    \begin{gather}
-        y = x^2 + 1 \label{eq:subeq_1-1} \\
-        y = 2 x^2 - x + 1 \label{eq:subeq_1-2}
-    \end{gather}
+  \begin{gather}
+    \label{sol:ch1/sec3/p/qs}
+    p = p_0 + \frac{\tau_{s}}{\alpha}\int_\rho^1 \mu(\zeta) d\zeta + \frac{1}{2}\int_{-1}^{1}s_{rr}d\xi - \frac{2\tau_{s}}{\sqrt{3}} \sqrt{\left(1-\mu^2\xi^2\right)} + O(\alpha)
+    \\
+    s_{rr} = s_{\theta\theta} = \tau_{s} \sqrt{\left(1-\mu^2\xi^2\right) / 3} + O(\alpha)
+    \\
+    s_{rz} = - \mu \xi \tau_{s}  + O(\alpha)
+    \\
+    v_{r} / V = \frac{\rho}{2\alpha} + \frac{1}{\mu} \sqrt{3\left(1-\mu^2\xi^2\right)} + O(\alpha)
+    \\
+    v_{z}= - V \xi  + O(\alpha)
+  \end{gather}
 \end{subequations}
-Ссылки на отдельные уравнения~\cref{eq:subeq_1-1,eq:subeq_1-2,eq:subeq_2-1}.
-\begin{subequations}
-    \label{eq:subeq_2}
-    \begin{align}
-        y &= x^3 + x^2 + x + 1 \label{eq:subeq_2-1} \\
-        y &= x^2
-    \end{align}
-\end{subequations}
+где $p_0$ имеет смысл гидростатического давления. Обозначим правую часть уравнения \cref{sol:ch1/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
+\begin{gather}
+  \left(p\lvert_{\beta=2}\right) = p^\text{кв} + \frac{3\tau_{s}}{8}C_2 \left(1-\rho^2\right)
+  \\
+  \left(p\lvert_{\beta=1}\right) = p^\text{кв} + \frac{3\tau_{s}}{8\alpha}C_1 \left(1-\rho^2\right) + C_1 \left(1- \uindex{C}{0}_{p} \log\rho\right) \tau_{s}
+\end{gather}
+При сравнении выражений видно, что в случае динамического сдавливания возникает квадратично зависящее от радиуса слагаемое, причем, чем динамичнее происходит процесс, тем более значима становится данная величина. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
 
-\subsection{Форматирование чисел и размерностей величин}\label{sec:units}
 
-Числа форматируются при помощи команды \verb|\num|:
-\num{5,3};
-\num{2,3e8};
-\num{12345,67890};
-\num{2,6 d4};
-\num{1+-2i};
-\num{.3e45};
-\num[exponent-base=2]{5 e64};
-\num[exponent-base=2,exponent-to-prefix]{5 e64};
-\num{1.654 x 2.34 x 3.430}
-\num{1 2 x 3 / 4}.
-Для написания последовательности чисел можно использовать команды \verb|\numlist| и \verb|\numrange|:
-\numlist{10;30;50;70}; \numrange{10}{30}.
-Значения углов можно форматировать при помощи команды \verb|\ang|:
-\ang{2.67};
-\ang{30,3};
-\ang{-1;;};
-\ang{;-2;};
-\ang{;;-3};
-\ang{300;10;1}.
 
-Обратите внимание, что ГОСТ запрещает использование знака <<->> для обозначения отрицательных чисел
-за исключением формул, таблиц и~рисунков.
-Вместо него следует использовать слово <<минус>>.
-
-Размерности можно записывать при помощи команд \verb|\si| и \verb|\SI|:
-\si{\farad\squared\lumen\candela};
-\si{\joule\per\mole\per\kelvin};
-\si[per-mode = symbol-or-fraction]{\joule\per\mole\per\kelvin};
-\si{\metre\per\second\squared};
-\SI{0.10(5)}{\neper};
-\SI{1.2-3i e5}{\joule\per\mole\per\kelvin};
-\SIlist{1;2;3;4}{\tesla};
-\SIrange{50}{100}{\volt}.
-Список единиц измерений приведён в таблицах~\cref{tab:unit:base,
-tab:unit:derived,tab:unit:accepted,tab:unit:physical,tab:unit:other}.
-Приставки единиц приведены в~таблице~\cref{tab:unit:prefix}.
-
-С дополнительными опциями форматирования можно ознакомиться в~описании пакета \texttt{siunitx};
-изменить или добавить единицы измерений можно в~файле \texttt{siunitx.cfg}.
-
-\begin{table}
-    \centering
-    \captionsetup{justification=centering} % выравнивание подписи по-центру
-    \caption{Основные величины СИ}\label{tab:unit:base}
-    \begin{tabular}{llc}
-        \toprule
-        Название  & Команда                & Символ         \\
-        \midrule
-        Ампер     & \verb|\ampere| & \si{\ampere}   \\
-        Кандела   & \verb|\candela| & \si{\candela}  \\
-        Кельвин   & \verb|\kelvin| & \si{\kelvin}   \\
-        Килограмм & \verb|\kilogram| & \si{\kilogram} \\
-        Метр      & \verb|\metre| & \si{\metre}    \\
-        Моль      & \verb|\mole| & \si{\mole}     \\
-        Секунда   & \verb|\second| & \si{\second}   \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}
-  \small
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Производные единицы СИ}\label{tab:unit:derived}
-    \begin{tabular}{llc|llc}
-        \toprule
-        Название       & Команда                 & Символ              & Название & Команда & Символ \\
-        \midrule
-        Беккерель      & \verb|\becquerel|  & \si{\becquerel}     &
-        Ньютон         & \verb|\newton|  & \si{\newton}                                      \\
-        Градус Цельсия & \verb|\degreeCelsius| & \si{\degreeCelsius} &
-        Ом             & \verb|\ohm| & \si{\ohm}                                         \\
-        Кулон          & \verb|\coulomb| & \si{\coulomb}       &
-        Паскаль        & \verb|\pascal| & \si{\pascal}                                      \\
-        Фарад          & \verb|\farad| & \si{\farad}         &
-        Радиан         & \verb|\radian| & \si{\radian}                                      \\
-        Грей           & \verb|\gray| & \si{\gray}          &
-        Сименс         & \verb|\siemens| & \si{\siemens}                                     \\
-        Герц           & \verb|\hertz| & \si{\hertz}         &
-        Зиверт         & \verb|\sievert| & \si{\sievert}                                     \\
-        Генри          & \verb|\henry| & \si{\henry}         &
-        Стерадиан      & \verb|\steradian| & \si{\steradian}                                   \\
-        Джоуль         & \verb|\joule| & \si{\joule}         &
-        Тесла          & \verb|\tesla| & \si{\tesla}                                       \\
-        Катал          & \verb|\katal| & \si{\katal}         &
-        Вольт          & \verb|\volt| & \si{\volt}                                        \\
-        Люмен          & \verb|\lumen| & \si{\lumen}         &
-        Ватт           & \verb|\watt| & \si{\watt}                                        \\
-        Люкс           & \verb|\lux| & \si{\lux}           &
-        Вебер          & \verb|\weber| & \si{\weber}                                       \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\begin{table}
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Внесистемные единицы}\label{tab:unit:accepted}
-
-    \begin{tabular}{llc}
-        \toprule
-        Название        & Команда                 & Символ          \\
-        \midrule
-        День            & \verb|\day| & \si{\day}       \\
-        Градус          & \verb|\degree| & \si{\degree}    \\
-        Гектар          & \verb|\hectare| & \si{\hectare}   \\
-        Час             & \verb|\hour| & \si{\hour}      \\
-        Литр            & \verb|\litre| & \si{\litre}     \\
-        Угловая минута  & \verb|\arcminute| & \si{\arcminute} \\
-        Угловая секунда & \verb|\arcsecond| & \si{\arcsecond} \\ %
-        Минута          & \verb|\minute| & \si{\minute}    \\
-        Тонна           & \verb|\tonne| & \si{\tonne}     \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\begin{table}
-    \centering
-    \captionsetup{justification=centering}
-    \caption{Внесистемные единицы, получаемые из эксперимента}\label{tab:unit:physical}
-    \begin{tabular}{llc}
-        \toprule
-        Название                & Команда                 & Символ                 \\
-        \midrule
-        Астрономическая единица & \verb|\astronomicalunit| & \si{\astronomicalunit} \\
-        Атомная единица массы   & \verb|\atomicmassunit| & \si{\atomicmassunit}   \\
-        Боровский радиус        & \verb|\bohr| & \si{\bohr}             \\
-        Скорость света          & \verb|\clight| & \si{\clight}           \\
-        Дальтон                 & \verb|\dalton| & \si{\dalton}           \\
-        Масса электрона         & \verb|\electronmass| & \si{\electronmass}     \\
-        Электрон Вольт          & \verb|\electronvolt| & \si{\electronvolt}     \\
-        Элементарный заряд      & \verb|\elementarycharge| & \si{\elementarycharge} \\
-        Энергия Хартри          & \verb|\hartree| & \si{\hartree}          \\
-        Постоянная Планка       & \verb|\planckbar| & \si{\planckbar}        \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Другие внесистемные единицы}\label{tab:unit:other}
-    \begin{tabular}{llc}
-        \toprule
-        Название                  & Команда                 & Символ             \\
-        \midrule
-        Ангстрем                  & \verb|\angstrom| & \si{\angstrom}     \\
-        Бар                       & \verb|\bar| & \si{\bar}          \\
-        Барн                      & \verb|\barn| & \si{\barn}         \\
-        Бел                       & \verb|\bel| & \si{\bel}          \\
-        Децибел                   & \verb|\decibel| & \si{\decibel}      \\
-        Узел                      & \verb|\knot| & \si{\knot}         \\
-        Миллиметр ртутного столба & \verb|\mmHg| & \si{\mmHg}         \\
-        Морская миля              & \verb|\nauticalmile| & \si{\nauticalmile} \\
-        Непер                     & \verb|\neper| & \si{\neper}        \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\begin{table}
-  \small
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Приставки СИ}\label{tab:unit:prefix}
-    \begin{tabular}{llcc|llcc}
-        \toprule
-        Приставка & Команда                 & Символ      & Степень &
-        Приставка & Команда                 & Символ      & Степень   \\
-        \midrule
-        Иокто     & \verb|\yocto| & \si{\yocto} & -24     &
-        Дека      & \verb|\deca| & \si{\deca}  & 1         \\
-        Зепто     & \verb|\zepto| & \si{\zepto} & -21     &
-        Гекто     & \verb|\hecto| & \si{\hecto} & 2         \\
-        Атто      & \verb|\atto| & \si{\atto}  & -18     &
-        Кило      & \verb|\kilo| & \si{\kilo}  & 3         \\
-        Фемто     & \verb|\femto| & \si{\femto} & -15     &
-        Мега      & \verb|\mega| & \si{\mega}  & 6         \\
-        Пико      & \verb|\pico| & \si{\pico}  & -12     &
-        Гига      & \verb|\giga| & \si{\giga}  & 9         \\
-        Нано      & \verb|\nano| & \si{\nano}  & -9      &
-        Терра     & \verb|\tera| & \si{\tera}  & 12        \\
-        Микро     & \verb|\micro| & \si{\micro} & -6      &
-        Пета      & \verb|\peta| & \si{\peta}  & 15        \\
-        Милли     & \verb|\milli| & \si{\milli} & -3      &
-        Екса      & \verb|\exa| & \si{\exa}   & 18        \\
-        Санти     & \verb|\centi| & \si{\centi} & -2      &
-        Зетта     & \verb|\zetta| & \si{\zetta} & 21        \\
-        Деци      & \verb|\deci| & \si{\deci}  & -1      &
-        Иотта     & \verb|\yotta| & \si{\yotta} & 24        \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\subsection{Заголовки с формулами: \texorpdfstring{\(a^2 + b^2 = c^2\)}{%
-a\texttwosuperior\ + b\texttwosuperior\ = c\texttwosuperior},
-\texorpdfstring{\(\left\vert\textrm{{Im}}\Sigma\left(
-\protect\varepsilon\right)\right\vert\approx const\)}{|ImΣ (ε)| ≈ const},
-\texorpdfstring{\(\sigma_{xx}^{(1)}\)}{σ\_\{xx\}\textasciicircum\{(1)\}}
-}\label{subsec:with_math}
-
-Пакет \texttt{hyperref} берёт текст для закладок в pdf-файле из~аргументов
-команд типа \verb|\section|, которые могут содержать математические формулы,
-а~также изменения цвета текста или шрифта, которые не отображаются в~закладках.
-Чтобы использование формул в заголовках не вызывало в~логе компиляции появление
-предупреждений типа <<\texttt{Token not allowed in~a~PDF string
-(Unicode):(hyperref) removing...}>>, следует использовать конструкцию
-\verb|\texorpdfstring{}{}|, где в~первых фигурных скобках указывается
-формула, а~во~вторых "--- запись формулы для закладок.
-
-\section{Рецензирование текста}\label{sec:markup}
-
-В шаблоне для диссертации и автореферата заданы команды рецензирования.
-Они видны при компиляции шаблона в режиме черновика или при установке
-соответствующей настройки (\verb+showmarkup+) в~файле \verb+common/setup.tex+.
-
-Команда \verb+\todo+ отмечает текст красным цветом.
-\todo{Например, так.}
-
-Команда \verb+\note+ позволяет выбрать цвет текста.
-\note{Чёрный, } \note[red]{красный, } \note[green]{зелёный, }
-\note[blue]{синий.} \note[orange]{Обратите внимание на ширину и расстановку
-формирующихся пробелов, в~результате приведённой записи (зависит также
-от~применяемого компилятора).}
-
-Окружение \verb+commentbox+ также позволяет выбрать цвет.
-
-\begin{commentbox}[red]
-        Красный текст.
-
-        Несколько параграфов красного текста.
-\end{commentbox}
-
-\begin{commentbox}[blue]
-        Синяя формула.
-
-        \begin{equation}
-                \alpha + \beta = \gamma
-        \end{equation}
-\end{commentbox}
-
-\verb+commentbox+ позволяет закомментировать участок кода в~режиме чистовика.
-Чтобы убрать кусок кода для всех режимов, можно использовать окружение
-\verb+comment+.
-
-\begin{comment}
-        Этот текст всегда скрыт.
-\end{comment}
-
-\FloatBarrier
+Используя то, что $\alpha(t) = \left(V \left(t_*-t\right)\right)^{3/2} \sqrt{2\pi / \mathcal{V}_0}$, где $\mathcal{V}_0$ -- объем слоя, можно установить зависимость между временем и стадией прессования:
+\begin{equation}
+  t_* - t \sim \frac{\text{Eu}^{\nicefrac{-2}{3\beta}}}{V}\sqrt[3]{\frac{\mathcal{V}_0}{2\pi}}
+\end{equation}
