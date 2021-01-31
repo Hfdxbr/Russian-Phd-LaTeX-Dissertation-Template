@@ -43,3 +43,28 @@
       \renewcommand{\gitMarkFormat}{\rmfamily\color{Gray}\small\bfseries}
    }{}
 }{}
+
+% Подчеркивание тензоров
+\usepackage{accents}
+\newcommand{\utilde}[1]{\underaccent{\tilde}{#1}}
+\newcommand{\uindex}[2]{\accentset{\{#2\}}{#1}}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\const}{const}
+
+% Наклонные дроби
+\usepackage{nicefrac}
+
+% Новая строка с переносом знака
+\newcommand{\unl}[2][0]{%
+\ifnum 1=#1 \right. \fi
+\ifnum 2=#1 \right.\right. \fi
+\ifnum 3=#1 \right.\right.\right. \fi
+\ifnum 4=#1 \right.\right.\right.\right. \fi
+\ifnum 5=#1 \right.\right.\right.\right.\right. \fi
+#2 \\ #2
+\ifnum 1=#1 \left. \fi
+\ifnum 2=#1 \left.\left. \fi
+\ifnum 3=#1 \left.\left.\left. \fi
+\ifnum 4=#1 \left.\left.\left.\left. \fi
+\ifnum 5=#1 \left.\left.\left.\left.\left. \fi
+}
