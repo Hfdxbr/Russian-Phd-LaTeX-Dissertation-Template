@@ -1,5 +1,5 @@
 \chapter{Задача о сдавливании сферического идеально жесткопластического слоя}\label{ch:ch3}
-На основе анализа классической задачи Прандтля \autocite{Prandtl:1948} получены значительные результаты связанные с теорией течение по поверхностям, которые имеют широкое применение для решения технологических задач. Одним из обобщений данной задачи является случай осесимметричного меридионального течение со стоком между двумя концентрическими шероховатыми сферами \autocite{Georgievsky:2011}. 
+На основе анализа классической задачи Прандтля \autocite{Prandtl:1948} получены значительные результаты связанные с теорией течение по поверхностям, которые имеют широкое применение для решения технологических задач. Одним из обобщений данной задачи является случай осесимметричного меридионального течение со стоком между двумя концентрическими шероховатыми сферами \autocite{Georgievsky:2011}.
 Решение данной задачи применимо в различных технологиях изготовления тонких сферических тел, например в штамповке взрывом.
 % \fixme{Сформулировать мысль про применение в каком-нибудь процессе формообразования, например в штамповке взрывом.} 
 В данной постановке задачи исследуется влияние динамических эффектов в процессе формирования изделия методом прессования. Материалы главы содержатся в публикации \autocite{Shabaykin:2020a}.
@@ -19,12 +19,12 @@
 \begin{figure}[ht]
   \centerfloat{
     \includegraphics[width=0.6\linewidth]{./ch3/layer}
-    }
-    \caption{Представление сферического слоя}
-    \label{fig:ch3/layer/circle}
-  \end{figure}
-  Скорость расширения внутренней сферы обозначим $V$, поэтому кинематическое условие непротекания сквозь границы $\Gamma_{1}$ и $\Gamma_{2}$ имеет вид
-  \begin{equation}
+  }
+  \caption{Представление сферического слоя}
+  \label{fig:ch3/layer/circle}
+\end{figure}
+Скорость расширения внутренней сферы обозначим $V$, поэтому кинематическое условие непротекания сквозь границы $\Gamma_{1}$ и $\Gamma_{2}$ имеет вид
+\begin{equation}
   \label{eq:ch3/sec1/boundary/kinematic}
   v_{r}\lvert_{r=R} = V, \quad v_{r}\lvert_{r=R + h} = 0
 \end{equation}
@@ -101,7 +101,8 @@
   \uindex{v}{k}_{i;t} = \uindex{v}{k}_{i,\rho} \dot{\rho} + \uindex{v}{k}_{i,\tau} \dot{\tau}
 \end{equation*}
 получим следующую систему:
-
+\begingroup
+\allowdisplaybreaks
 \begin{subequations}
   \label{eqs:ch3/sec1/substituted}
   \begin{gather}
@@ -157,6 +158,7 @@
     \right) = 0
   \end{gather}
 \end{subequations}
+\endgroup
 Возникший в правой части уравнений \cref{eqs:ch3/sec1/substituted/motion:1, eqs:ch3/sec1/substituted/motion:2} коэффициент равен обратному числу Эйлера
 \begin{equation*}
   \text{Eu}^{-1} = \frac{\varrho V^2}{\tau_{s}}.
@@ -343,7 +345,7 @@
 \end{equation}
 Пользуясь тем, что $\uindex{s}{0}_{aa} = K_{aa}(\theta) \sqrt{1-\mu^2\left(2\rho-1\right)^2}$, выразим интегралы от диагональных компонент девиатора напряжений:
 \begin{equation*}
-  \int_{0}^{1} \uindex{s}{0}_{aa} d\rho = K_{aa}(\theta) \left(\arcsin\left(\mu\right) + \mu \sqrt{1-\mu^2}\right) 
+  \int_{0}^{1} \uindex{s}{0}_{aa} d\rho = K_{aa}(\theta) \left(\arcsin\left(\mu\right) + \mu \sqrt{1-\mu^2}\right)
   = \frac{\arcsin\left(\mu\right) + \mu \sqrt{1-\mu^2}}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}} \ \uindex{s}{0}_{aa}.
 \end{equation*}
 Окончательно получаем выражение для $\uindex{f}{0}_{p}$:
@@ -351,7 +353,7 @@
   \begin{multlined}
     \uindex{f}{0}_{p} = \int_0^{\theta}{\mu(\xi)d\xi} + C_2 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right) \unl{+}
     \int \frac{\arcsin\left(\mu\right) + \mu \sqrt{1-\mu^2}}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}}\left(
-      \uindex{s}{0}_{\theta\theta,\theta} - \uindex{s}{0}_{rr,\theta} + \left(\uindex{s}{0}_{rr} + 2 \ \uindex{s}{0}_{\theta\theta}\right) \cot{\left(\theta\right)}
+    \uindex{s}{0}_{\theta\theta,\theta} - \uindex{s}{0}_{rr,\theta} + \left(\uindex{s}{0}_{rr} + 2 \ \uindex{s}{0}_{\theta\theta}\right) \cot{\left(\theta\right)}
     \right) d\theta \unl{+} \uindex{g}{0}_{p}\left(\tau\right)
   \end{multlined}
 \end{equation}
@@ -375,7 +377,7 @@
     \\
     \label{eqs:ch3/sec2/sub2/0/motion:2}
     -\uindex{p}{-1}_{,\theta} + \uindex{s}{0}_{r\theta,\rho} = C_1 \left(\ \uindex{v}{-1}_{\theta} + \uindex{v}{-1}_{\theta} \; \uindex{v}{-1}_{\theta,\theta} +
-     \left(1+\tau\right) \uindex{v}{-1}_{\theta,\tau}\right)
+    \left(1+\tau\right) \uindex{v}{-1}_{\theta,\tau}\right)
     \\
     \label{eqs:ch3/sec2/sub2/0/plasticity}
     \left(\uindex{s}{0}_{rr}\right)^2 + \left(\uindex{s}{0}_{\theta\theta}\right)^2 + \uindex{s}{0}_{rr}\; \uindex{s}{0}_{\theta\theta} + \left(\uindex{s}{0}_{r\theta}\right)^2 = 1
@@ -466,11 +468,11 @@
     \label{eqs:ch3/sec2/sub2/1/motion:2}
     \begin{multlined}
       -\uindex{p}{0}_{,\theta} +\rho \ \uindex{p}{-1}_{,\theta} + \uindex{s}{1}_{r\theta,\rho} + \uindex{s}{0}_{\theta\theta,\theta} + 3 \ \uindex{s}{0}_{r\theta} +
-      \left(\uindex{s}{0}_{rr} + 2 \ \uindex{s}{0}_{\theta\theta}\right) \cot{\left(\theta\right)} \unl{=} 
+      \left(\uindex{s}{0}_{rr} + 2 \ \uindex{s}{0}_{\theta\theta}\right) \cot{\left(\theta\right)} \unl{=}
       % \uindex{v}{-1}_{\theta} \; \uindex{v}{-1}_{\theta,\theta}
       C_1 \left(\
-      \uindex{v}{-1}_{\theta} + \left(\rho-1\right)\uindex{v}{0}_{\theta,\rho} + \left(1 + \tau\right)\uindex{v}{0}_{\theta,\tau} + \uindex{v}{0}_{r} \; \uindex{v}{0}_{\theta,\rho} - 
-      \rho \ \uindex{v}{-1}_{\theta} \; \uindex{v}{-1}_{\theta,\theta} \unl[1]{+} \uindex{v}{0}_{\theta} \; \uindex{v}{-1}_{\theta,\theta} + 
+      \uindex{v}{-1}_{\theta} + \left(\rho-1\right)\uindex{v}{0}_{\theta,\rho} + \left(1 + \tau\right)\uindex{v}{0}_{\theta,\tau} + \uindex{v}{0}_{r} \; \uindex{v}{0}_{\theta,\rho} -
+      \rho \ \uindex{v}{-1}_{\theta} \; \uindex{v}{-1}_{\theta,\theta} \unl[1]{+} \uindex{v}{0}_{\theta} \; \uindex{v}{-1}_{\theta,\theta} +
       \uindex{v}{-1}_{\theta} \; \uindex{v}{0}_{\theta,\theta} - \uindex{v}{-1}_{\theta} \; \uindex{v}{0}_{r}
       \right)
     \end{multlined}
@@ -505,12 +507,13 @@
 \end{gather*}
 Применение данного подхода к функции $\uindex{s}{1}_{r\theta}$ позволит определить неизвестную функцию $\uindex{f}{0}_{p}$:
 \begin{equation}
+  \label{eq:ch3/sec2/sub2/fp/0}
   \begin{multlined}
     \uindex{f}{0}_{p} = \int_0^{\theta}{\mu(\xi)d\xi} + \frac{C_1}{2} \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} + \frac{1}{1+\cos{\left(\theta\right)}}\right) \unl{+}
     C_1 \int\frac{1}{1+\cos{\left(\theta\right)}}\left(\int_{0}^{1}{\left(\uindex{v}{0}_{\theta} + \uindex{v}{0}_{\theta,\theta} \sin{\left(\theta\right)}\right)}d\rho\right)d\theta
     \unl{+}
     \int \frac{\arcsin\left(\mu\right) + \mu \sqrt{1-\mu^2}}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}}\left(
-      \uindex{s}{0}_{\theta\theta,\theta} - \uindex{s}{0}_{rr,\theta} + \left(\uindex{s}{0}_{rr} + 2 \ \uindex{s}{0}_{\theta\theta}\right) \cot{\left(\theta\right)}
+    \uindex{s}{0}_{\theta\theta,\theta} - \uindex{s}{0}_{rr,\theta} + \left(\uindex{s}{0}_{rr} + 2 \ \uindex{s}{0}_{\theta\theta}\right) \cot{\left(\theta\right)}
     \right) d\theta \unl{+} \uindex{g}{0}_{p}\left(\tau\right)
   \end{multlined}
 \end{equation}
@@ -548,7 +551,8 @@
   \\
   \left(p\lvert_{\beta=1}\right) = p^\text{кв} + \frac{\tau_{s}}{\alpha} C_1 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right) + O(1)
 \end{gather}
-При сравнении выражений видно, что в случае динамического сдавливания возникает дополнительное слагаемое, причем, чем динамичнее происходит процесс, тем более значима становится данная величина. Функция 
+Здесь под $O(1)$ подразумевается выражение при коэффициенте $C_1$ в уравнении \cref{eq:ch3/sec2/sub2/fp/0}.
+При сравнении выражений видно, что в случае динамического сдавливания возникает дополнительное слагаемое, причем, чем динамичнее происходит процесс, тем более значима становится данная величина. Функция
 \begin{equation*}
   2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - 1/\left(1+\cos{\left(\theta\right)}\right)
 \end{equation*}
@@ -559,9 +563,9 @@
 \begin{figure}[ht]
   \centerfloat{
     \includegraphics[scale=1.3]{./ch3/pressure}
-    }
-    \caption{Эпюры давления для случая сферического слоя}
-    \label{fig:ch3/sec3/pressure}
+  }
+  \caption{Эпюры давления для случая сферического слоя}
+  \label{fig:ch3/sec3/pressure}
 \end{figure}
 
 Используя то, что $\alpha(t) = h(t) / \left(\mathcal{R}_0 - h(t) \right)$, где $\mathcal{R}_0$ -- радиус внешней сферы и $h(t) = V(t_*-t)$, можно установить зависимость между временем и стадией прессования:
