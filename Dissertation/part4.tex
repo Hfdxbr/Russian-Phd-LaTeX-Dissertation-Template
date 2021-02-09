@@ -132,7 +132,7 @@
     \label{eqs:ch4/sec1/substituted/plasticity}
     \begin{multlined}
       \sqrt{\left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{11}}\right)^2+
-        \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12}}\right)^2} = 1 + \frac{1}{S\sqrt{2}} \unl{\cdot} f\left(\frac{1}{2}\sqrt{
+        \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12}}\right)^2} = 1 + \frac{1}{\text{S}\sqrt{2}} \unl{\cdot} f\left(\frac{1}{2}\sqrt{
         4 \left(\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1,1}}\right)^2 +
         \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \left( \alpha^{-N} \; \uindex{v}{k}_{1,2} + \uindex{v}{k}_{2,1}\right)}\right)^2
       }\right)
@@ -148,12 +148,12 @@
 \endgroup
 Здесь $f$ -- безразмерная функция упрочнения, связанная с размерной равенством
 \begin{equation}
-  F(v_{u}) = \tau_s f(\tilde{v}_{u}) / S, \quad S =  \tau_s h / \left(m V\right) \gg 1,
+  F(v_{u}) = \tau_s f(\tilde{v}_{u}) / \text{S}, \quad \text{S} =  \tau_s h / \left(m V\right) \gg 1,
 \end{equation}
-где $m$ -- характерная динамическая вязкость, $\tilde{v}_{u}$ -- безразмерная интенсивность скоростей деформации, а $S$ -- число Сен-Венана.
+где $m$ -- характерная динамическая вязкость, $\tilde{v}_{u}$ -- безразмерная интенсивность скоростей деформации, а S -- число Сен-Венана.
 В рамках исследуемой задачи рассмотрим случай степенного упрочнения $F(v_{u}) = 2a v_{u}^\gamma$, $\gamma\in(0,1]$. Тогда для безразмерной функции имеем
 \begin{equation}
-  f(\tilde{v}_{u}) = 2 \tilde{v}_{u}^\gamma, \quad m= a\left(h/V\right)^{1-\gamma}, \quad S = \left(\tau_s / a\right) \left(h/V\right)^\gamma
+  f(\tilde{v}_{u}) = 2 \tilde{v}_{u}^\gamma, \quad m= a\left(h/V\right)^{1-\gamma}, \quad \text{S} = \left(\tau_s / a\right) \left(h/V\right)^\gamma
 \end{equation}
 
 Возникший в правой части уравнений \cref{eqs:ch4/sec1/substituted/motion:1, eqs:ch4/sec1/substituted/motion:2} коэффициент равен обратному числу Эйлера
@@ -195,7 +195,7 @@
     -\uindex{p}{0}_{,2} + \uindex{s}{0}_{11,2} = 0
     \\
     \label{eqs:ch4/sec2/sub1/0/plasticity}
-    \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{S} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
+    \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{\text{S}} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
     \\
     \label{eqs:ch4/sec2/sub1/0/coax}
     \uindex{s}{0}_{11} \; \uindex{v}{0}_{1,2} = 2 \uindex{s}{0}_{12} \uindex{v}{-1}_{1,1}
@@ -250,10 +250,10 @@
   \uindex{p}{-1} = \int_{\vert\xi_1\vert}^1{\mu(\zeta)d\zeta}
 \end{gather}
 С учетом найденных функций \cref{eqs:ch4/sec2/sub1/0/coax, eqs:ch4/sec2/sub1/0/plasticity} представляют собой систему уравнений относительно $\uindex{s}{0}_{11}$ и $\uindex{v}{0}_{1}$.
-Пользуясь малостью величины будем искать решение в виде регулярных разложений по $1/S$:
+Пользуясь малостью величины будем искать решение в виде регулярных разложений по $1/\text{S}$:
 \begin{gather}
-  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{A(\xi_1,\xi_2,\tau)}{S} + \ldots, \\
-  \uindex{v}{0}_{1,2} = -\frac{2\mu \xi_2}{\sqrt{1-\mu^2\xi_2^2}} + \frac{B(\xi_1,\xi_2,\tau)}{S} + \ldots
+  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{A(\xi_1,\xi_2,\tau)}{\text{S}} + \ldots, \\
+  \uindex{v}{0}_{1,2} = -\frac{2\mu \xi_2}{\sqrt{1-\mu^2\xi_2^2}} + \frac{B(\xi_1,\xi_2,\tau)}{\text{S}} + \ldots
 \end{gather}
 Подставив данные выражения в условие соосности и определяющее соотношение найдем
 \begin{equation}
@@ -262,11 +262,11 @@
 Окончательно получаем
 \begin{gather}
   \label{sol:ch4/sec2/sub1/s11/0}
-  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{1}{S} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{S^2}\right)
+  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{1}{\text{S}} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{\text{S}^2}\right)
   \\
   \label{sol:ch4/sec2/sub1/v1/0}
   \begin{multlined}
-    \uindex{v}{0}_{1} = \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{S(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{S^2}\right)\right) \unl{+} \uindex{f}{0}_{v_{1}}(\xi_1, \tau)
+    \uindex{v}{0}_{1} = \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{\text{S}(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{\text{S}^2}\right)\right) \unl{+} \uindex{f}{0}_{v_{1}}(\xi_1, \tau)
   \end{multlined}
 \end{gather}
 Подставив все найденные функции в \cref{eqs:ch4/sec2/sub1/0/motion:2} и решив дифференциальное уравнение найдем:
@@ -293,14 +293,14 @@
   \begin{multlined}
     0 = \uindex{v}{1}_{2}\lvert_{\xi_2 = 1} - \uindex{v}{1}_{2}\lvert_{\xi_2= -1} = \int_{-1}^{1}{\uindex{v}{1}_{2,2}d\xi_2} = -\int_{-1}^{1}{\uindex{v}{0}_{1,1}d\xi_2} = -\frac{\partial}{\partial \xi_1}\int_{-1}^{1}{\uindex{v}{0}_{1}d\xi_2} \unl{=}
     -\frac{\partial}{\partial \xi_1} \frac{2}{\mu}\left(
-    \sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{S(1+\gamma)}+\mu \uindex{f}{0}_{v_{1}}
+    \sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{\text{S}(1+\gamma)}+\mu \uindex{f}{0}_{v_{1}}
     \right)
   \end{multlined}
 \end{equation}
 где ${}_2F_1(a,b;c;z)=1+\frac{a b}{c} \frac{z}{1!} + \frac{a(a+1)b(b+1)}{c(c+1)} \frac{z^2}{2!} + \ldots$ - гипергеометрическая функция.
 Ограничивая продольное движение слоя как целого, получаем выражение для $\uindex{f}{0}_{v_{1}}$:
 \begin{equation}
-  \uindex{f}{0}_{v_{1}} = \frac{-1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{S(1+\gamma)}\right)
+  \uindex{f}{0}_{v_{1}} = \frac{-1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{\text{S}(1+\gamma)}\right)
 \end{equation}
 
 Аналогичные операции проведем над функцией $\uindex{s}{1}_{12}$:
@@ -343,7 +343,7 @@
     -\uindex{p}{0}_{,2} + \uindex{s}{0}_{11,2} = 0
     \\
     \label{eqs:ch4/sec2/sub2/0/plasticity}
-    \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{S} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
+    \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{\text{S}} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
     \\
     \label{eqs:ch4/sec2/sub2/0/coax}
     \uindex{s}{0}_{11} \; \uindex{v}{0}_{1,2} = 2 \uindex{s}{0}_{12} \uindex{v}{-1}_{1,1}
@@ -398,10 +398,10 @@
   \uindex{p}{-1} = \int_{\vert\xi_1\vert}^1{\mu(\zeta)d\zeta} + C_1 \left(1-\xi_1^2\right)
 \end{gather}
 С учетом найденных функций \cref{eqs:ch4/sec2/sub2/0/coax, eqs:ch4/sec2/sub2/0/plasticity} представляют собой систему уравнений относительно $\uindex{s}{0}_{11}$ и $\uindex{v}{0}_{1}$.
-Аналогично предыдущему пункту будем искать решение в виде регулярных разложений по $1/S$:
+Аналогично предыдущему пункту будем искать решение в виде регулярных разложений по $1/\text{S}$:
 \begin{gather}
-  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{A(\xi_1,\xi_2,\tau)}{S} + \ldots, \\
-  \uindex{v}{0}_{1,2} = -\frac{2\mu \xi_2}{\sqrt{1-\mu^2\xi_2^2}} + \frac{B(\xi_1,\xi_2,\tau)}{S} + \ldots
+  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{A(\xi_1,\xi_2,\tau)}{\text{S}} + \ldots, \\
+  \uindex{v}{0}_{1,2} = -\frac{2\mu \xi_2}{\sqrt{1-\mu^2\xi_2^2}} + \frac{B(\xi_1,\xi_2,\tau)}{\text{S}} + \ldots
 \end{gather}
 Подставив данные выражения в условие соосности и определяющее соотношение найдем
 \begin{equation}
@@ -410,11 +410,11 @@
 Окончательно получаем
 \begin{gather}
   \label{sol:ch4/sec2/sub2/s11/0}
-  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{1}{S} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{S^2}\right)
+  \uindex{s}{0}_{11} = \sqrt{1-\mu^2\xi_2^2} + \frac{1}{\text{S}} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{\text{S}^2}\right)
   \\
   \label{sol:ch4/sec2/sub2/v1/0}
   \begin{multlined}
-    \uindex{v}{0}_{1} = \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{S(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{S^2}\right)\right) \unl{+} \uindex{f}{0}_{v_{1}}(\xi_1, \tau)
+    \uindex{v}{0}_{1} = \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{\text{S}(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2} + O\left(\frac{1}{\text{S}^2}\right)\right) \unl{+} \uindex{f}{0}_{v_{1}}(\xi_1, \tau)
   \end{multlined}
 \end{gather}
 Подставив все найденные функции в \cref{eqs:ch4/sec2/sub2/0/motion:2} и решив дифференциальное уравнение найдем:
@@ -441,13 +441,13 @@
   \begin{multlined}
     0 = \uindex{v}{1}_{2}\lvert_{\xi_2 = 1} - \uindex{v}{1}_{2}\lvert_{\xi_2= -1} = \int_{-1}^{1}{\uindex{v}{1}_{2,2}d\xi_2} = -\int_{-1}^{1}{\uindex{v}{0}_{1,1}d\xi_2} = -\frac{\partial}{\partial \xi_1}\int_{-1}^{1}{\uindex{v}{0}_{1}d\xi_2} \unl{=}
     -\frac{\partial}{\partial \xi_1} \frac{2}{\mu}\left(
-    \sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{S(1+\gamma)}+\mu \uindex{f}{0}_{v_{1}}
+    \sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{\text{S}(1+\gamma)}+\mu \uindex{f}{0}_{v_{1}}
     \right)
   \end{multlined}
 \end{equation}
 Ограничивая продольное движение слоя как целого, получаем выражение для $\uindex{f}{0}_{v_{1}}$:
 \begin{equation}
-  \uindex{f}{0}_{v_{1}} = \frac{-1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{S(1+\gamma)}\right)
+  \uindex{f}{0}_{v_{1}} = \frac{-1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{\text{S}(1+\gamma)}\right)
 \end{equation}
 
 Аналогичные операции проведем над функцией $\uindex{s}{1}_{12}$:
@@ -477,20 +477,20 @@
     \label{sol:ch4/sec3/p/qs}
     p  = p_0 +  \frac{\tau_{s}}{\alpha}\int_{\vert \xi_1\vert}^1 \mu(\xi) d\xi - s_{11} + \int_{-1}^{1}{s_{11} d\xi_2} + O(\alpha)
     \\
-    s_{11} = \tau_{s} \sqrt{1-\mu^2\xi_2^2} + \frac{\tau_{s}}{S} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}+ O(\alpha)
+    s_{11} = \tau_{s} \sqrt{1-\mu^2\xi_2^2} + \frac{\tau_{s}}{\text{S}} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}+ O(\alpha)
     \\
     s_{12} = -\tau_{s} \mu \xi_2 \sign\xi_1  + O(\alpha)
     \\
     \begin{multlined}
-      v_{1} / V = \frac{1}{\alpha}\xi_1 + \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{S(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}\right) \unl{-}
-      \frac{1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{S(1+\gamma)}\right) + O(\alpha)
+      v_{1} / V = \frac{1}{\alpha}\xi_1 + \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{\text{S}(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}\right) \unl{-}
+      \frac{1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{\text{S}(1+\gamma)}\right) + O(\alpha)
     \end{multlined}
     \\
     v_{2}= V \xi_2
   \end{gather}
 \end{subequations}
 где $p_0$ имеет смысл гидростатического давления.
-Наличие сигнатуры $\sign\xi$ в функции $s_{12}$ говорит о разрыве решения вблизи сечения $\xi_1=0$. Следовательно, разложения \cref{eqs:ch4/series} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечений $\xi_1=\pm 1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля. Помимо этого, вид функций $s_{11}$ и $v_{1}$ свидетельствует о том, что разложения справедливы вне окрестности точек, для которых выполнено $\mu^2 \xi_2^2$, и, следовательно, решение неприменимо на границах контакта с плитами при $\mu = 1$. 
+Наличие сигнатуры $\sign\xi$ в функции $s_{12}$ говорит о разрыве решения вблизи сечения $\xi_1=0$. Следовательно, разложения \cref{eqs:ch4/series} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечений $\xi_1=\pm 1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля. Помимо этого, вид функций $s_{11}$ и $v_{1}$ свидетельствует о том, что разложения справедливы вне окрестности точек, для которых выполнено $\mu^2 \xi_2^2 \ge 1$, и, следовательно, решение неприменимо на границах контакта с плитами при $\mu = 1$. 
 
 Обозначим правую часть уравнения \cref{sol:ch4/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
@@ -501,7 +501,7 @@
 Здесь под $O(1)$ подразумевается выражение при коэффициенте $C_1$ в уравнении \cref{eq:ch4/sec2/sub2/fp/0}.
 При сравнении выражений видно, что в случае динамического сдавливания возникает квадратично зависящее от радиуса слагаемое, причем, чем динамичнее происходит процесс, тем более значима становится данная величина. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
 
-На графике ниже приведены эпюры давления для различных стадий процесса при следующих параметрах: $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu=0.9$, $S=10$.
+На графике ниже приведены эпюры давления для различных стадий процесса при следующих параметрах: $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu=0.9$, $\text{S}=10$.
 \begin{figure}[ht]
   \centerfloat{
     \includegraphics[scale=1.3]{./ch4/pressure}
@@ -510,7 +510,7 @@
     \label{fig:ch4/pressure}
 \end{figure}анализе решения классической задачи Прандтля.
 
-Используя то, что $\alpha(t) = V^2\left(t_*-t\right)^2 / \mathcal{S}_0$, где $\mathcal{S}_0$ -- площадь сечения слоя, можно установить зависимость между временем и стадией прессования:
+Используя то, что $\alpha(t) = V^2\left(t_*-t\right)^2 / \mathcal{\text{S}}_0$, где $\mathcal{\text{S}}_0$ -- площадь сечения слоя, можно установить зависимость между временем и стадией прессования:
 \begin{equation}
-  t_* - t \sim \frac{1}{\text{Eu}^{\nicefrac{1}{2\beta}}}\frac{\sqrt{\mathcal{S}_0}}{V}
+  t_* - t \sim \frac{1}{\text{Eu}^{\nicefrac{1}{2\beta}}}\frac{\sqrt{\mathcal{\text{S}}_0}}{V}
 \end{equation}
