@@ -2,7 +2,7 @@
 
 \section{Постановка задачи и асимптотические разложения}\label{sec:ch1/sec1}
 
-Пренебрегая начальными упругими деформациями, вязкостью и незначительным упрочнением, материал, имеющий плотность $\varrho$, полагается несжимемым идеально жесткопластическим, удовлетворяющим тензорно линейным определеяющим соотношениям и скалярному определяющему соотношению -- квадратичному критерию Мизеса-Генки $\sigma_{u} = \sigma_{s}$, где $\sigma_{u} = \sqrt{\utilde{s} : \utilde{s}}$ -- интенсивность напряжения, $\utilde{s}$ -- девиатор напряжения, $\sigma_{s}$ -- предел текучести.
+Пренебрегая начальными упругими деформациями, вязкостью и незначительным упрочнением, материал, имеющий плотность $\varrho$, полагается несжимаемым идеально жесткопластическим, удовлетворяющим тензорно линейным определяющим соотношениям и скалярному определяющему соотношению -- квадратичному критерию Мизеса-Генки $\sigma_{u} = \sigma_{s}$, где $\sigma_{u} = \sqrt{\utilde{s} : \utilde{s}}$ -- интенсивность напряжения, $\utilde{s}$ -- девиатор напряжения, $\sigma_{s}$ -- предел текучести.
 
 Пусть течение происходит в области
 \begin{equation}
@@ -16,7 +16,7 @@
 
 \begin{figure}[ht]
   \centerfloat{
-    \includegraphics[width=0.6\linewidth]{ch1/layer}
+    \includegraphics[width=0.6\linewidth]{./ch1/layer}
     }
     \caption{Представление круглого слоя}
     \label{fig:ch1/layer}
@@ -26,7 +26,7 @@
   \label{eq:ch1/sec1/boundary/kinematic}
   v_{z}\lvert_{z=\pm h} = \mp V
 \end{equation}
-Касательная составляющая скорости (в данном случае $v_{r}$) на указаных границах идеальной среды, как известно, не задаётся.
+Касательная составляющая скорости (в данном случае $v_{r}$) на указанных границах идеальной среды, как известно, не задаётся.
 
 В некоторый момент времени $0 < t < h_{0}/V = t_*$, где $t_*$ -- момент схлопывания слоя, относительно шести функций -- независимых компонент девиатора напряжений $s_{rr}$, $s_{rz}$ и $s_{\theta\theta}$, давления $p$ и компонент скорости $v_{r}$ и $v_{z}$ -- должна выполнятся замкнутая система уравнений динамической теории идеальной пластичности для цилиндрических координат:
 \begin{subequations}
@@ -56,7 +56,7 @@
   \label{eq:ch1/sec1/boundary/force}
   \lvert s_{rz}\lvert_{z=\pm h} = m(r) \tau_{s}, \quad 0 < m \le 1,
 \end{equation}
-где $m$ -- функция удовлетворяющая уравнению первого порядка с разделяющимися переменными \autocite{Georgievsky:2008}:
+где $m$ -- функция, удовлетворяющая уравнению первого порядка с разделяющимися переменными \autocite{Georgievsky:2008}:
 \begin{equation}
   \label{eq:ch1/sec1/m}
   \frac{dm}{dr}=\frac{m}{2r}\left(1+\frac{m\sqrt{1-m^2}}{\arcsin m}\right)
@@ -103,6 +103,8 @@
   \uindex{v}{k}_{i;t} = \uindex{v}{k}_{i,\rho} \dot{\rho} + \uindex{v}{k}_{i,\xi} \dot{\xi} + \uindex{v}{k}_{i,\tau} \dot{\tau}
 \end{equation*}
 получим следующую систему:
+\begingroup
+\allowdisplaybreaks
 \begin{subequations}
   \label{eqs:ch1/sec1/substituted}
   \begin{gather}
@@ -177,7 +179,8 @@
 \begin{equation*}
   \text{Eu}^{-1} = O\left(\alpha^\beta(t)\right), \text{ причем } \beta \rightarrow 0 \text{ при } t \rightarrow t_*
 \end{equation*}
-Применительно к динамическому анализу интерес представляет $0 < \beta \le 2$. Отыскание решений проведем для целочисленных значений входящих в этот диапозон.
+\endgroup
+Применительно к динамическому анализу интерес представляет $0 < \beta \le 2$. Отыскание решений проведем для целочисленных значений входящих в этот диапазон.
 
 Обратимся к системе двух последних уравнений \cref{eqs:ch1/sec1/substituted/coax:2, eqs:ch1/sec1/substituted/uncompress}. Из \cref{eqs:ch1/sec1/substituted/coax:2} сразу следует, что $\uindex{v}{-N}_{r,\xi} = 0$, а решая дифференциальное уравнение \cref{eqs:ch1/sec1/substituted/uncompress} и требуя конечности членов разложения, получаем, что $\uindex{v}{-N}_{r} = 0$. Аналогичные рассуждения применимы последовательно для $\uindex{v}{-N+1}_{r}$, затем $\uindex{v}{-N+2}_{r}$ и далее вплоть до $\uindex{v}{-2}_{r}$.
 Учитывая, что первый ненулевой член радиальной компоненты скорости $\uindex{v}{-1}_{r}$, и принимая, что $\beta \ge 1$ определим из уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/motion:2} порядок малости для функции давления $p$. Для $M \ge 2$ имеем:
@@ -186,19 +189,20 @@
 \end{equation*}
 Здесь $\uindex{p}{-M}_{0}$ -- гидростатическая постоянная, не дающая вклад в уравнение движения и однозначно определяемая заданием внешнего давления. Поэтому, без ограничения общности, можно считать, что $M=1$.
 
-Аналогично \cref{eq:ch1/sec/m} введем коэффициент шероховатости поверхности, зависящий от безразмерного радиуса:
+Аналогично \cref{eq:ch1/sec1/m} введем коэффициент шероховатости поверхности, зависящий от безразмерного радиуса:
 \begin{equation}
   \label{eq:ch1/sec1/mu}
-  \mu(\rho) = m(r/R), \quad \frac{d\mu}{dr}=\frac{\mu}{2r}\left(1+\frac{\mu\sqrt{1-\mu^2}}{\arcsin\mu}\right)
+  \mu(\rho) = m(r/R), \quad \frac{d\mu}{d\rho}=\frac{\mu}{2\rho}\left(1+\frac{\mu\sqrt{1-\mu^2}}{\arcsin\mu}\right)
 \end{equation}
-Вообще говоря уравнение \cref{eq:ch1/sec1/mu} определяет функцию $\mu(\rho)$ с точностью до домножения на константу. Её график, при условии $\mu(1) = 1$, приведен на рисунке ниже:
+Вообще говоря, уравнение \cref{eq:ch1/sec1/mu} определяет функцию $\mu(\rho)$ с точностью до домножения на константу. Её график, при условии $\mu(1) = 1$, приведен на рисунке ниже:
 \begin{figure}[ht]
   \centerfloat{
-    \includegraphics[width=0.6\linewidth]{ch1/mu}
+    \includegraphics[scale=1.3]{./ch1/mu}
     }
     \caption{Вид функции $\mu(\rho)$, при $\mu(1)=1$}
     \label{fig:ch1/mu}
 \end{figure}
+
 Вид функции $\mu(\rho)$ при другом граничном условии на правом конце может быть получен масштабированием по оси $\rho$.
 
 \section{Построение решения}\label{sec:ch1/sec2}
@@ -207,6 +211,8 @@
 Рассмотрим случай $\beta=2$, который соответствует моменту перехода от квазистатического к динамическому режиму деформирования.
 
 Положим $\text{Eu}^{-1} = C_2 \alpha^2$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch1/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
+\begingroup
+\allowdisplaybreaks
 \begin{subequations}
   \label{eqs:ch1/sec2/sub1/main}
   \begin{gather}
@@ -235,6 +241,7 @@
     \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
   \end{gather}
 \end{subequations}
+\endgroup
 Граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force} при этом примут вид
 \begin{equation}
   \label{eq:ch1/sec1/sub1/boundary/0}
@@ -334,6 +341,8 @@
 Рассмотрим случай $\beta=1$, который соответствует моменту с сильным влиянием динамики в процессе сдавливания слоя.
 
 Положим $\text{Eu}^{-1} = C_1 \alpha$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch1/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
+\begingroup
+\allowdisplaybreaks
 \begin{subequations}
   \label{eqs:ch1/sec2/sub2/main}
   \begin{gather}
@@ -366,6 +375,7 @@
     \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
   \end{gather}
 \end{subequations}
+\endgroup
 Как и в предыдущем пункте граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force} примут вид
 \begin{equation}
   \label{eq:ch1/sec1/sub2/boundary/0}
@@ -459,7 +469,7 @@
   \\
   \uindex{f}{0}_{p} = -C_1 \int\left(\int_{-1}^{1} \uindex{v}{0}_{r} d\xi\right) d\rho + \frac{1}{2}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi + \uindex{g}{0}_{p}(\tau)
 \end{gather}
-Выражение $\int\left(\int_{-1}^{1} \uindex{v}{0}_{r} d\xi\right) d\rho$ может быть вычисленно только при задании функции $\mu(\rho)$. Однако возможно упрощение данного выражения:
+Выражение $\int\left(\int_{-1}^{1} \uindex{v}{0}_{r} d\xi\right) d\rho$ может быть вычислено только при задании функции $\mu(\rho)$. Однако возможно упрощение данного выражения:
 \begin{gather*}
   \int_{-1}^{1} \uindex{v}{0}_{r} d\xi = \frac{\sqrt{3}\arcsin\mu}{\mu^2}\left(1+\frac{\mu\sqrt{1-\mu^2}}{\arcsin\mu}\right) = \frac{\sqrt{3}\arcsin\mu}{\mu^2} \frac{2\rho}{\mu}\mu' = f(\rho)
   \\
@@ -471,7 +481,7 @@
   \\
   \int f d\rho = \int \frac{c}{\rho} d\rho = \uindex{C}{0}_{p} \log \rho,
 \end{gather*}
-где константа $\uindex{C}{0}_{p}$ определяется по функции $\mu$. Тогда выражение $\uindex{f}{0}_{p}$ можно периписать в виде
+где константа $\uindex{C}{0}_{p}$ определяется по функции $\mu$. Тогда выражение $\uindex{f}{0}_{p}$ можно переписать в виде
 \begin{equation}
   \uindex{f}{0}_{p} = C_1 \left(1- \uindex{C}{0}_{p} \log\rho\right) + \frac{1}{2}\int_{-1}^{1}\uindex{s}{0}_{rr}d\xi + \uindex{p}{0}_{0}(\tau)
 \end{equation}
