@@ -450,11 +450,12 @@
   \end{multlined}
 \end{equation*}
 С учетом силовых граничных условий \cref{eq:ch2/sec2/sub2/boundary/1} получим
-\begin{gather*}
-  \uindex{f}{1}_{s_{rz}} = 0, \quad \left(a + \frac{1}{2}\right) \uindex{f}{0}_{p,\xi} + C_1 \int_0^1{\frac{2a^2 + a -2\rho+1}{2a+1} \ \uindex{v}{0}_{z} d\rho} - C_1 \frac{2a^2\xi}{2a+1} = 0
+\begin{gather}
+  \uindex{f}{1}_{s_{rz}} = 0, \quad \left(a + \frac{1}{2}\right) \uindex{f}{0}_{p,\xi} + C_1 \int_0^1{\frac{2a^2 + a -2\rho+1}{2a+1} \ \uindex{v}{0}_{z} d\rho} - C_1 \frac{2a^2\xi}{2a+1} = 0 \nonumber
   \\
+  \label{eq:ch2/sec2/sub2/fp/0}
   \uindex{f}{0}_{p} = C_1 \frac{2a^2\xi^2}{(2a+1)^2} - 2C_1\xi\int_0^1{\frac{2a^2 + a -2\rho+1}{(2a+1)^2} \ \uindex{v}{0}_{z} d\rho} + \uindex{p}{0}_{0}(\tau)
-\end{gather*}
+\end{gather}
 
 \section{Анализ решения для случая, когда радиусы цилиндров порядка толщины слоя}\label{sec:ch2/sec3}
 
@@ -477,7 +478,11 @@
     \end{multlined}
   \end{gather}
 \end{subequations}
-где $p_0$ имеет смысл гидростатического давления. Однако, в отличие от квазистатического случая,  данное решение не является точным. Обозначим правую часть уравнения \cref{sol:ch2/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
+где $p_0$ имеет смысл гидростатического давления. Однако, в отличие от квазистатического случая,  данное решение не является точным.
+
+Наличие сигнатуры $\sign\xi$ в функции $s_{rz}$ говорит о разрыве решения вблизи сечения $\xi=0$. Следовательно, разложения \cref{eqs:ch2/series} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечений $\xi=\pm 1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
+
+Обозначим правую часть уравнения \cref{sol:ch2/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
   \left(p\lvert_{\beta=2}\right) = p^\text{кв} + C_2 \frac{a(1+6a)}{(2a+1)^2}\left(1-\xi^2\right) \tau_{s}
   \\
@@ -486,9 +491,17 @@
     % \unl{+} C_1 \frac{2a^2\xi^2}{(2a+1)^2} - 2C_1\xi\int_0^1{\frac{2a^2 + a -2\rho+1}{(2a+1)^2} \ \uindex{v}{0}_{z} d\rho}
   \end{multlined}
 \end{gather}
+Здесь под $O(1)$ подразумевается выражение \cref{eq:ch2/sec2/sub2/fp/0}.
 При сравнении выражений видно, что в случае динамического сдавливания возникает квадратично зависящее от радиуса слагаемое, причем, чем динамичнее происходит процесс, тем более значима становится данная величина. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
 
-Полученное решение является достоверным вне окрестности среднего по простиранию сечения слоя $z=0$ и вдали от зон краевого эффекта $z=\pm l$. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
+На графике ниже приведены эпюры давления для различных стадий процесса при следующих параметрах: $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu=1$, $a=1$.
+\begin{figure}[ht!]
+  \centerfloat{
+    \includegraphics[scale=1.3]{./ch2/pressure_sub1}
+    }
+    \caption{Эпюры давления для случая цилиндрического слоя при радиусах цилиндров порядка толщины слоя}
+    \label{fig:ch2/sec3/pressure}
+\end{figure}
 
 Пользуясь тем, что в случае $c=1$ имеет место равенство $\mathcal{V}_0 / \pi~=~\left(2a + 1\right) h^{3} / \alpha$, где $\mathcal{V}_0$ -- объем слоя, а высота слоя $h$ представима в виде $h=V \left(t_*-t\right)$, можно установить зависимость между временем и стадией прессования:
 \begin{equation}
@@ -781,7 +794,11 @@
     v_{z} / V = \frac{\xi}{\alpha} + \frac{\sign\xi}{\mu}\sqrt{1-\mu^2\left(2\rho-1\right)^2} - \frac{\xi}{2a} +  O(\alpha)
   \end{gather}
 \end{subequations}
-где $p_0$ имеет смысл гидростатического давления. Обозначим правую часть уравнения \cref{sol:ch2/sec5/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
+где $p_0$ имеет смысл гидростатического давления.
+
+Наличие сигнатуры $\sign\xi$ в функции $s_{rz}$ говорит о разрыве решения вблизи сечения $\xi=0$. Следовательно, разложения \cref{eqs:ch2/series} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечений $\xi=\pm 1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
+
+Обозначим правую часть уравнения \cref{sol:ch2/sec5/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
   \left(p\lvert_{\beta=2}\right) = p^\text{кв} + \frac{3 C_2}{2}\left(1-\xi^2\right) \tau_{s}
   \\
@@ -791,7 +808,14 @@
 \end{gather}
 При сравнении выражений видно, что в случае динамического сдавливания возникает квадратично зависящее от радиуса слагаемое, причем, чем динамичнее происходит процесс, тем более значима становится данная величина. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
 
-Полученное решение является достоверным вне окрестности среднего по простиранию сечения слоя $z=0$ и вдали от зон краевого эффекта $z=\pm l$. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
+На графике ниже приведены эпюры давления для различных стадий процесса при следующих параметрах: $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu=1$, $a=1$.
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[scale=1.3]{./ch2/pressure_sub2}
+    }
+    \caption{Эпюры давления для случая цилиндрического слоя при радиусах цилиндров порядка длины образующей}
+    \label{fig:ch2/sec5/pressure}
+\end{figure}
 
 Пользуясь тем, что в случае $c=0$ имеет место равенство $\mathcal{V}_0 / \pi~=~\left(2a + \alpha\right) h^{3} / \alpha^{2}$, где $\mathcal{V}_0$ -- объем слоя, а высота слоя $h$ представима в виде $h=V \left(t_*-t\right)$, можно установить зависимость между временем и стадией прессования:
 \begin{equation}
@@ -852,6 +876,8 @@
   \end{gather}
 \end{subequations}
 Процесс решения данной системы полностью приведен в секции \cref{subsec:ch2/sec4/sub1}, поэтому не повторяя выкладок приведем лишь финальный результат:
+\begingroup
+\allowdisplaybreaks
 \begin{subequations}
   \label{sol:ch2/sec6/sub1/main/int}
   \begin{gather}
@@ -880,6 +906,7 @@
     \uindex{p}{0} = \uindex{s}{0}_{rr} +\uindex{f}{0}_{p}(\xi,\tau)
   \end{gather}
 \end{subequations}
+\endgroup
 Функции $\uindex{f}{0}_{v_{z}}(\xi,\tau)$ и $\uindex{f}{0}_{p}(\xi,\tau)$ будут отличаться от ранее найденных и в данном случае останутся неизвестными.
 
 Перейдем к рассмотрению системы при $a^{-c}$ и $\alpha^{1-c}$:
@@ -1147,7 +1174,7 @@
 
 \section{Анализ решения для случая, когда радиусы цилиндров ``промежуточного'' порядка малости}\label{sec:ch2/sec7}
 
-Полученные решения \cref{sol:ch2/sec6/sub1/main/int}, \cref{sol:ch2/sec6/sub1/p/-c,sol:ch2/sec6/sub1/srz/1-c,sol:ch2/sec6/sub1/vz/-c,sol:ch2/sec6/sub1/vz/1-c,sol:ch2/sec6/sub1/srr/1-c, sol:ch2/sec6/sub1/stt/1-c,sol:ch2/sec6/sub1/vr/1-c,sol:ch2/sec6/sub1/p/1-c,sol:ch2/sec6/sub1/vz/1-c} и \cref{sol:ch2/sec6/sub2/main/int}, \cref{sol:ch2/sec6/sub2/p/-c,sol:ch2/sec6/sub2/srz/1-c,sol:ch2/sec6/sub2/vz/-c,sol:ch2/sec6/sub2/vz/1-c,sol:ch2/sec6/sub2/srr/1-c, sol:ch2/sec6/sub2/stt/1-c,sol:ch2/sec6/sub2/vr/1-c,sol:ch2/sec6/sub2/p/1-c,sol:ch2/sec6/sub2/vz/1-c} являются приближенными и с точностью $O(\alpha^{c-1})$ совпадают, за исключением функции давления, с квазистатическим решением \autocite{Georgievsky:2010}:
+Полученные решения \cref{sol:ch2/sec6/sub1/main/int}, \cref{sol:ch2/sec6/sub1/p/-c,sol:ch2/sec6/sub1/srz/1-c,sol:ch2/sec6/sub1/vz/-c,sol:ch2/sec6/sub1/vz/1-c,sol:ch2/sec6/sub1/srr/1-c, sol:ch2/sec6/sub1/stt/1-c,sol:ch2/sec6/sub1/vr/1-c,sol:ch2/sec6/sub1/p/1-c,sol:ch2/sec6/sub1/vz/1-c} и \cref{sol:ch2/sec6/sub2/main/int}, \cref{sol:ch2/sec6/sub2/p/-c,sol:ch2/sec6/sub2/srz/1-c,sol:ch2/sec6/sub2/vz/-c,sol:ch2/sec6/sub2/vz/1-c,sol:ch2/sec6/sub2/srr/1-c, sol:ch2/sec6/sub2/stt/1-c,sol:ch2/sec6/sub2/vr/1-c,sol:ch2/sec6/sub2/p/1-c,sol:ch2/sec6/sub2/vz/1-c} являются приближенными и с точностью $O(\alpha^{1-c})$ совпадают, за исключением функции давления, с квазистатическим решением \autocite{Georgievsky:2010}:
 \todo{Переписать решение}
 \begingroup
 \allowdisplaybreaks
@@ -1160,32 +1187,44 @@
         \frac{1}{4\mu}\left(\mu\left(2\rho-1\right)\sqrt{1-\mu^2\left(2\rho-1\right)^2}+\arcsin{\left(\mu\left(2\rho-1\right)\right)}\right) \unl[1]{-}
         \frac{1-\rho}{2a}\frac{1-\mu^2\left(2\rho-1\right)\left(4\rho-1\right)}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}}
       \right) + 
-      O(\alpha^{c-1})
+      O(\alpha^{1-c})
     \end{multlined}
     \\
     \begin{multlined}
-      s_{rr} / \tau_{s} = -\sqrt{1-\mu^2\left(2\rho-1\right)^2} -\alpha^{1-c}\frac{1-\rho}{2a}\frac{1-\mu^2\left(2\rho-1\right)\left(4\rho-1\right)}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}} \unl{+} O(\alpha^{c-1})
+      s_{rr} / \tau_{s} = -\sqrt{1-\mu^2\left(2\rho-1\right)^2} -\alpha^{1-c}\frac{1-\rho}{2a}\frac{1-\mu^2\left(2\rho-1\right)\left(4\rho-1\right)}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}} \unl{+} O(\alpha^{1-c})
     \end{multlined}
     \\
-    s_{\theta\theta} / \tau_{s} = \alpha^{1-c} \frac{1-\rho}{a}\sqrt{1-\mu^2\left(2\rho-1\right)^2} + O(\alpha^{c-1})
+    s_{\theta\theta} / \tau_{s} = \alpha^{1-c} \frac{1-\rho}{a}\sqrt{1-\mu^2\left(2\rho-1\right)^2} + O(\alpha^{1-c})
     \\
-    s_{rz} / \tau_{s} = -\mu \left(2\rho - 1\right) \sign \xi -\alpha^{1-c}\frac{\mu}{a} \rho\left(1-\rho\right)\sign\xi  + O(\alpha^{c-1})
+    s_{rz} / \tau_{s} = -\mu \left(2\rho - 1\right) \sign \xi -\alpha^{1-c}\frac{\mu}{a} \rho\left(1-\rho\right)\sign\xi  + O(\alpha^{1-c})
     \\
-    v_{r} / V = 1-\rho + \alpha^{1-c}\frac{\rho}{2a}\left(1-\rho\right) + O(\alpha^{c-1})
+    v_{r} / V = 1-\rho + \alpha^{1-c}\frac{\rho}{2a}\left(1-\rho\right) + O(\alpha^{1-c})
     \\
-    v_{z} / V = \frac{\xi}{\alpha} + \frac{\sign\xi}{\mu}\sqrt{1-\mu^2\left(2\rho-1\right)^2} - \alpha^{1-c}\frac{\xi}{2a} +  O(\alpha^{c-1})
+    v_{z} / V = \frac{\xi}{\alpha} + \frac{\sign\xi}{\mu}\sqrt{1-\mu^2\left(2\rho-1\right)^2} - \alpha^{1-c}\frac{\xi}{2a} +  O(\alpha^{1-c})
   \end{gather}
 \end{subequations}
 \endgroup
-где $p_0$ имеет смысл гидростатического давления. Обозначим правую часть уравнения \cref{sol:ch2/sec7/p/qs} как $p^\text{кв} / \tau_{s}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
+где $p_0$ имеет смысл гидростатического давления.
+
+Наличие сигнатуры $\sign\xi$ в функции $s_{rz}$ говорит о разрыве решения вблизи сечения $\xi=0$. Следовательно, разложения \cref{eqs:ch2/sec6/series} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечений $\xi=\pm 1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
+
+Обозначим правую часть уравнения \cref{sol:ch2/sec7/p/qs} как $p^\text{кв} / \tau_{s}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
   \left(p\lvert_{\beta=2}\right) = p^\text{кв}
   \\
-  \left(p\lvert_{\beta=1}\right) = p^\text{кв} + \frac{3C_1}{2\alpha} \left(1-\xi^2\right) \tau_{s} + \frac{C_1}{2a}\left(3+2c\right)\xi^2 \tau_{s}
+  \left(p\lvert_{\beta=1}\right) = p^\text{кв} + \frac{3C_1}{2\alpha} \left(1-\xi^2\right) \tau_{s} + \frac{C_1}{2a \alpha^{c}}\left(3+2c\right)\xi^2 \tau_{s}
 \end{gather}
 В силу ограниченности рассматриваемых членов разложения, $p\lvert_{\beta=2}$ совпадает с квазистаическим решением с точностью до неизвесных функций интегрирования в выражении \cref{sol:ch2/sec6/sub1/p/1-c}, однако при более динамичной стадии прессования $\beta=1$ возникает квадратично зависящее от радиуса слагаемое. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
 
-Полученное решение является достоверным вне окрестности среднего по простиранию сечения слоя $z=0$ и вдали от зон краевого эффекта $z=\pm l$. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
+На графике ниже приведены эпюры давления для различных стадий процесса при следующих параметрах: $\alpha=0.1$, $C_1=1$, $\mu=1$, $a=1$, $c=0.5$.
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[scale=1.3]{./ch2/pressure_sub3}
+    }
+    \caption{Эпюры давления для случая цилиндрического слоя при радиусах ``промежуточного'' порядка}
+    \label{fig:ch2/sec7/pressure}
+\end{figure}
+
 
 Пользуясь тем, что в случае $c\in\left(0,1\right)$ имеет место равенство $\mathcal{V}_0 / \pi~=~\left(2a \alpha^{c} + \alpha\right) h^{3} / \alpha^{2}$, где $\mathcal{V}_0$ -- объем слоя, а высота слоя $h$ представима в виде $h=V \left(t_*-t\right)$, можно установить зависимость между временем и стадией прессования:
 \begin{equation}
