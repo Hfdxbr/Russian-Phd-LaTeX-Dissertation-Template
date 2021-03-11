@@ -35,25 +35,24 @@
 Касательная составляющая скорости (в данном случае $v_{1}$) на указанных границах идеальной среды, как известно, не задаётся.
 
 В некоторый момент времени $0 < t < h_{0}/V = t_*$, где $t_*$ -- момент схлопывания слоя, относительно шести функций -- независимых компонент девиатора напряжений $s_{11}$ и $s_{12}$, давления $p$ и компонент скорости $v_{1}$ и $v_{2}$ -- должна выполнятся замкнутая система уравнений динамической теории вязкопластичности:
-\begin{subequations}
-  \label{eqs:ch4/sec1/general}
-  \begin{gather}
-    \label{eqs:ch4/sec1/general/motion:1}
-    -p_{,1}+s_{11,1}+s_{12,2} = \varrho \left(v_{1;t}+v_{1} v_{1,1} + v_{2} v_{1,2} \right)
-    \\
-    \label{eqs:ch4/sec1/general/motion:2}
-    -p_{,2}-s_{11,2}+s_{12,1} = \varrho \left(v_{2;t}+v_{1} v_{2,1} + v_{2} v_{2,2} \right)
-    \\
-    \label{eqs:ch4/sec1/general/plasticity}
-    \sqrt{s^2_{11}+s^2_{12}}=\sigma_{s} + F(v_{u}), \quad v_{u} = \sqrt{2 v^2_{1,1}+\left(v_{1,2}+v_{2,1}\right)^2 / 2}
-    \\
-    \label{eqs:ch4/sec1/general/coax}
-    s_{11} \left(v_{1,2}+v_{2,1}\right) = 2 s_{12} v_{1,1}
-    \\
-    \label{eqs:ch4/sec1/general/uncompress}
-    v_{1,1}+v_{2,2} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch4/sec1/general/motion:1}
+  -p_{,1}+s_{11,1}+s_{12,2} = \varrho \left(v_{1;t}+v_{1} v_{1,1} + v_{2} v_{1,2} \right)
+  \\
+  \label{eqs:ch4/sec1/general/motion:2}
+  -p_{,2}-s_{11,2}+s_{12,1} = \varrho \left(v_{2;t}+v_{1} v_{2,1} + v_{2} v_{2,2} \right)
+  \\
+  \label{eqs:ch4/sec1/general/plasticity}
+  \sqrt{s^2_{11}+s^2_{12}}=\sigma_{s} + F(v_{u}), \quad v_{u} = \sqrt{2 v^2_{1,1}+\left(v_{1,2}+v_{2,1}\right)^2 / 2}
+  \\
+  \label{eqs:ch4/sec1/general/coax}
+  s_{11} \left(v_{1,2}+v_{2,1}\right) = 2 s_{12} v_{1,1}
+  \\
+  \label{eqs:ch4/sec1/general/uncompress}
+  v_{1,1}+v_{2,2} = 0
+\end{gather}
+
+\expandafter\gdef\csname eqs:ch4/sec1/general\endcsname{eqs:ch4/sec1/general/motion:1,eqs:ch4/sec1/general/motion:2,eqs:ch4/sec1/general/plasticity,eqs:ch4/sec1/general/coax,eqs:ch4/sec1/general/uncompress}
 Кроме выполнения условия \cref{eq:ch4/sec1/boundary/kinematic} на жестких контактирующих поверхностях потребуем, что бы модуль касательного напряжения $s_{rz}$ достигал на границах $\Gamma_{1}$ и $\Gamma_{2}$ своего максимального значения:
 \begin{equation}
   \label{eq:ch4/sec1/boundary/force}
@@ -63,89 +62,89 @@
 
 В реальном процессе сжатия слоя границы $\Gamma_{3}$ и $\Gamma_{4}$, естественно, свободны от напряжений, однако в математической постановке рассматриваемой здесь краевой задачи в её классическом варианте данное условие не ставится. Поэтому других, помимо \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force}, граничных условий в задаче не предполагается, а область вблизи границ $\Gamma_{3}$ и $\Gamma_{4}$ (на расстояниях порядка $h$) трактуется как зона краевого эффекта.
 
-Введем малый параметр $\alpha = \frac{h(t)}{R(t)} \ll 1$ и проведем разложение всех неизвестных величин, входящих в систему уравнений \cref{eqs:ch4/sec1/general}, в ряды по целым степеням параметра:
-\begin{subequations}
-  \label{eqs:ch4/series}
-  \begin{gather}
-    v_{1}\left(x_1, x_2, t\right) = V \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1}}, \quad N \ge 1
-    \\
-    v_{2}\left(x_1, x_2, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2}}
-    \\
-    s_{ij}\left(x_1, x_2, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad (ij)\in\{11, 12\}
-    \\
-    p\left(x_1, x_2, t\right) = \tau_{s} \sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}}, \quad M \ge 1
-  \end{gather}
-\end{subequations}
-Коэффициенты рядов \cref{eqs:ch4/series} -- безразмерны и являются функциями безразмерных координат $\xi_1, \xi_2, \tau$ :
+Введем малый параметр $\alpha = \frac{h(t)}{R(t)} \ll 1$ и проведем разложение всех неизвестных величин, входящих в систему уравнений \cref{\csname eqs:ch4/sec1/general\endcsname}, в ряды по целым степеням параметра:
+\begin{gather}
+  \label{eqs:ch4/series/v1}
+  v_{1}\left(x_1, x_2, t\right) = V \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1}}, \quad N \ge 1
+  \\
+  \label{eqs:ch4/series/v2}
+  v_{2}\left(x_1, x_2, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2}}
+  \\
+  \label{eqs:ch4/series/sij}
+  s_{ij}\left(x_1, x_2, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad (ij)\in\{11, 12\}
+  \\
+  \label{eqs:ch4/series/p}
+  p\left(x_1, x_2, t\right) = \tau_{s} \sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}}, \quad M \ge 1
+\end{gather}
+
+\expandafter\gdef\csname eqs:ch4/series\endcsname{eqs:ch4/series/v1,eqs:ch4/series/v2,eqs:ch4/series/sij,eqs:ch4/series/p}
+Коэффициенты рядов \cref{\csname eqs:ch4/series\endcsname} -- безразмерны и являются функциями безразмерных координат $\xi_1, \xi_2, \tau$ :
 \begin{equation}
   \label{eq:ch4/coordinates}
   \xi_1 = x_1 / l = \alpha x_1 / h, \quad \xi_2 = x_2 / h, \quad \tau = V \frac{t}{h}
 \end{equation}
-Наличие в \cref{eqs:ch4/series} членов $\alpha^{-n} \; \uindex{v}{-n}_{1}$ и $\alpha^{-m} \; \uindex{p}{-m}$ обусловлено стремлением $v_{1}$ и $p$ к бесконечности, при $\alpha\rightarrow 0$, что ясно из физических соображений.
+Наличие в \cref{\csname eqs:ch4/series\endcsname} членов $\alpha^{-n} \; \uindex{v}{-n}_{1}$ и $\alpha^{-m} \; \uindex{p}{-m}$ обусловлено стремлением $v_{1}$ и $p$ к бесконечности, при $\alpha\rightarrow 0$, что ясно из физических соображений.
 Обратимся к геометрическому условию несжимаемости и выразим малый параметр и координаты \cref{eq:ch4/coordinates} как эволюционные функции:
 \begingroup
 \allowdisplaybreaks
-\begin{subequations}
-  \begin{gather}
-    \dot{\alpha} = \left(\frac{h}{l}\right)^. = \frac{\dot{h}l - h\dot{l}}{l^2} = -2\frac{V\alpha}{h}
-    \\
-    \dot{\xi_1} = \left(\frac{x_1}{l}\right)^. = -\frac{x_1 \dot{l}}{l^2} = -\frac{V\xi_1}{h}
-    \\
-    \dot{\xi_2} = \left(\frac{x_2}{h}\right)^. = -\frac{x_2 \dot{h}}{h^2} = \frac{V\xi_2}{h}
-    \\
-    \dot{\tau} = \left(V \frac{t}{h}\right)^. = V \frac{h - t\dot{h}}{h^2} = \frac{V}{h} \left(1+\tau\right)
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \dot{\alpha} = \left(\frac{h}{l}\right)^. = \frac{\dot{h}l - h\dot{l}}{l^2} = -2\frac{V\alpha}{h}
+  \\
+  \dot{\xi_1} = \left(\frac{x_1}{l}\right)^. = -\frac{x_1 \dot{l}}{l^2} = -\frac{V\xi_1}{h}
+  \\
+  \dot{\xi_2} = \left(\frac{x_2}{h}\right)^. = -\frac{x_2 \dot{h}}{h^2} = \frac{V\xi_2}{h}
+  \\
+  \dot{\tau} = \left(V \frac{t}{h}\right)^. = V \frac{h - t\dot{h}}{h^2} = \frac{V}{h} \left(1+\tau\right)
+\end{gather}
 \endgroup
-Подставляя выражения \cref{eqs:ch4/series} в систему \cref{eqs:ch4/sec1/general} и учитывая, что полная производная по времени представляется в виде
+Подставляя выражения \cref{\csname eqs:ch4/series\endcsname} в систему \cref{\csname eqs:ch4/sec1/general\endcsname} и учитывая, что полная производная по времени представляется в виде
 \begin{equation*}
   \uindex{v}{k}_{i;t} = \uindex{v}{k}_{i,1} \dot{\xi_{1}} + \uindex{v}{k}_{i,2} \dot{\xi_{2}} + \uindex{v}{k}_{i,\tau} \dot{\tau}
 \end{equation*}
 получим следующую систему:
 \begingroup
 \allowdisplaybreaks
-\begin{subequations}
-  \label{eqs:ch4/sec1/substituted}
-  \begin{gather}
-    \label{eqs:ch4/sec1/substituted/motion:1}
-    \begin{multlined}
-      -\sum_{k=-M}^{\infty}{\alpha^{k+1} \; \uindex{p}{k}_{,1}}+\sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{s}{k}_{11,1}} +
-      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12,2}} \unl{=}
-      \frac{\varrho V^2}{\tau_{s}} \left(
-      \sum_{k=-N}^{\infty}{\alpha^{k} \; \left(-\xi_{1} \; \uindex{v}{k}_{1,1} + \xi_{2} \uindex{v}{k}_{1,2} + \left(1+\tau\right) \; \uindex{v}{k}_{1,\tau} -2k \; \uindex{v}{k}_{1}\right)} \unl[1]{+}
-      \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{1,1}} +
-      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2}} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1,2}}
-      \right)
-    \end{multlined}
-    \\
-    \label{eqs:ch4/sec1/substituted/motion:2}
-    \begin{multlined}
-      -\sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}_{,2}}-\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{11,2}} +
-      \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{s}{k}_{12,1}} \unl{=}
-      \frac{\varrho V^2}{\tau_{s}} \left(
-      \sum_{k=0}^{\infty}{\alpha^{k} \; \left(-\xi_{1} \; \uindex{v}{k}_{2,1} + \xi_{2} \uindex{v}{k}_{2,2} + \left(1+\tau\right) \; \uindex{v}{k}_{2,\tau} -2k \; \uindex{v}{k}_{2}\right)} \unl[1]{+}
-      \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1}} \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{2,1}} +
-      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2,2}}
-      \right)
-    \end{multlined}
-    \\
-    \label{eqs:ch4/sec1/substituted/plasticity}
-    \begin{multlined}
-      \sqrt{\left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{11}}\right)^2+
-        \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12}}\right)^2} = 1 + \frac{1}{\text{S}\sqrt{2}} \unl{\cdot} f\left(\frac{1}{2}\sqrt{
-        4 \left(\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1,1}}\right)^2 +
-        \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \left( \alpha^{-N} \; \uindex{v}{k}_{1,2} + \uindex{v}{k}_{2,1}\right)}\right)^2
-      }\right)
-    \end{multlined}
-    \\
-    \label{eqs:ch4/sec1/substituted/coax}
-    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{11}} \; \left(\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1,2}} + \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{2,1}}\right) = 2 \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12}} \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{1,1}}
-    \\
-    \label{eqs:ch4/sec1/substituted/uncompress}
-    \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{1,1}} + \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2,2}} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch4/sec1/substituted/motion:1}
+  \begin{multlined}
+    -\sum_{k=-M}^{\infty}{\alpha^{k+1} \; \uindex{p}{k}_{,1}}+\sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{s}{k}_{11,1}} +
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12,2}} \unl{=}
+    \frac{\varrho V^2}{\tau_{s}} \left(
+    \sum_{k=-N}^{\infty}{\alpha^{k} \; \left(-\xi_{1} \; \uindex{v}{k}_{1,1} + \xi_{2} \uindex{v}{k}_{1,2} + \left(1+\tau\right) \; \uindex{v}{k}_{1,\tau} -2k \; \uindex{v}{k}_{1}\right)} \unl[1]{+}
+    \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{1,1}} +
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2}} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1,2}}
+    \right)
+  \end{multlined}
+  \\
+  \label{eqs:ch4/sec1/substituted/motion:2}
+  \begin{multlined}
+    -\sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}_{,2}}-\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{11,2}} +
+    \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{s}{k}_{12,1}} \unl{=}
+    \frac{\varrho V^2}{\tau_{s}} \left(
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \left(-\xi_{1} \; \uindex{v}{k}_{2,1} + \xi_{2} \uindex{v}{k}_{2,2} + \left(1+\tau\right) \; \uindex{v}{k}_{2,\tau} -2k \; \uindex{v}{k}_{2}\right)} \unl[1]{+}
+    \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1}} \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{2,1}} +
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2,2}}
+    \right)
+  \end{multlined}
+  \\
+  \label{eqs:ch4/sec1/substituted/plasticity}
+  \begin{multlined}
+    \sqrt{\left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{11}}\right)^2+
+      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12}}\right)^2} = 1 + \frac{1}{\text{S}\sqrt{2}} \unl{\cdot} f\left(\frac{1}{2}\sqrt{
+      4 \left(\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1,1}}\right)^2 +
+      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \left( \alpha^{-N} \; \uindex{v}{k}_{1,2} + \uindex{v}{k}_{2,1}\right)}\right)^2
+    }\right)
+  \end{multlined}
+  \\
+  \label{eqs:ch4/sec1/substituted/coax}
+  \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{11}} \; \left(\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1,2}} + \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{2,1}}\right) = 2 \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{12}} \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{1,1}}
+  \\
+  \label{eqs:ch4/sec1/substituted/uncompress}
+  \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{1,1}} + \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2,2}} = 0
+\end{gather}
 \endgroup
+
+\expandafter\gdef\csname eqs:ch4/sec1/substituted\endcsname{eqs:ch4/sec1/substituted/motion:1,eqs:ch4/sec1/substituted/motion:2,eqs:ch4/sec1/substituted/plasticity,eqs:ch4/sec1/substituted/coax,eqs:ch4/sec1/substituted/uncompress}
 Здесь $f$ -- безразмерная функция упрочнения, связанная с размерной равенством
 \begin{equation}
   F(v_{u}) = \tau_s f(\tilde{v}_{u}) / \text{S}, \quad \text{S} =  \tau_s h / \left(m V\right) \gg 1,
@@ -178,32 +177,30 @@
 
 Рассмотрим случай $\beta=2$, который соответствует моменту перехода от квазистатического к динамическому режиму деформирования.
 
-Положим $\text{Eu}^{-1} = C_2 \alpha^2$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch4/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
-\begin{subequations}
-  \label{eqs:ch4/sec2/sub1/main}
-  \begin{gather}
-    \label{eqs:ch4/sec2/sub1/-1/motion:1}
-    -\uindex{p}{-1}_{,2} = 0
-    \\
-    \label{eqs:ch4/sec2/sub1/-1/coax}
-    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{1,2} = 0
-    \\
-    \label{eqs:ch4/sec2/sub1/0/motion:1}
-    -\uindex{p}{-1}_{,1} + \uindex{s}{0}_{12,2} = 0
-    \\
-    \label{eqs:ch4/sec2/sub1/0/motion:2}
-    -\uindex{p}{0}_{,2} + \uindex{s}{0}_{11,2} = 0
-    \\
-    \label{eqs:ch4/sec2/sub1/0/plasticity}
-    \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{\text{S}} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
-    \\
-    \label{eqs:ch4/sec2/sub1/0/coax}
-    \uindex{s}{0}_{11} \; \uindex{v}{0}_{1,2} = 2 \uindex{s}{0}_{12} \uindex{v}{-1}_{1,1}
-    \\
-    \label{eqs:ch4/sec2/sub1/0/uncompress}
-    \uindex{v}{-1}_{1,1} + \uindex{v}{0}_{2,2} = 0
-  \end{gather}
-\end{subequations}
+Положим $\text{Eu}^{-1} = C_2 \alpha^2$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{\csname eqs:ch4/sec1/substituted\endcsname} при $a^{-1}$ и $\alpha^0$:
+\label{eqs:ch4/sec2/sub1/main}
+\begin{gather}
+  \label{eqs:ch4/sec2/sub1/-1/motion:1}
+  -\uindex{p}{-1}_{,2} = 0
+  \\
+  \label{eqs:ch4/sec2/sub1/-1/coax}
+  \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{1,2} = 0
+  \\
+  \label{eqs:ch4/sec2/sub1/0/motion:1}
+  -\uindex{p}{-1}_{,1} + \uindex{s}{0}_{12,2} = 0
+  \\
+  \label{eqs:ch4/sec2/sub1/0/motion:2}
+  -\uindex{p}{0}_{,2} + \uindex{s}{0}_{11,2} = 0
+  \\
+  \label{eqs:ch4/sec2/sub1/0/plasticity}
+  \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{\text{S}} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
+  \\
+  \label{eqs:ch4/sec2/sub1/0/coax}
+  \uindex{s}{0}_{11} \; \uindex{v}{0}_{1,2} = 2 \uindex{s}{0}_{12} \uindex{v}{-1}_{1,1}
+  \\
+  \label{eqs:ch4/sec2/sub1/0/uncompress}
+  \uindex{v}{-1}_{1,1} + \uindex{v}{0}_{2,2} = 0
+\end{gather}
 Граничные условия \cref{eq:ch4/sec1/boundary/kinematic, eq:ch4/sec1/boundary/force} при этом примут вид
 \begin{equation}
   \label{eq:ch4/sec2/sub1/boundary/0}
@@ -275,18 +272,16 @@
   \uindex{p}{0} = -\uindex{s}{0}_{11} +\uindex{f}{0}_{p}(\xi_1,\tau)
 \end{gather}
 Для нахождение неизвестных функций $\uindex{f}{0}_{p}$ и $\uindex{f}{0}_{v_{1}}$ выпишем следующее по $\alpha$ приближение уравнений \cref{eqs:ch4/sec1/substituted/motion:2, eqs:ch4/sec1/substituted/uncompress}, а также граничные условия \cref{eq:ch4/sec1/boundary/kinematic, eq:ch4/sec1/boundary/force}:
-\begin{subequations}
-  \begin{gather}
-    \label{eqs:ch4/sec2/sub1/1/motion:2}
-    -\uindex{p}{0}_{,1} + \uindex{s}{0}_{11,1} + \uindex{s}{1}_{12,2} = 2 C_2 \xi_1
-    \\
-    \label{eqs:ch4/sec2/sub1/1/uncompress}
-    \uindex{v}{0}_{1,1}  + \uindex{v}{1}_{2,2} = 0
-    \\
-    \label{eq:ch4/sec2/sub1/boundary/1}
-    \uindex{v}{1}_{2}\lvert_{\xi_2=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{12}\lvert_{\xi_2=\pm 1} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch4/sec2/sub1/1/motion:2}
+  -\uindex{p}{0}_{,1} + \uindex{s}{0}_{11,1} + \uindex{s}{1}_{12,2} = 2 C_2 \xi_1
+  \\
+  \label{eqs:ch4/sec2/sub1/1/uncompress}
+  \uindex{v}{0}_{1,1}  + \uindex{v}{1}_{2,2} = 0
+  \\
+  \label{eq:ch4/sec2/sub1/boundary/1}
+  \uindex{v}{1}_{2}\lvert_{\xi_2=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{12}\lvert_{\xi_2=\pm 1} = 0
+\end{gather}
 Функция $\uindex{v}{1}_{2}$ является непрерывной, поэтому имеет место равенство
 \begin{equation}
   \label{eq:ch4/sec2/sub1/interm/1}
@@ -326,32 +321,29 @@
 
 Рассмотрим случай $\beta=1$, который соответствует моменту с сильным влиянием динамики в процессе сдавливания слоя.
 
-Положим $\text{Eu}^{-1} = C_1 \alpha$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch4/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
-\begin{subequations}
-  \label{eqs:ch4/sec2/sub2/main}
-  \begin{gather}
-    \label{eqs:ch4/sec2/sub2/-1/motion:1}
-    -\uindex{p}{-1}_{,2} = 0
-    \\
-    \label{eqs:ch4/sec2/sub2/-1/coax}
-    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{1,2} = 0
-    \\
-    \label{eqs:ch4/sec2/sub2/0/motion:1}
-    -\uindex{p}{-1}_{,1} + \uindex{s}{0}_{12,2} = -\xi_1 \ \uindex{v}{-1}_{1,1} + 2 \ \uindex{v}{-1}_{1} + \uindex{v}{-1}_{1} \; \uindex{v}{-1}_{1,1}
-    \\
-    \label{eqs:ch4/sec2/sub2/0/motion:2}
-    -\uindex{p}{0}_{,2} + \uindex{s}{0}_{11,2} = 0
-    \\
-    \label{eqs:ch4/sec2/sub2/0/plasticity}
-    \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{\text{S}} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
-    \\
-    \label{eqs:ch4/sec2/sub2/0/coax}
-    \uindex{s}{0}_{11} \; \uindex{v}{0}_{1,2} = 2 \uindex{s}{0}_{12} \uindex{v}{-1}_{1,1}
-    \\
-    \label{eqs:ch4/sec2/sub2/0/uncompress}
-    \uindex{v}{-1}_{1,1} + \uindex{v}{0}_{2,2} = 0
-  \end{gather}
-\end{subequations}
+Положим $\text{Eu}^{-1} = C_1 \alpha$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{\csname eqs:ch4/sec1/substituted\endcsname} при $a^{-1}$ и $\alpha^0$:
+\begin{gather}
+  \label{eqs:ch4/sec2/sub2/-1/motion:1}
+  -\uindex{p}{-1}_{,2} = 0
+  \\
+  \label{eqs:ch4/sec2/sub2/-1/coax}
+  \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{1,2} = 0
+  \\
+  \label{eqs:ch4/sec2/sub2/0/motion:1}
+  -\uindex{p}{-1}_{,1} + \uindex{s}{0}_{12,2} = -\xi_1 \ \uindex{v}{-1}_{1,1} + 2 \ \uindex{v}{-1}_{1} + \uindex{v}{-1}_{1} \; \uindex{v}{-1}_{1,1}
+  \\
+  \label{eqs:ch4/sec2/sub2/0/motion:2}
+  -\uindex{p}{0}_{,2} + \uindex{s}{0}_{11,2} = 0
+  \\
+  \label{eqs:ch4/sec2/sub2/0/plasticity}
+  \sqrt{\left(\uindex{s}{0}_{11}\right)^2 + \left(\uindex{s}{0}_{12}\right)^2} = 1 + \frac{2^{(1-\gamma)/2}}{\text{S}} \left(4+\left(\uindex{v}{0}_{1,2}\right)^2\right)^{\gamma/2}
+  \\
+  \label{eqs:ch4/sec2/sub2/0/coax}
+  \uindex{s}{0}_{11} \; \uindex{v}{0}_{1,2} = 2 \uindex{s}{0}_{12} \uindex{v}{-1}_{1,1}
+  \\
+  \label{eqs:ch4/sec2/sub2/0/uncompress}
+  \uindex{v}{-1}_{1,1} + \uindex{v}{0}_{2,2} = 0
+\end{gather}
 Граничные условия \cref{eq:ch4/sec1/boundary/kinematic, eq:ch4/sec1/boundary/force} при этом примут вид
 \begin{equation}
   \label{eq:ch4/sec2/sub2/boundary/0}
@@ -423,18 +415,16 @@
   \uindex{p}{0} = -\uindex{s}{0}_{11} +\uindex{f}{0}_{p}(\xi_1,\tau)
 \end{gather}
 Для нахождение неизвестных функций $\uindex{f}{0}_{p}$ и $\uindex{f}{0}_{v_{1}}$ выпишем следующее по $\alpha$ приближение уравнений \cref{eqs:ch4/sec1/substituted/motion:2, eqs:ch4/sec1/substituted/uncompress}, а также граничные условия \cref{eq:ch4/sec1/boundary/kinematic, eq:ch4/sec1/boundary/force}:
-\begin{subequations}
-  \begin{gather}
-    \label{eqs:ch4/sec2/sub2/1/motion:2}
-    -\uindex{p}{0}_{,1} + \uindex{s}{0}_{11,1} + \uindex{s}{1}_{12,2} = C_1 \ \uindex{v}{0}_{1}
-    \\
-    \label{eqs:ch4/sec2/sub2/1/uncompress}
-    \uindex{v}{0}_{1,1}  + \uindex{v}{1}_{2,2} = 0
-    \\
-    \label{eq:ch4/sec2/sub2/boundary/1}
-    \uindex{v}{1}_{2}\lvert_{\xi_2=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{12}\lvert_{\xi_2=\pm 1} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch4/sec2/sub2/1/motion:2}
+  -\uindex{p}{0}_{,1} + \uindex{s}{0}_{11,1} + \uindex{s}{1}_{12,2} = C_1 \ \uindex{v}{0}_{1}
+  \\
+  \label{eqs:ch4/sec2/sub2/1/uncompress}
+  \uindex{v}{0}_{1,1}  + \uindex{v}{1}_{2,2} = 0
+  \\
+  \label{eq:ch4/sec2/sub2/boundary/1}
+  \uindex{v}{1}_{2}\lvert_{\xi_2=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{12}\lvert_{\xi_2=\pm 1} = 0
+\end{gather}
 Функция $\uindex{v}{1}_{2}$ является непрерывной, поэтому имеет место равенство
 \begin{equation}
   \label{eq:ch4/sec2/sub2/interm/1}
@@ -472,25 +462,23 @@
 \section{Анализ решения}\label{sec:ch4/sec3}
 
 Полученные решения \cref{sol:ch4/sec2/sub1/p/-1,sol:ch4/sec2/sub1/s12/0,sol:ch4/sec2/sub1/v1/-1,sol:ch4/sec2/sub1/v2/0}, \cref{sol:ch4/sec2/sub1/s11/0,sol:ch4/sec2/sub1/v1/0,sol:ch4/sec2/sub1/p/0} и \cref{sol:ch4/sec2/sub2/p/-1,sol:ch4/sec2/sub2/s12/0,sol:ch4/sec2/sub2/v1/-1,sol:ch4/sec2/sub2/v2/0}, \cref{sol:ch4/sec2/sub2/s11/0,sol:ch4/sec2/sub2/v1/0,sol:ch4/sec2/sub2/p/0} являются приближенными и совпадают, за исключением функции давления, с квазистатическим решением \autocite{Georgievsky:2012}:
-\begin{subequations}
-  \begin{gather}
-    \label{sol:ch4/sec3/p/qs}
-    p  = p_0 +  \frac{\tau_{s}}{\alpha}\int_{\vert \xi_1\vert}^1 \mu(\xi) d\xi - s_{11} + \int_{-1}^{1}{s_{11} d\xi_2} + O(\alpha)
-    \\
-    s_{11} = \tau_{s} \sqrt{1-\mu^2\xi_2^2} + \frac{\tau_{s}}{\text{S}} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}+ O(\alpha)
-    \\
-    s_{12} = -\tau_{s} \mu \xi_2 \sign\xi_1  + O(\alpha)
-    \\
-    \begin{multlined}
-      v_{1} / V = \frac{1}{\alpha}\xi_1 + \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{\text{S}(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}\right) \unl{-}
-      \frac{1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{\text{S}(1+\gamma)}\right) + O(\alpha)
-    \end{multlined}
-    \\
-    v_{2}= V \xi_2
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{sol:ch4/sec3/p/qs}
+  p  = p_0 +  \frac{\tau_{s}}{\alpha}\int_{\vert \xi_1\vert}^1 \mu(\xi) d\xi - s_{11} + \int_{-1}^{1}{s_{11} d\xi_2} + O(\alpha)
+  \\
+  s_{11} = \tau_{s} \sqrt{1-\mu^2\xi_2^2} + \frac{\tau_{s}}{\text{S}} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}+ O(\alpha)
+  \\
+  s_{12} = -\tau_{s} \mu \xi_2 \sign\xi_1  + O(\alpha)
+  \\
+  \begin{multlined}
+    v_{1} / V = \frac{1}{\alpha}\xi_1 + \frac{2}{\mu}\left(\sqrt{1-\mu^2\xi_2^2} + \frac{1}{\text{S}(1+\gamma)} \left(\frac{2}{1-\mu^2\xi_2^2}\right)^{(1+\gamma)/2}\right) \unl{-}
+    \frac{1}{\mu}\left(\sqrt{1-\mu^2}+\frac{\arcsin{\left(\mu\right)}}{\mu} + \frac{2^{(3+\gamma)/2} {}_2F_1\left(\frac{1}{2}, \frac{1+\gamma}{2}, \frac{3}{2}, \mu^2\right)}{\text{S}(1+\gamma)}\right) + O(\alpha)
+  \end{multlined}
+  \\
+  v_{2}= V \xi_2
+\end{gather}
 где $p_0$ имеет смысл гидростатического давления.
-Наличие сигнатуры $\sign\xi$ в функции $s_{12}$ говорит о разрыве решения вблизи сечения $\xi_1=0$. Следовательно, разложения \cref{eqs:ch4/series} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечений $\xi_1=\pm 1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля. Помимо этого, вид функций $s_{11}$ и $v_{1}$ свидетельствует о том, что разложения справедливы вне окрестности точек, для которых выполнено $\mu^2 \xi_2^2 \ge 1$, и, следовательно, решение неприменимо на границах контакта с плитами при $\mu = 1$. 
+Наличие сигнатуры $\sign\xi$ в функции $s_{12}$ говорит о разрыве решения вблизи сечения $\xi_1=0$. Следовательно, разложения \cref{\csname eqs:ch4/series\endcsname} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечений $\xi_1=\pm 1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля. Помимо этого, вид функций $s_{11}$ и $v_{1}$ свидетельствует о том, что разложения справедливы вне окрестности точек, для которых выполнено $\mu^2 \xi_2^2 \ge 1$, и, следовательно, решение неприменимо на границах контакта с плитами при $\mu = 1$.
 
 Обозначим правую часть уравнения \cref{sol:ch4/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
@@ -505,9 +493,9 @@
 \begin{figure}[ht]
   \centerfloat{
     \includegraphics[scale=1.3]{./ch4/pressure}
-    }
-    \caption{Эпюры давления для случая плоского вязкопластического слоя}
-    \label{fig:ch4/pressure}
+  }
+  \caption{Эпюры давления для случая плоского вязкопластического слоя}
+  \label{fig:ch4/pressure}
 \end{figure}анализе решения классической задачи Прандтля.
 
 Используя то, что $\alpha(t) = V^2\left(t_*-t\right)^2 / \mathcal{\text{S}}_0$, где $\mathcal{\text{S}}_0$ -- площадь сечения слоя, можно установить зависимость между временем и стадией прессования:

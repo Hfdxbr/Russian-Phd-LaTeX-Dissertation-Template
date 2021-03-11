@@ -20,9 +20,9 @@
 \begin{figure}[ht]
   \centerfloat{
     \includegraphics[width=0.6\linewidth]{./ch1/layer}
-    }
-    \caption{Представление круглого слоя}
-    \label{fig:ch1/layer}
+  }
+  \caption{Представление круглого слоя}
+  \label{fig:ch1/layer}
 \end{figure}
 Взаимную скорость сближения плит обозначим $2V$, поэтому кинематическое условие непротекания сквозь границы $\Gamma_{1}$ и $\Gamma_{2}$ имеет вид
 \begin{equation}
@@ -32,28 +32,27 @@
 Касательная составляющая скорости (в данном случае $v_{r}$) на указанных границах идеальной среды, как известно, не задаётся.
 
 В некоторый момент времени $0 < t < h_{0}/V = t_*$, где $t_*$ -- момент схлопывания слоя, относительно шести функций -- независимых компонент девиатора напряжений $s_{rr}$, $s_{rz}$ и $s_{\theta\theta}$, давления $p$ и компонент скорости $v_{r}$ и $v_{z}$ -- должна выполнятся замкнутая система уравнений динамической теории идеальной пластичности для цилиндрических координат:
-\begin{subequations}
-  \label{eqs:ch1/sec1/general}
-  \begin{gather}
-    \label{eqs:ch1/sec1/general/motion:1}
-    -p_{,r}+s_{rr,r}+s_{rz,z}+\frac{s_{rr}-s_{\theta\theta}}{r} = \varrho \left(v_{r;t}+v_{r} v_{r,r} + v_{z} v_{r,z} \right)
-    \\
-    \label{eqs:ch1/sec1/general/motion:2}
-    -p_{,z}+s_{rz,r}+\frac{s_{rz}}{r}-(s_{rr}+s_{\theta\theta})_{,z} = \varrho \left(v_{z;t}+v_{r} v_{z,r} + v_{z} v_{z,z} \right)
-    \\
-    \label{eqs:ch1/sec1/general/plasticity}
-    s^2_{rr}+s^2_{\theta\theta}+s_{rr} s_{\theta\theta} + s^2_{rz}=\tau^2_{s}
-    \\
-    \label{eqs:ch1/sec1/general/coax:1}
-    s_{rr} \frac{v_{r}}{r} = s_{\theta\theta} v_{r,r}
-    \\
-    \label{eqs:ch1/sec1/general/coax:2}
-    s_{rr} (v_{r,z}+v_{z,r}) = 2 s_{rz} v_{r,r}
-    \\
-    \label{eqs:ch1/sec1/general/uncompress}
-    v_{r,r}+\frac{v_{r}}{r}+v_{z,z} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch1/sec1/general/motion:1}
+  -p_{,r}+s_{rr,r}+s_{rz,z}+\frac{s_{rr}-s_{\theta\theta}}{r} = \varrho \left(v_{r;t}+v_{r} v_{r,r} + v_{z} v_{r,z} \right)
+  \\
+  \label{eqs:ch1/sec1/general/motion:2}
+  -p_{,z}+s_{rz,r}+\frac{s_{rz}}{r}-(s_{rr}+s_{\theta\theta})_{,z} = \varrho \left(v_{z;t}+v_{r} v_{z,r} + v_{z} v_{z,z} \right)
+  \\
+  \label{eqs:ch1/sec1/general/plasticity}
+  s^2_{rr}+s^2_{\theta\theta}+s_{rr} s_{\theta\theta} + s^2_{rz}=\tau^2_{s}
+  \\
+  \label{eqs:ch1/sec1/general/coax:1}
+  s_{rr} \frac{v_{r}}{r} = s_{\theta\theta} v_{r,r}
+  \\
+  \label{eqs:ch1/sec1/general/coax:2}
+  s_{rr} (v_{r,z}+v_{z,r}) = 2 s_{rz} v_{r,r}
+  \\
+  \label{eqs:ch1/sec1/general/uncompress}
+  v_{r,r}+\frac{v_{r}}{r}+v_{z,z} = 0
+\end{gather}
+
+\expandafter\gdef\csname eqs:ch1/sec1/general\endcsname{eqs:ch1/sec1/general/motion:1,eqs:ch1/sec1/general/motion:2,eqs:ch1/sec1/general/plasticity,eqs:ch1/sec1/general/coax:1,eqs:ch1/sec1/general/coax:2,eqs:ch1/sec1/general/uncompress}
 Кроме выполнения условия \cref{eq:ch1/sec1/boundary/kinematic} на жестких контактирующих поверхностях потребуем, что бы модуль касательного напряжения $s_{rz}$ достигал на границах $\Gamma_{1}$ и $\Gamma_{2}$ своего максимального значения:
 \begin{equation}
   \label{eq:ch1/sec1/boundary/force}
@@ -68,112 +67,114 @@
 
 В реальном процессе сжатия слоя граница $\Gamma_{3}$, естественно, свободна от напряжений, однако в математической постановке рассматриваемой здесь краевой задачи в её классическом варианте данное условие не ставится. Поэтому других, помимо \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force}, граничных условий в задаче не предполагается, а область вблизи границы $\Gamma_{3}$ (на расстояниях порядка $h$) трактуется как зона краевого эффекта.
 
-Введем малый параметр $\alpha = \frac{h(t)}{R(t)} \ll 1$ и проведем разложение всех неизвестных величин, входящих в систему уравнений \cref{eqs:ch1/sec1/general}, в ряды по целым степеням параметра:
-\begin{subequations}
-  \label{eqs:ch1/series}
-  \begin{gather}
-    v_{r}\left(r, z, t\right) = V \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}, \quad N \ge 1
-    \\
-    v_{z}\left(r, z, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}}
-    \\
-    s_{ij}\left(r, z, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad (ij)\in\{rr, rz, \theta\theta\}
-    \\
-    p\left(r, z, t \right) = \tau_{s} \sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}}, \quad M \ge 1
-  \end{gather}
-\end{subequations}
-Коэффициенты рядов \cref{eqs:ch1/series} -- безразмерны и являются функциями безразмерных координат $\rho, \xi, \tau$ :
+Введем малый параметр $\alpha = \frac{h(t)}{R(t)} \ll 1$ и проведем разложение всех неизвестных величин, входящих в систему уравнений \cref{\csname eqs:ch1/sec1/general\endcsname}, в ряды по целым степеням параметра:
+\begin{gather}
+  \label{eqs:ch1/series/vr}
+  v_{r}\left(r, z, t\right) = V \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}, \quad N \ge 1
+  \\
+  \label{eqs:ch1/series/vz}
+  v_{z}\left(r, z, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}}
+  \\
+  \label{eqs:ch1/series/sij}
+  s_{ij}\left(r, z, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad (ij)\in\{rr, rz, \theta\theta\}
+  \\
+  \label{eqs:ch1/series/p}
+  p\left(r, z, t \right) = \tau_{s} \sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}}, \quad M \ge 1
+\end{gather}
+
+\expandafter\gdef\csname eqs:ch1/series\endcsname{eqs:ch1/series/vr,eqs:ch1/series/vz,eqs:ch1/series/sij,eqs:ch1/series/p}
+Коэффициенты рядов \cref{\csname eqs:ch1/series\endcsname} -- безразмерны и являются функциями безразмерных координат $\rho, \xi, \tau$ :
 \begin{equation}
   \label{eq:ch1/coordinates}
   \rho = \frac{r}{R} = \frac{\alpha r}{h}, \quad \xi = \frac{z}{h}, \quad \tau = V \frac{t}{h}
 \end{equation}
-Наличие в \cref{eqs:ch1/series} членов $\alpha^{-n} \; \uindex{v}{-n}_{r}$ и $\alpha^{-m} \; \uindex{p}{-m}$ обусловлено стремлением $v_{r}$ и $p$ к бесконечности, при $\alpha\rightarrow 0$, что ясно из физических соображений.
+Наличие в \cref{\csname eqs:ch1/series\endcsname} членов $\alpha^{-n} \; \uindex{v}{-n}_{r}$ и $\alpha^{-m} \; \uindex{p}{-m}$ обусловлено стремлением $v_{r}$ и $p$ к бесконечности, при $\alpha\rightarrow 0$, что ясно из физических соображений.
 Обратимся к геометрическому условию несжимаемости и выразим малый параметр и координаты \cref{eq:ch1/coordinates} как эволюционные функции:
-\begin{subequations}
-  \begin{gather}
-    \left(R^2 h\right)^. = 0, \quad \dot{R} = -\dot{h} \frac{R}{2h}= V \frac{R}{2h}\nonumber
-    \\
-    \dot{\alpha} = \left(\frac{h}{R}\right)^. = \frac{\dot{h}R - h\dot{R}}{h^2} = -\frac{3 V}{2 h} \alpha
-    \\
-    \dot{\rho} = \left(\frac{\alpha r}{h}\right)^. = r \frac{\dot{\alpha} h - \alpha \dot{h}}{h^2} = -\frac{V}{2h}\rho
-    \\
-    \dot{\xi} = \left(\frac{z}{h}\right)^. = -\frac{z \dot{h}}{h^2} = \frac{V}{h}\xi
-    \\
-    \dot{\tau} = \left(V \frac{t}{h}\right)^. = V \frac{h - t\dot{h}}{h^2} = \frac{V}{h} \left(1+\tau\right)
-  \end{gather}
-\end{subequations}
-Подставляя выражения \cref{eqs:ch1/series} в систему \cref{eqs:ch1/sec1/general} и учитывая, что полная производная по времени представляется в виде
+
+\begin{gather}
+  \left(R^2 h\right)^. = 0, \quad \dot{R} = -\dot{h} \frac{R}{2h}= V \frac{R}{2h}\nonumber
+  \\
+  \dot{\alpha} = \left(\frac{h}{R}\right)^. = \frac{\dot{h}R - h\dot{R}}{h^2} = -\frac{3 V}{2 h} \alpha
+  \\
+  \dot{\rho} = \left(\frac{\alpha r}{h}\right)^. = r \frac{\dot{\alpha} h - \alpha \dot{h}}{h^2} = -\frac{V}{2h}\rho
+  \\
+  \dot{\xi} = \left(\frac{z}{h}\right)^. = -\frac{z \dot{h}}{h^2} = \frac{V}{h}\xi
+  \\
+  \dot{\tau} = \left(V \frac{t}{h}\right)^. = V \frac{h - t\dot{h}}{h^2} = \frac{V}{h} \left(1+\tau\right)
+\end{gather}
+
+Подставляя выражения \cref{\csname eqs:ch1/series\endcsname} в систему \cref{\csname eqs:ch1/sec1/general\endcsname} и учитывая, что полная производная по времени представляется в виде
 \begin{equation*}
   \uindex{v}{k}_{i;t} = \uindex{v}{k}_{i,\rho} \dot{\rho} + \uindex{v}{k}_{i,\xi} \dot{\xi} + \uindex{v}{k}_{i,\tau} \dot{\tau}
 \end{equation*}
 получим следующую систему:
 \begingroup
 \allowdisplaybreaks
-\begin{subequations}
-  \label{eqs:ch1/sec1/substituted}
-  \begin{gather}
-    \label{eqs:ch1/sec1/substituted/motion:1}
-    \begin{multlined}
-      -\sum_{k=-M}^{\infty}{\alpha^{k+1} \; \uindex{p}{k}_{,\rho}} +
-      \sum_{k=0}^{\infty}{\alpha^{k}\left(
-      \alpha \ \uindex{s}{k}_{rr,\rho} +
-      \uindex{s}{k}_{rz,\xi} +
-      \frac{\alpha}{\rho}\left(\ \uindex{s}{k}_{rr} - \uindex{s}{k}_{\theta\theta}\right)
-      \right)} \unl{=}
-      \frac{\varrho V^2}{\tau_{s}}\left(
-      \sum_{k=-N}^{\infty}{\alpha^{k}\left(
-        -\uindex{v}{k}_{r,\rho} \frac{\rho}{2} +
-        \uindex{v}{k}_{r,\xi} \xi +
-        \uindex{v}{k}_{r,\tau} \left(1+\tau\right) -
-        \frac{3 k}{2} \ \uindex{v}{k}_{r}
-        \right)}
-      \unl[1]{+}
-      \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}} +
-      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r,\xi}}
-      \right)
-    \end{multlined}
-    \\
-    \label{eqs:ch1/sec1/substituted/motion:2}
-    \begin{multlined}
-      -\sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}_{,\xi}} + \sum_{k=0}^{\infty}{\alpha^{k}\left(
-      \alpha \ \uindex{s}{k}_{rz,\rho} +
-      \frac{\alpha}{\rho} \ \uindex{s}{k}_{rz} -
-      \left(\ \uindex{s}{k}_{rr,\xi} + \uindex{s}{k}_{\theta\theta,\xi}\right)
-      \right)} \unl{=} \frac{\varrho V^2}{\tau_{s}}\left(
-      \sum_{k=0}^{\infty}{\alpha^{k}\left(
-        -\uindex{v}{k}_{z,\rho} \frac{\rho}{2} +
-        \uindex{v}{k}_{z,\xi} \xi +
-        \uindex{v}{k}_{z,\tau} \left(1+\tau\right) -
-        \frac{3 k}{2} \ \uindex{v}{k}_{z}
-        \right)} \unl[1]{+}  \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{z,\rho}} +
-      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z,\xi}}
-      \right)
-    \end{multlined}
-    \\
-    \label{eqs:ch1/sec1/substituted/plasticity}
-    \begin{multlined}
-      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}}\right)^2+
-      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}}\right) \unl{+}
-      \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}}+
-      \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rz}}\right)^2 = 1
-    \end{multlined}
-    \\
-    \label{eqs:ch1/sec1/substituted/coax:1}
-    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \frac{\alpha}{\rho} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} =
-    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}
-    \\
-    \label{eqs:ch1/sec1/substituted/coax:2}
-    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \left(
-    \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r,\xi}} +
-    \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{z,\rho}}
-    \right) =
-    2 \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rz}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}
-    \\
-    \label{eqs:ch1/sec1/substituted/uncompress}
-    \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}+
-    \frac{\alpha}{\rho}\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}+
-    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z,\xi}} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch1/sec1/substituted/motion:1}
+  \begin{multlined}
+    -\sum_{k=-M}^{\infty}{\alpha^{k+1} \; \uindex{p}{k}_{,\rho}} +
+    \sum_{k=0}^{\infty}{\alpha^{k}\left(
+    \alpha \ \uindex{s}{k}_{rr,\rho} +
+    \uindex{s}{k}_{rz,\xi} +
+    \frac{\alpha}{\rho}\left(\ \uindex{s}{k}_{rr} - \uindex{s}{k}_{\theta\theta}\right)
+    \right)} \unl{=}
+    \frac{\varrho V^2}{\tau_{s}}\left(
+    \sum_{k=-N}^{\infty}{\alpha^{k}\left(
+      -\uindex{v}{k}_{r,\rho} \frac{\rho}{2} +
+      \uindex{v}{k}_{r,\xi} \xi +
+      \uindex{v}{k}_{r,\tau} \left(1+\tau\right) -
+      \frac{3 k}{2} \ \uindex{v}{k}_{r}
+      \right)}
+    \unl[1]{+}
+    \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}} +
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r,\xi}}
+    \right)
+  \end{multlined}
+  \\
+  \label{eqs:ch1/sec1/substituted/motion:2}
+  \begin{multlined}
+    -\sum_{k=-M}^{\infty}{\alpha^{k} \; \uindex{p}{k}_{,\xi}} + \sum_{k=0}^{\infty}{\alpha^{k}\left(
+    \alpha \ \uindex{s}{k}_{rz,\rho} +
+    \frac{\alpha}{\rho} \ \uindex{s}{k}_{rz} -
+    \left(\ \uindex{s}{k}_{rr,\xi} + \uindex{s}{k}_{\theta\theta,\xi}\right)
+    \right)} \unl{=} \frac{\varrho V^2}{\tau_{s}}\left(
+    \sum_{k=0}^{\infty}{\alpha^{k}\left(
+      -\uindex{v}{k}_{z,\rho} \frac{\rho}{2} +
+      \uindex{v}{k}_{z,\xi} \xi +
+      \uindex{v}{k}_{z,\tau} \left(1+\tau\right) -
+      \frac{3 k}{2} \ \uindex{v}{k}_{z}
+      \right)} \unl[1]{+}  \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{z,\rho}} +
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z,\xi}}
+    \right)
+  \end{multlined}
+  \\
+  \label{eqs:ch1/sec1/substituted/plasticity}
+  \begin{multlined}
+    \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}}\right)^2+
+    \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}}\right) \unl{+}
+    \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}}+
+    \left(\sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rz}}\right)^2 = 1
+  \end{multlined}
+  \\
+  \label{eqs:ch1/sec1/substituted/coax:1}
+  \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \frac{\alpha}{\rho} \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}} =
+  \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{\theta\theta}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}
+  \\
+  \label{eqs:ch1/sec1/substituted/coax:2}
+  \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rr}} \left(
+  \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r,\xi}} +
+  \sum_{k=0}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{z,\rho}}
+  \right) =
+  2 \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{rz}} \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}
+  \\
+  \label{eqs:ch1/sec1/substituted/uncompress}
+  \sum_{k=-N}^{\infty}{\alpha^{k+1} \; \uindex{v}{k}_{r,\rho}}+
+  \frac{\alpha}{\rho}\sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}+
+  \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z,\xi}} = 0
+\end{gather}
+
+\expandafter\gdef\csname eqs:ch1/sec1/substituted\endcsname{eqs:ch1/sec1/substituted/motion:1,eqs:ch1/sec1/substituted/motion:2,eqs:ch1/sec1/substituted/plasticity,eqs:ch1/sec1/substituted/coax:1,eqs:ch1/sec1/substituted/coax:2,eqs:ch1/sec1/substituted/uncompress}
 Возникший в правой части уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/motion:2} коэффициент равен обратному числу Эйлера
 \begin{equation*}
   \text{Eu}^{-1} = \frac{\varrho V^2}{\tau_{s}}.
@@ -201,9 +202,9 @@
 \begin{figure}[ht]
   \centerfloat{
     \includegraphics[scale=1.3]{./ch1/mu}
-    }
-    \caption{Вид функции $\mu(\rho)$, при $\mu(1)=1$}
-    \label{fig:ch1/mu}
+  }
+  \caption{Вид функции $\mu(\rho)$, при $\mu(1)=1$}
+  \label{fig:ch1/mu}
 \end{figure}
 
 Вид функции $\mu(\rho)$ при другом граничном условии на правом конце может быть получен масштабированием по оси $\rho$.
@@ -213,37 +214,34 @@
 
 Рассмотрим случай $\beta=2$, который соответствует моменту перехода от квазистатического к динамическому режиму деформирования.
 
-Положим $\text{Eu}^{-1} = C_2 \alpha^2$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch1/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
+Положим $\text{Eu}^{-1} = C_2 \alpha^2$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{\csname eqs:ch1/sec1/substituted\endcsname} при $a^{-1}$ и $\alpha^0$:
 \begingroup
 \allowdisplaybreaks
-\begin{subequations}
-  \label{eqs:ch1/sec2/sub1/main}
-  \begin{gather}
-    \label{eqs:ch1/sec2/sub1/-1/motion:2}
-    -\uindex{p}{-1}_{,\xi} = 0
-    \\
-    \label{eqs:ch1/sec2/sub1/-1/coax:2}
-    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r,\xi} = 0
-    \\
-    \label{eqs:ch1/sec2/sub1/0/motion:1}
-    -\uindex{p}{-1}_{,\rho}+\uindex{s}{0}_{rz,\xi} = 0
-    \\
-    \label{eqs:ch1/sec2/sub1/0/motion:2}
-    -\uindex{p}{0}_{,\xi} - \uindex{s}{0}_{rr,\xi} - \uindex{s}{0}_{\theta\theta,\xi} = 0
-    \\
-    \label{eqs:ch1/sec2/sub1/0/plasticity}
-    \left(\uindex{s}{0}_{rr}\right)^2 + \left(\uindex{s}{0}_{\theta\theta}\right)^2 + \uindex{s}{0}_{rr}\; \uindex{s}{0}_{\theta\theta} + \left(\uindex{s}{0}_{rz}\right)^2 = 1
-    \\
-    \label{eqs:ch1/sec2/sub1/0/coax:1}
-    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r} / \rho = \uindex{s}{0}_{\theta\theta} \uindex{v}{-1}_{r,\rho}
-    \\
-    \label{eqs:ch1/sec2/sub1/0/coax:2}
-    \uindex{s}{0}_{rr} \; \uindex{v}{0}_{r,\xi} = 2 \uindex{s}{0}_{rz} \; \uindex{v}{-1}_{r,\rho}
-    \\
-    \label{eqs:ch1/sec2/sub1/0/uncompress}
-    \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch1/sec2/sub1/-1/motion:2}
+  -\uindex{p}{-1}_{,\xi} = 0
+  \\
+  \label{eqs:ch1/sec2/sub1/-1/coax:2}
+  \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r,\xi} = 0
+  \\
+  \label{eqs:ch1/sec2/sub1/0/motion:1}
+  -\uindex{p}{-1}_{,\rho}+\uindex{s}{0}_{rz,\xi} = 0
+  \\
+  \label{eqs:ch1/sec2/sub1/0/motion:2}
+  -\uindex{p}{0}_{,\xi} - \uindex{s}{0}_{rr,\xi} - \uindex{s}{0}_{\theta\theta,\xi} = 0
+  \\
+  \label{eqs:ch1/sec2/sub1/0/plasticity}
+  \left(\uindex{s}{0}_{rr}\right)^2 + \left(\uindex{s}{0}_{\theta\theta}\right)^2 + \uindex{s}{0}_{rr}\; \uindex{s}{0}_{\theta\theta} + \left(\uindex{s}{0}_{rz}\right)^2 = 1
+  \\
+  \label{eqs:ch1/sec2/sub1/0/coax:1}
+  \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r} / \rho = \uindex{s}{0}_{\theta\theta} \uindex{v}{-1}_{r,\rho}
+  \\
+  \label{eqs:ch1/sec2/sub1/0/coax:2}
+  \uindex{s}{0}_{rr} \; \uindex{v}{0}_{r,\xi} = 2 \uindex{s}{0}_{rz} \; \uindex{v}{-1}_{r,\rho}
+  \\
+  \label{eqs:ch1/sec2/sub1/0/uncompress}
+  \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
+\end{gather}
 \endgroup
 Граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force} при этом примут вид
 \begin{equation}
@@ -304,18 +302,16 @@
   \uindex{p}{0} = \uindex{f}{0}_{p}(\rho, \tau) - \frac{2}{3} \sqrt{3\left(1-\mu^2\xi^2\right)}, \quad \uindex{v}{0}_{r} = \uindex{f}{0}_{v_{r}}(\rho, \tau) + \frac{1}{\mu} \sqrt{3\left(1-\mu^2\xi^2\right)}
 \end{equation}
 Для нахождение неизвестных функций $\uindex{f}{0}_{p}$ и $\uindex{f}{0}_{v_{r}}$ выпишем следующее по $\alpha$ приближение уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/uncompress}, а также граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force}:
-\begin{subequations}
-  \begin{gather}
-    \label{eqs:ch1/sec2/sub1/1/motion:1}
-    -\uindex{p}{0}_{,\rho} + \uindex{s}{0}_{rr,\rho} + \uindex{s}{1}_{rz,\xi} = C_2 \left(3\rho / 4\right)
-    \\
-    \label{eqs:ch1/sec2/sub1/1/uncompress}
-    \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho + \uindex{v}{1}_{z,\xi} = 0
-    \\
-    \label{eq:ch1/sec2/sub1/boundary/1}
-    \uindex{v}{1}_{z}\lvert_{\xi=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{rz}\lvert_{\xi=\pm 1} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch1/sec2/sub1/1/motion:1}
+  -\uindex{p}{0}_{,\rho} + \uindex{s}{0}_{rr,\rho} + \uindex{s}{1}_{rz,\xi} = C_2 \left(3\rho / 4\right)
+  \\
+  \label{eqs:ch1/sec2/sub1/1/uncompress}
+  \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho + \uindex{v}{1}_{z,\xi} = 0
+  \\
+  \label{eq:ch1/sec2/sub1/boundary/1}
+  \uindex{v}{1}_{z}\lvert_{\xi=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{rz}\lvert_{\xi=\pm 1} = 0
+\end{gather}
 Функция $\uindex{v}{1}_{z}$ является непрерывной, поэтому имеет место равенство
 \begin{equation}
   \begin{multlined}
@@ -343,41 +339,38 @@
 
 Рассмотрим случай $\beta=1$, который соответствует моменту с сильным влиянием динамики в процессе сдавливания слоя.
 
-Положим $\text{Eu}^{-1} = C_1 \alpha$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{eqs:ch1/sec1/substituted} при $a^{-1}$ и $\alpha^0$:
+Положим $\text{Eu}^{-1} = C_1 \alpha$ и последовательно приравняем коэффициенты правых и левых частей уравнений системы \cref{\csname eqs:ch1/sec1/substituted\endcsname} при $a^{-1}$ и $\alpha^0$: %fix cref
 \begingroup
 \allowdisplaybreaks
-\begin{subequations}
-  \label{eqs:ch1/sec2/sub2/main}
-  \begin{gather}
-    \label{eqs:ch1/sec2/sub2/-1/motion:2}
-    -\uindex{p}{-1}_{,\xi} = 0
-    \\
-    \label{eqs:ch1/sec2/sub2/-1/coax:2}
-    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r,\xi} = 0
-    \\
-    \label{eqs:ch1/sec2/sub2/0/motion:1}
-    \begin{multlined}
-      -\uindex{p}{-1}_{,\rho}+\uindex{s}{0}_{rz,\xi} = C_1 \left(
-      -\frac{\rho}{2} \ \uindex{v}{-1}_{r,\rho} + \xi \ \uindex{v}{-1}_{r,\xi} + \left(1+\tau\right) \ \uindex{v}{-1}_{r,\tau} \unl[1]{+} \frac{3}{2} \ \uindex{v}{-1}_{r} + \uindex{v}{-1}_{r} \ \uindex{v}{-1}_{r,\rho} + \uindex{v}{0}_{z} \ \uindex{v}{-1}_{r,\xi}
-      \right)
-    \end{multlined}
-    \\
-    \label{eqs:ch1/sec2/sub2/0/motion:2}
-    -\uindex{p}{0}_{,\xi} - \uindex{s}{0}_{rr,\xi} - \uindex{s}{0}_{\theta\theta,\xi} = 0
-    \\
-    \label{eqs:ch1/sec2/sub2/0/plasticity}
-    \left(\uindex{s}{0}_{rr}\right)^2 + \left(\uindex{s}{0}_{\theta\theta}\right)^2 + \uindex{s}{0}_{rr}\; \uindex{s}{0}_{\theta\theta} + \left(\uindex{s}{0}_{rz}\right)^2 = 1
-    \\
-    \label{eqs:ch1/sec2/sub2/0/coax:1}
-    \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r} / \rho = \uindex{s}{0}_{\theta\theta} \uindex{v}{-1}_{r,\rho}
-    \\
-    \label{eqs:ch1/sec2/sub2/0/coax:2}
-    \uindex{s}{0}_{rr} \; \uindex{v}{0}_{r,\xi} = 2 \uindex{s}{0}_{rz} \; \uindex{v}{-1}_{r,\rho}
-    \\
-    \label{eqs:ch1/sec2/sub2/0/uncompress}
-    \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch1/sec2/sub2/-1/motion:2}
+  -\uindex{p}{-1}_{,\xi} = 0
+  \\
+  \label{eqs:ch1/sec2/sub2/-1/coax:2}
+  \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r,\xi} = 0
+  \\
+  \label{eqs:ch1/sec2/sub2/0/motion:1}
+  \begin{multlined}
+    -\uindex{p}{-1}_{,\rho}+\uindex{s}{0}_{rz,\xi} = C_1 \left(
+    -\frac{\rho}{2} \ \uindex{v}{-1}_{r,\rho} + \xi \ \uindex{v}{-1}_{r,\xi} + \left(1+\tau\right) \ \uindex{v}{-1}_{r,\tau} \unl[1]{+} \frac{3}{2} \ \uindex{v}{-1}_{r} + \uindex{v}{-1}_{r} \ \uindex{v}{-1}_{r,\rho} + \uindex{v}{0}_{z} \ \uindex{v}{-1}_{r,\xi}
+    \right)
+  \end{multlined}
+  \\
+  \label{eqs:ch1/sec2/sub2/0/motion:2}
+  -\uindex{p}{0}_{,\xi} - \uindex{s}{0}_{rr,\xi} - \uindex{s}{0}_{\theta\theta,\xi} = 0
+  \\
+  \label{eqs:ch1/sec2/sub2/0/plasticity}
+  \left(\uindex{s}{0}_{rr}\right)^2 + \left(\uindex{s}{0}_{\theta\theta}\right)^2 + \uindex{s}{0}_{rr}\; \uindex{s}{0}_{\theta\theta} + \left(\uindex{s}{0}_{rz}\right)^2 = 1
+  \\
+  \label{eqs:ch1/sec2/sub2/0/coax:1}
+  \uindex{s}{0}_{rr} \; \uindex{v}{-1}_{r} / \rho = \uindex{s}{0}_{\theta\theta} \uindex{v}{-1}_{r,\rho}
+  \\
+  \label{eqs:ch1/sec2/sub2/0/coax:2}
+  \uindex{s}{0}_{rr} \; \uindex{v}{0}_{r,\xi} = 2 \uindex{s}{0}_{rz} \; \uindex{v}{-1}_{r,\rho}
+  \\
+  \label{eqs:ch1/sec2/sub2/0/uncompress}
+  \uindex{v}{-1}_{r,\rho} + \uindex{v}{-1}_{r} / \rho + \uindex{v}{0}_{z,\xi} = 0
+\end{gather}
 \endgroup
 Как и в предыдущем пункте граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force} примут вид
 \begin{equation}
@@ -439,18 +432,16 @@
   \uindex{p}{0} = \uindex{f}{0}_{p}(\rho, \tau) - \frac{2}{3} \sqrt{3\left(1-\mu^2\xi^2\right)}, \quad \uindex{v}{0}_{r} = \uindex{f}{0}_{v_{r}}(\rho, \tau) + \frac{1}{\mu} \sqrt{3\left(1-\mu^2\xi^2\right)}
 \end{equation}
 Для нахождение неизвестных функций $\uindex{f}{0}_{p}$ и $\uindex{f}{0}_{v_{r}}$ выпишем следующее по $\alpha$ приближение уравнений \cref{eqs:ch1/sec1/substituted/motion:1, eqs:ch1/sec1/substituted/uncompress}, а также граничные условия \cref{eq:ch1/sec1/boundary/kinematic, eq:ch1/sec1/boundary/force}:
-\begin{subequations}
-  \begin{gather}
-    \label{eqs:ch1/sec2/sub2/1/motion:1}
-    -\uindex{p}{0}_{,\rho}+\uindex{s}{0}_{rr,\rho}+\uindex{s}{1}_{rz,\xi} = C_1 \left(\ \uindex{v}{0}_{r} / 2 + \left(1+\tau\right)\uindex{v}{0}_{r,\tau}\right)
-    \\
-    \label{eqs:ch1/sec2/sub2/1/uncompress}
-    \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho + \uindex{v}{1}_{z,\xi} = 0
-    \\
-    \label{eq:ch1/sec2/sub2/boundary/1}
-    \uindex{v}{1}_{z}\lvert_{\xi=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{rz}\lvert_{\xi=\pm 1} = 0
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{eqs:ch1/sec2/sub2/1/motion:1}
+  -\uindex{p}{0}_{,\rho}+\uindex{s}{0}_{rr,\rho}+\uindex{s}{1}_{rz,\xi} = C_1 \left(\ \uindex{v}{0}_{r} / 2 + \left(1+\tau\right)\uindex{v}{0}_{r,\tau}\right)
+  \\
+  \label{eqs:ch1/sec2/sub2/1/uncompress}
+  \uindex{v}{0}_{r,\rho} + \uindex{v}{0}_{r} / \rho + \uindex{v}{1}_{z,\xi} = 0
+  \\
+  \label{eq:ch1/sec2/sub2/boundary/1}
+  \uindex{v}{1}_{z}\lvert_{\xi=\pm 1} = 0, \quad \lvert \uindex{s}{1}_{rz}\lvert_{\xi=\pm 1} = 0
+\end{gather}
 Функция $\uindex{v}{1}_{z}$ является непрерывной, поэтому имеет место равенство
 \begin{equation}
   \begin{multlined}
@@ -493,23 +484,21 @@
 \section{Анализ решения}\label{sec:ch1/sec3}
 
 Полученные решения \cref{sol:ch1/sec2/sub1/p/-1,sol:ch1/sec2/sub1/srz/0,sol:ch1/sec2/sub1/vr/-1,sol:ch1/sec2/sub1/vz/0,sol:ch1/sec2/sub1/srr+stt/0,sol:ch1/sec2/sub1/vz/0,sol:ch1/sec2/sub1/p+vr/0} и \cref{sol:ch1/sec2/sub2/p/-1,sol:ch1/sec2/sub2/srz/0,sol:ch1/sec2/sub2/vr/-1,sol:ch1/sec2/sub2/vz/0,sol:ch1/sec2/sub2/srr+stt/0,sol:ch1/sec2/sub2/vz/0,sol:ch1/sec2/sub2/p+vr/0} являются приближенными и с точностью $O(\alpha)$ совпадают, за исключением функции давления, с квазистатическим решением \autocite{Georgievsky:2008}:
-\begin{subequations}
-  \begin{gather}
-    \label{sol:ch1/sec3/p/qs}
-    p = p_0 + \frac{\tau_{s}}{\alpha}\int_\rho^1 \mu(\zeta) d\zeta + \frac{1}{2}\int_{-1}^{1}s_{rr}d\xi - \frac{2\tau_{s}}{\sqrt{3}} \sqrt{\left(1-\mu^2\xi^2\right)} + O(\alpha)
-    \\
-    s_{rr} = s_{\theta\theta} = \tau_{s} \sqrt{\left(1-\mu^2\xi^2\right) / 3} + O(\alpha)
-    \\
-    s_{rz} = - \mu \xi \tau_{s}  + O(\alpha)
-    \\
-    v_{r} / V = \frac{\rho}{2\alpha} + \frac{1}{\mu} \sqrt{3\left(1-\mu^2\xi^2\right)} + O(\alpha)
-    \\
-    v_{z}= - V \xi  + O(\alpha)
-  \end{gather}
-\end{subequations}
+\begin{gather}
+  \label{sol:ch1/sec3/p/qs}
+  p = p_0 + \frac{\tau_{s}}{\alpha}\int_\rho^1 \mu(\zeta) d\zeta + \frac{1}{2}\int_{-1}^{1}s_{rr}d\xi - \frac{2\tau_{s}}{\sqrt{3}} \sqrt{\left(1-\mu^2\xi^2\right)} + O(\alpha)
+  \\
+  s_{rr} = s_{\theta\theta} = \tau_{s} \sqrt{\left(1-\mu^2\xi^2\right) / 3} + O(\alpha)
+  \\
+  s_{rz} = - \mu \xi \tau_{s}  + O(\alpha)
+  \\
+  v_{r} / V = \frac{\rho}{2\alpha} + \frac{1}{\mu} \sqrt{3\left(1-\mu^2\xi^2\right)} + O(\alpha)
+  \\
+  v_{z}= - V \xi  + O(\alpha)
+\end{gather}
 где $p_0$ имеет смысл гидростатического давления.
 
-При $\rho\rightarrow 0$ функция $\mu(\rho)\rightarrow 0$. Этот предельный переход выдерживают все функции за исключением $v_r$, ряд которой перестает быть асимптотическим в смысле Пуанкаре в окрестности сечения $\rho=0$. Следовательно, разложения \cref{eqs:ch1/series} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечения $\rho=1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
+При $\rho\rightarrow 0$ функция $\mu(\rho)\rightarrow 0$. Этот предельный переход выдерживают все функции за исключением $v_r$, ряд которой перестает быть асимптотическим в смысле Пуанкаре в окрестности сечения $\rho=0$. Следовательно, разложения \cref{\csname eqs:ch1/series\endcsname} несправедливы вблизи среднего по простиранию сечения слоя. Кроме того, данное решение неприменимо в зоне краевого эффекта, то есть вблизи сечения $\rho=1$, где необходимо ставить точные граничные условия. Данные ограничения аналогичны трактуемым в анализе решения классической задачи Прандтля.
 
 Обозначим правую часть уравнения \cref{sol:ch1/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
@@ -523,9 +512,9 @@
 \begin{figure}[ht]
   \centerfloat{
     \includegraphics[scale=1.3]{./ch1/pressure}
-    }
-    \caption{Эпюры давления для случая круглого слоя}
-    \label{fig:ch1/pressure}
+  }
+  \caption{Эпюры давления для случая круглого слоя}
+  \label{fig:ch1/pressure}
 \end{figure}
 
 Используя то, что $\alpha(t) = \left(V \left(t_*-t\right)\right)^{3/2} \sqrt{2\pi / \mathcal{V}_0}$, где $\mathcal{V}_0$ -- объем слоя, можно установить зависимость между временем и стадией прессования:
