@@ -1,4 +1,4 @@
-\chapter{Задача о сдавливании цилиндрического идеально жесткопластического слоя}\label{ch:ch2}
+\chapter{Сдавливание цилиндрического идеально жесткопластического слоя}\label{ch:ch2}
 Известное решение Прандтля \autocite{Prandtl:1948} о сжатии тонкой полосы примечательно тем, что является отправной точкой для построение математических моделей, имеющих непосредственное отношение к технологическим процессам обработки металлов давлением. Одним из обобщений данного решения на случай слоя конечного объема является задача о сдавливании цилиндрического слоя \autocite{Georgievsky:2010}. Её решение находит применение в технологических процессах изготовления тонкостенного трубопровода заданной точности. В отличие от классической задачи Прандтля, случай цилиндрического слоя дополнительно параметризуется отношением радиусов прессующих цилиндров к длине образующей. В данной постановке задачи исследуется влияние динамических эффектов в процессе формирования изделия методом прессования. Материалы главы содержатся в публикации \autocite{Shabaykin:2020b}.
 
 \section{Постановка задачи и асимптотические разложения}\label{sec:ch2/sec1}
@@ -74,7 +74,7 @@
 \end{gather}
 
 \expandafter\gdef\csname eqs:ch2/series\endcsname{eqs:ch2/series/vr,eqs:ch2/series/vz,eqs:ch2/series/sij,eqs:ch2/series/p}
-Коэффициенты рядов \cref{\csname eqs:ch2/series\endcsname} -- безразмерны и являются функциями безразмерных координат $\rho, \xi, \tau$ :
+Коэффициенты рядов \cref{\csname eqs:ch2/series\endcsname} -- безразмерны и являются функциями безразмерных координат $\rho, \xi, \tau$:
 \begin{equation}
   \label{eq:ch2/coordinates}
   \rho = \frac{r-R}{h}, \quad \xi = \frac{z}{l}=\frac{\alpha z}{h}, \quad \tau = V \frac{t}{h}
@@ -469,10 +469,10 @@
 
 Обозначим правую часть уравнения \cref{sol:ch2/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
-  \left(p\lvert_{\beta=2}\right) = p^\text{кв} + C_2 \frac{a(1+6a)}{(2a+1)^2}\left(1-\xi^2\right) \tau_{s}
+  p\lvert_{\beta=2} = p^\text{кв} + C_2 \frac{a(1+6a)}{(2a+1)^2}\left(1-\xi^2\right) \tau_{s}
   \\
   \begin{multlined}
-    \left(p\lvert_{\beta=1}\right) = p^\text{кв}+ \frac{C_1}{\alpha} \frac{a(1+6a)}{(2a+1)^2}\left(1-\xi^2\right)\tau_{s} + O(1)
+    p\lvert_{\beta=1} = p^\text{кв}+ \frac{C_1}{\alpha} \frac{a(1+6a)}{(2a+1)^2}\left(1-\xi^2\right)\tau_{s} + O(1)
     % \unl{+} C_1 \frac{2a^2\xi^2}{(2a+1)^2} - 2C_1\xi\int_0^1{\frac{2a^2 + a -2\rho+1}{(2a+1)^2} \ \uindex{v}{0}_{z} d\rho}
   \end{multlined}
 \end{gather}
@@ -775,7 +775,7 @@
 
 Обозначим правую часть уравнения \cref{sol:ch2/sec5/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
-  \left(p\lvert_{\beta=2}\right) = p^\text{кв} + \frac{3 C_2}{2}\left(1-\xi^2\right) \tau_{s}
+  p\lvert_{\beta=2} = p^\text{кв} + \frac{3 C_2}{2}\left(1-\xi^2\right) \tau_{s}
   \\
   \begin{multlined}
     \left(p\lvert_{\beta=1}\right) / \tau_{s} = p^\text{кв} / \tau_{s} + \frac{3C_1}{2\alpha} \left(1-\xi^2\right) + \frac{(3+2a)C_1 \xi^2}{2a} \unl{-} \frac{C_1 \lvert\xi\rvert}{2\mu^2}\left(\mu\sqrt{1-\mu^2}+\arcsin{\left(\mu\right)}\right)
@@ -1172,9 +1172,9 @@
 
 Обозначим правую часть уравнения \cref{sol:ch2/sec7/p/qs} как $p^\text{кв} / \tau_{s}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
-  \left(p\lvert_{\beta=2}\right) = p^\text{кв}
+  p\lvert_{\beta=2} = p^\text{кв}
   \\
-  \left(p\lvert_{\beta=1}\right) = p^\text{кв} + \frac{3C_1}{2\alpha} \left(1-\xi^2\right) \tau_{s} + \frac{C_1}{2a \alpha^{c}}\left(3+2c\right)\xi^2 \tau_{s}
+  p\lvert_{\beta=1} = p^\text{кв} + \frac{3C_1}{2\alpha} \left(1-\xi^2\right) \tau_{s} + \frac{C_1}{2a \alpha^{c}}\left(3+2c\right)\xi^2 \tau_{s}
 \end{gather}
 В силу ограниченности рассматриваемых членов разложения, $p\lvert_{\beta=2}$ совпадает с квазистатическим решением с точностью до неизвестных функций интегрирования в выражении \cref{sol:ch2/sec6/sub1/p/1-c}, однако при более динамичной стадии прессования $\beta=1$ возникает квадратично зависящее от радиуса слагаемое. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
 

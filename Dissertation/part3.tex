@@ -1,4 +1,4 @@
-\chapter{Задача о сдавливании сферического идеально жесткопластического слоя}\label{ch:ch3}
+\chapter{Сдавливание сферического идеально жесткопластического слоя}\label{ch:ch3}
 На основе анализа классической задачи Прандтля \autocite{Prandtl:1948} получены значительные результаты связанные с теорией течение по поверхностям, которые имеют широкое применение для решения технологических задач. Одним из обобщений данной задачи является случай осесимметричного меридионального течения со стоком между двумя концентрическими шероховатыми сферами \autocite{Georgievsky:2011}.
 Решение данной задачи применимо в различных технологиях изготовления тонких сферических тел, например в штамповке взрывом.
 % \fixme{Сформулировать мысль про применение в каком-нибудь процессе формообразования, например в штамповке взрывом.} 
@@ -82,7 +82,7 @@
 \end{gather}
 
 \expandafter\gdef\csname eqs:ch3/series\endcsname{eqs:ch3/series/vt,eqs:ch3/series/vr,eqs:ch3/series/sij,eqs:ch3/series/p}
-Коэффициенты рядов \cref{\csname eqs:ch3/series\endcsname} -- безразмерны и являются функциями безразмерных координат $\rho, \theta, \tau$ :
+Коэффициенты рядов \cref{\csname eqs:ch3/series\endcsname} -- безразмерны и являются функциями безразмерных координат $\rho, \theta, \tau$
 \begin{equation}
   \label{eq:ch3/coordinates}
   \rho = \frac{r-R}{h}, \quad \tau = V \frac{t}{h}
@@ -534,9 +534,9 @@
 
 Обозначим правую часть уравнения \cref{sol:ch3/sec3/p/qs} как $p^\text{кв}$. Для случаев $\beta=2$ и $\beta=1$ имеем соответственно:
 \begin{gather}
-  \left(p\lvert_{\beta=2}\right) = p^\text{кв} + \tau_{s} C_2 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right)
+  p\lvert_{\beta=2} = p^\text{кв} + \tau_{s} C_2 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right)
   \\
-  \left(p\lvert_{\beta=1}\right) = p^\text{кв} + \frac{\tau_{s}}{\alpha} C_1 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right) + O(1)
+  p\lvert_{\beta=1} = p^\text{кв} + \frac{\tau_{s}}{\alpha} C_1 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right) + O(1)
 \end{gather}
 Здесь под $O(1)$ подразумевается выражение при коэффициенте $C_1$ в уравнении \cref{eq:ch3/sec2/sub2/fp/0}.
 При сравнении выражений видно, что в случае динамического сдавливания возникает дополнительное слагаемое, причем, чем динамичнее происходит процесс, тем более значима становится данная величина. Функция
