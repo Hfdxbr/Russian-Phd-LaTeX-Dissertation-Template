@@ -31,44 +31,353 @@
 приводится обзор научной литературы по~изучаемой проблеме,
 формулируется цель, ставятся задачи работы, излагается научная новизна
 и практическая значимость представляемой работы. В~последующих главах
-сначала описывается общий принцип, позволяющий \dots, а~потом идёт
-апробация на частных примерах: \dots  и~\dots.
+% сначала описывается общий принцип, позволяющий \dots, а~потом идёт
+% апробация на частных примерах: \dots  и~\dots.
+рассматриваются процессы прессования тонких пластических слоев различной геометрии.
+Исследуются две качественно разные стадии деформирования: переход от квазистатического к динамическому режиму деформирования и развитый процесс динамического деформирования.
 
+\underline{\textbf{Первая глава}} посвящена исследованию влияния динамических эффектов в процессе сдавливания круглого идеально жесткопластического слоя.
 
-\underline{\textbf{Первая глава}} посвящена \dots
+Рассматривается течение несжимаемого материала плотности $\varrho$, удовлетворяющего тензорно-линейным соотношениям и скалярному определяющему соотношению -- квадратичному критерию Мизеса-Генки, заключенного между двумя шероховатыми плитами, сближающимися с постоянной скоростью $V$ (\cref{fig:ch1/layer}). Течение происходит в области
+\begin{equation}
+  \Omega_{t} = \{0 \le r \le R(t), -h(t) \le z \le h(t), 0 \le \theta < 2\pi\}
+\end{equation}
+с границей $\partial\Omega = \Gamma = \Gamma_{1} \cup \Gamma_{2} \cup \Gamma_{3}$, причем $h(t) \ll R(t)$ для любого $t \ge 0$. В начальный момент времени материал занимал область
+\begin{equation}
+  \Omega_{0} = \{0 \le r \le R_{0}, -h_{0} \le z \le h_{0}, 0 \le \theta < 2\pi\}, \quad \partial\Omega_{0} = \Gamma_{0}.
+\end{equation}
 
-картинку можно добавить так:
 \begin{figure}[ht]
-    \centerfloat{
-        \hfill
-        \subcaptionbox{\LaTeX}{%
-            \includegraphics[scale=0.27]{latex}}
-        \hfill
-        \subcaptionbox{Knuth}{%
-            \includegraphics[width=0.25\linewidth]{knuth1}}
-        \hfill
-    }
-    \caption{Подпись к картинке.}\label{fig:latex}
+  \centerfloat{
+    \includegraphics[height=0.2\textheight]{./ch1/layer}
+  }
+  \caption{Представление круглого слоя}
+  \label{fig:ch1/layer}
 \end{figure}
 
-Формулы в строку без номера добавляются так:
-\[
-  \lambda_{T_s} = K_x\frac{d{x}}{d{T_s}}, \qquad
-  \lambda_{q_s} = K_x\frac{d{x}}{d{q_s}},
-\]
+Система уравнений идеальной пластичности в цилиндрических координатах имеет следующий вид:
 
-\underline{\textbf{Вторая глава}} посвящена исследованию
+\begin{gather}
+  \label{eqs:ch1/general/begin}
+  -p_{,r}+s_{rr,r}+s_{rz,z}+\frac{s_{rr}-s_{\theta\theta}}{r} = \varrho \left(v_{r;t}+v_{r} v_{r,r} + v_{z} v_{r,z} \right),
+  \\
+  -p_{,z}+s_{rz,r}+\frac{s_{rz}}{r}-(s_{rr}+s_{\theta\theta})_{,z} = \varrho \left(v_{z;t}+v_{r} v_{z,r} + v_{z} v_{z,z} \right),
+  \\
+  s^2_{rr}+s^2_{\theta\theta}+s_{rr} s_{\theta\theta} + s^2_{rz}=\tau^2_{s}, \quad s_{rr} \frac{v_{r}}{r} = s_{\theta\theta} v_{r,r},
+  \\
+  \label{eqs:ch1/general/end}
+  s_{rr} (v_{r,z}+v_{z,r}) = 2 s_{rz} v_{r,r}, \quad v_{r,r}+\frac{v_{r}}{r}+v_{z,z} = 0.
+\end{gather}
 
-\underline{\textbf{Третья глава}} посвящена исследованию
+На границах контакта $\Gamma_1$ и $\Gamma_2$ задаются кинематические и силовые граничные условия:
+\begin{equation}
+  v_{z}\lvert_{z=\pm h} = \mp V, \quad \lvert s_{rz}\lvert_{z=\pm h} = m(r) \tau_{s}, \quad 0 < m \le 1,
+\end{equation}
+где $m$ -- функция, удовлетворяющая уравнению первого порядка с разделяющимися переменными:
+\begin{equation}
+  \frac{dm}{dr}=\frac{m}{2r}\left(1+\frac{m\sqrt{1-m^2}}{\arcsin m}\right).
+\end{equation}
 
-Можно сослаться на свои работы в автореферате. Для этого в файле
-\verb!Synopsis/setup.tex! необходимо присвоить положительное значение
-счётчику \verb!\setcounter{usefootcite}{1}!. В таком случае ссылки на
-работы других авторов будут подстрочными.
-Изложенные в третьей главе результаты опубликованы в~\cite{vakbib1, vakbib2}.
-Использование подстрочных ссылок внутри таблиц может вызывать проблемы.
+Отыскание решения проводится методом асимптотического интегрирования. Вводятся малый параметр $\alpha = \frac{h(t)}{R(t)} \ll 1$ и безразмерные координаты
+\begin{equation}
+  \rho = \frac{r}{R} = \frac{\alpha r}{h}, \quad \xi = \frac{z}{h}, \quad \tau = V \frac{t}{h}.
+\end{equation}
 
-В \underline{\textbf{четвертой главе}} приведено описание
+Неизвестные функции представляются в виде степенных рядов, коэффициенты которых безразмерны и являются функциями безразмерных координат:
+\begin{gather}
+  v_{r}\left(r, z, t\right) = V \sum_{k=-1}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}, \quad v_{z}\left(r, z, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}},
+  \\
+  s_{ij}\left(r, z, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad p\left(r, z, t \right) = \tau_{s} \sum_{k=-1}^{\infty}{\alpha^{k} \; \uindex{p}{k}}.
+\end{gather}
+
+При подстановке данных разложений в уравнения движения возникает множитель $\text{Eu}^{-1}=\varrho V^2/\tau_s$ равный обратному числу Эйлера. Соотношение малого геометрического параметра и данного множителя: $\text{Eu}^{-1} \sim O(\alpha^\beta)$ -- определяет степень влияния динамики в процессе прессования. Применительно к динамическому анализу интерес представляют стадии процесса, при которых $\beta\in\{1,2\}$.
+На данных стадиях заметно меняется только функция давления, выражение которой в квазистатическом случае имеет вид
+\begin{equation}
+  p^\text{кв} = p_0 + \frac{\tau_{s}}{\alpha}\int_\rho^1 \mu(\zeta) d\zeta + \frac{1}{2}\int_{-1}^{1}s_{rr}d\xi - \frac{2\tau_{s}}{\sqrt{3}} \sqrt{\left(1-\mu^2\xi^2\right)} + O(\alpha),
+\end{equation}
+где $p_0$ имеет смысл гидростатического давления.
+
+Моменту перехода от квазистатического процесса деформирования к динамическому соответствует $\text{Eu}^{-1} \sim O(\alpha^2)$. Функция давления при этом выражается формулой
+\begin{equation}
+  p\lvert_{\beta=2} = p^\text{кв} + \frac{3\tau_{s}}{8}C_2 \left(1-\rho^2\right),\quad C_2=O(1).
+\end{equation}
+Развитым процессом деформирования называется стадия прессования, при которой $\text{Eu}^{-1} \sim O(\alpha)$. В данном случае выражение функции давления примет следующий вид:
+\begin{equation}
+  p\lvert_{\beta=1} = p^\text{кв} + \frac{3\tau_{s}}{8\alpha}C_1 \left(1-\rho^2\right) - C_1 \tau_s \uindex{C}{0}_{p} \log \rho,\quad C_1=O(1),\quad \uindex{C}{0}_{p}=\const.
+\end{equation}
+При сравнении выражений видно, что в случае динамического сдавливания возникает квадратично зависящее от радиуса слагаемое, причем его вклад возрастает на стадии развитого динамического деформирования. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты. Эпюры давления для различных стадий процесса при следующих параметрах: $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu(1)=1$ приведены на \cref{fig:ch1/pressure}.
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.9\linewidth]{./ch1/pressure}
+  }
+  \caption{Эпюры давления для случая круглого слоя}
+  \label{fig:ch1/pressure}
+\end{figure}
+
+\underline{\textbf{Вторая глава}} посвящена исследованию влияния динамических эффектов в процессе сдавливания цилиндрического идеально жесткопластического слоя.
+
+Исследуется процесс деформирования идеально жесткопластического материала заключенного между двумя соосными абсолютно жесткими цилиндрами. Материал полагается несжимаемым, имеет плотность $\rho$ и предел текучести $\sigma_s$.
+В процессе прессования внешний цилиндр остаётся неподвижным, а внутренний радиально расширяется с постоянной скоростью $V$ (\cref{fig:ch2/layer}). Течение происходит в области:
+\begin{equation}
+  \Omega_{t} = \{0 \le r \le R(t) + h(t) = \const, -l(t) \le z \le l(t), 0 \le \theta < 2\pi\}
+\end{equation}
+с границей $\partial\Omega = \Gamma = \Gamma_{1} \cup \Gamma_{2} \cup \Gamma_{3}\cup \Gamma_{4}$, причем $h(t) \ll l(t)$ для любого $t \ge 0$. В начальный момент времени область, занятая материалом, имела вид
+\begin{equation}
+  \Omega_{0} = \{0 \le r \le R_{0} + h_{0}, -l_{0} \le z \le l_{0}, 0 \le \theta < 2\pi\}, \quad \partial\Omega_{0} = \Gamma_{0}.
+\end{equation}
+
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[height=0.2\textheight]{./ch2/layer}
+  }
+  \caption{Представление цилиндрического слоя}
+  \label{fig:ch2/layer}
+\end{figure}
+
+Методом асимптотического интегрирования ищется решение системы идеальной пластичности \crefrange{eqs:ch1/general/begin}{eqs:ch1/general/end} со следующими граничными условиями на контактирующих поверхностях $\Gamma_{1}$ и $\Gamma_{2}$:
+\begin{equation}
+  v_{r}\lvert_{r=R} = V, \quad v_{r}\lvert_{r=R+h} = 0, \quad \lvert s_{rz}\lvert_{r=R} = \lvert s_{rz}\lvert_{r=R+h} = \mu \tau_{s}, \quad 0 < \mu \le 1,
+\end{equation}
+где $\mu$ -- шероховатость пресса. Абсолютной шероховатости, или полному сцеплению пресса с материалом, соответствует значение $\mu = 1$.
+
+Неизвестные функции раскладываются в степенные ряды по малому геометрическому параметру $\alpha=\frac{h(t)}{l(t)}\ll1$:
+\begin{gather}
+  v_{r}\left(r, z, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}}, \quad v_{z}\left(r, z, t\right) = V \sum_{k=-N}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{z}},
+  \\
+  s_{ij}\left(r, z, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad p\left(r, z, t \right) = \tau_{s} \sum_{k=-1}^{\infty}{\alpha^{k} \; \uindex{p}{k}}.
+\end{gather}
+Коэффициенты данных рядов безразмерны и являются функциями безразмерных координат $\rho, \xi, \tau$:
+\begin{equation}
+  \rho = \frac{r-R}{h}, \quad \xi = \frac{z}{l}=\frac{\alpha z}{h}, \quad \tau = V \frac{t}{h}.
+\end{equation}
+При подстановке данных разложений в уравнения движения возникает два параметра: множитель $\text{Eu}^{-1}=\varrho V^2/\tau_s$ равный обратному числу Эйлера, который характеризует соотношение между градиентами давления и инерционными силами, и определяющий форму цилиндров показатель $c$, такой что $R/l\sim\alpha^c$. Для последнего рассмотрены три значения, соответствующие различным математическим и механическим смыслам:
+\begin{itemize}
+  \item $c=1$, когда радиусы цилиндров имеют порядок толщины слоя,
+  \item $c=0$, когда радиусы цилиндров имеют порядок длины образующей,
+  \item $0<c<1$, когда радиусы цилиндров имеют ``промежуточный'' порядок малости.
+\end{itemize}
+
+С помощью соотношения $\text{Eu}^{-1}~O(\alpha^\beta)$ выделяются две стадии процесса: этап перехода от квазистатического к динамическому деформированию ($\beta=2$) и этап развитого динамического деформирования ($\beta=1$). Для данных стадий построены приближенные аналитические решения для каждой их конфигураций цилиндров. Сравнительный анализ с квазистатическими решениями показывает качественное изменение функции давления.
+
+Когда радиусы цилиндров соизмеримы с толщиной слоя, функция давления имеет следующий вид:
+\begin{gather}
+  p^\text{кв} = p_0 + \frac{2\mu}{\alpha}\left(1-\lvert\xi\rvert\right) \tau_{s} + s_{rr} + \int\frac{s_{rr}-s_{\theta\theta}}{\rho+a}d\rho + O(\alpha),
+  \\
+  p\lvert_{\beta=2} = p^\text{кв} + C_2 \frac{a(1+6a)}{(2a+1)^2}\left(1-\xi^2\right) \tau_{s},
+  \\
+  p\lvert_{\beta=1} = p^\text{кв}+ \frac{C_1}{\alpha} \frac{a(1+6a)}{(2a+1)^2}\left(1-\xi^2\right)\tau_{s} + O(1),
+\end{gather}
+где $a=R/l$.
+
+В случае радиусов цилиндров порядка длины образующей получены выражения
+\begin{gather}
+  p^\text{кв} = p_0 + \frac{2\mu}{\alpha}\left(1-\lvert\xi\rvert\right)\tau_{s} + s_{rr} + O(\alpha),
+  \\
+  p\lvert_{\beta=2} = p^\text{кв} + \frac{3 C_2}{2}\left(1-\xi^2\right) \tau_{s},
+  \\
+  p\lvert_{\beta=1} = p^\text{кв}+ \frac{3 C_2}{2 \alpha}\left(1-\xi^2\right)\tau_{s} + O(1).
+\end{gather}
+На графиках ниже приведены эпюры давления для упомянутых случаев при следующих параметрах: $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu=1$ и $a=1$.
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.9\linewidth]{./ch2/pressure_sub1}
+  }
+  \caption{Эпюры давления для случая цилиндрического слоя при радиусах цилиндров порядка толщины слоя}
+  \label{fig:ch2/sub1/pressure}
+\end{figure}
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.9\linewidth]{./ch2/pressure_sub2}
+  }
+  \caption{Эпюры давления для случая цилиндрического слоя при радиусах цилиндров порядка длины образующей}
+  \label{fig:ch2/sub2/pressure}
+\end{figure}
+
+Последний из рассматриваемых случаев в силу наличия в уравнениях членов с дробными степенями параметра $\alpha$ требует использования иных разложений:
+\begin{gather}
+  v_{r}\left(r, z, t\right) = V \left(\uindex{v}{0}_{r} + \alpha^{1-c} \;\ \uindex{v}{1-c}_{r} + \cdots\right),
+  \\
+  v_{z}\left(r, z, t\right) = V \left(\alpha^{-1} \;\, \uindex{v}{-1}_{z} + \alpha^{-c} \;\, \uindex{v}{-c}_{z} + \uindex{v}{0}_{z} + \alpha^{1-c} \;\ \uindex{v}{1-c}_{z} + \cdots\right),
+  \\
+  s_{ij}\left(r, z, t\right) = \tau_{s} \left(\uindex{s}{0}_{ij} + \alpha^{1-c} \;\ \uindex{s}{1-c}_{ij} + \cdots\right),
+  \\
+  p\left(r, z, t \right) = \tau_{s} \left(\alpha^{-1} \;\, \uindex{p}{-1} + \alpha^{-c} \;\, \uindex{p}{-c} + \uindex{p}{0} + \alpha^{1-c} \;\ \uindex{p}{1-c} + \cdots\right).
+\end{gather}
+Поскольку однозначно определить порядок следующего за $\alpha^{1-c}$ члена не представляется возможным, поиск решения ограничен определением коэффициентов при $\alpha^{-1}$, $\alpha^{-c}$, $\alpha^0$ и $\alpha^{1-c}$. В силу данного ограничения падает точность искомых решений, и функция давления претерпевает изменения только в процессе развитого динамического деформирования:
+\begin{gather}
+  \begin{multlined}
+    p^\text{кв} / \tau_{s} = p_0 + \frac{2\mu}{\alpha}\left(1-\lvert\xi\rvert\right) -\sqrt{1-\mu^2\left(2\rho-1\right)^2} \unl{+}
+    \alpha^{1-c}\left( \vphantom{\frac{1-\mu^2\left(2\rho-1\right)\left(4\rho-1\right)}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}}}
+    \frac{1}{4\mu}\left(\mu\left(2\rho-1\right)\sqrt{1-\mu^2\left(2\rho-1\right)^2}+\arcsin{\left(\mu\left(2\rho-1\right)\right)}\right) \unl[1]{-}
+    \frac{1-\rho}{2a}\frac{1-\mu^2\left(2\rho-1\right)\left(4\rho-1\right)}{\sqrt{1-\mu^2\left(2\rho-1\right)^2}}
+    \right) +
+    O(\alpha^{1-c}),
+  \end{multlined}
+  \\
+  p\lvert_{\beta=1} = p^\text{кв} + \frac{3C_1}{2\alpha} \left(1-\xi^2\right) \tau_{s} + \frac{C_1}{2a \alpha^{c}}\left(3+2c\right)\xi^2 \tau_{s}.
+\end{gather}
+На \cref{fig:ch2/sub3/pressure} представлены эпюры давления для различных стадий процесса при $\alpha=0.1$, $C_1=1$, $c=0.5$, $\mu=1$ и $a=1$.
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.9\linewidth]{./ch2/pressure_sub3}
+  }
+  \caption{Эпюры давления для случая цилиндрического слоя при радиусах ``промежуточного'' порядка}
+  \label{fig:ch2/sub3/pressure}
+\end{figure}
+
+Во всех рассмотренных случаях прослеживается качественное изменение функции давления: возникает квадратично зависящее от продольной координаты слагаемое, причем порядок данной величины растёт с приближением к моменту ``схлопывания'' слоя.
+
+\underline{\textbf{Третья глава}} посвящена исследованию влияния динамических эффектов в процессе сдавливания сферического идеально жесткопластического слоя.
+
+Рассматривается течение несжимаемого слоя плотности $\varrho$, заключенного между двумя концентрическими сферами, в области
+\begin{equation}
+  \Omega_{t} = \{0 \le r \le R(t)+ h(t), 0 \le \theta < \pi, 0 \le \phi < 2\pi\}
+\end{equation}
+с границей $\partial\Omega = \Gamma = \Gamma_{1} \cup \Gamma_{2}$, причем $h(t) \ll R(t)$ для любого $t \ge 0$.
+
+В процессе прессования внешняя сфера остаётся неподвижной, а внутренняя радиально расширяется с постоянной скоростью, выдавливая материал через сток $\theta=\pi$ (\cref{fig:ch3/layer}).
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[height=0.2\textheight]{./ch3/layer}
+  }
+  \caption{Представление сферического слоя}
+  \label{fig:ch3/layer}
+\end{figure}
+
+Система уравнений идеальной пластичности для данной задачи имеет вид:
+\begin{gather}
+  \begin{multlined}
+    -p_{,r}+s_{rr,r}+\frac{1}{r}\left(s_{r\theta,\theta}+3s_{rr}+s_{r\theta}\cot{\left(\theta\right)}\right) \unl{=}
+    \varrho \left(v_{r;t}+v_{r} v_{r,r} + \frac{1}{r}v_{\theta} v_{r,\theta} - \frac{1}{r} v_{\theta}^2 \right)
+  \end{multlined},
+  \\
+  \begin{multlined}
+    -\frac{1}{r} p_{,\theta}+s_{r\theta,r}+\frac{1}{r}\left(s_{\theta\theta,\theta}+3s_{r\theta}+\left(s_{rr}+2s_{\theta\theta}\right)\cot{\left(\theta\right)}\right) \unl{=}
+    \varrho \left(v_{\theta;t}+v_{r} v_{\theta,r} + \frac{1}{r}v_{\theta} v_{\theta,\theta} - \frac{1}{r} v_{\theta} v_{r} \right)
+  \end{multlined},
+  \\
+  s^2_{rr}+s^2_{\theta\theta}+s_{rr} s_{\theta\theta} + s^2_{r\theta}=\tau^2_{s}, \quad s_{rr} \left(v_{\theta,\theta} + v_{r}\right) / r = s_{\theta\theta} v_{r,r},
+  \\
+  s_{rr} \left(v_{\theta,r}+\left(v_{r,\theta}-v_{\theta}\right) / r\right) = 2 s_{r\theta} v_{r,r}, \quad v_{r,r}{+}\left(2v_{r}{+}v_{\theta,\theta}{+}v_{\theta}\cot{\left(\theta\right)}\right) / r = 0.
+\end{gather}
+
+На границах контакта $\Gamma_1$ и $\Gamma_2$ задаются кинематические и силовые граничные условия:
+\begin{equation}
+  v_{r}\lvert_{r=R} = V, \quad v_{r}\lvert_{r=R + h} = 0, \quad \lvert s_{r\theta}\lvert_{r=R} = \lvert s_{r\theta}\lvert_{r=R+h} = \mu(\theta) \tau_{s}, \quad 0 < \mu \le 1,
+\end{equation}
+где $\mu$ -- шероховатость пресса. Абсолютной шероховатости, или полному сцеплению пресса с материалом, соответствует значение $\mu = 1$.
+
+Отыскание решения проводится методом асимптотического интегрирования. Вводятся малый параметр $\alpha = \frac{h(t)}{R(t)} \ll 1$ и безразмерные координаты
+\begin{equation}
+  \rho = \frac{r-R}{h}, \quad \tau = V \frac{t}{h}.
+\end{equation}
+
+Неизвестные функции представляются в виде степенных рядов, коэффициенты которых безразмерны и являются функциями безразмерных координат:
+\begin{gather}
+  v_{\theta}\left(r, \theta, t\right) = V \sum_{k=-1}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{\theta}}, \quad v_{r}\left(r, \theta, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{r}},
+  \\
+  s_{ij}\left(r, \theta, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad p\left(r, \theta, t \right) = \tau_{s} \sum_{k=-1}^{\infty}{\alpha^{k} \; \uindex{p}{k}}.
+\end{gather}
+
+При подстановке данных разложений в уравнения движения возникает множитель $\text{Eu}^{-1}=\varrho V^2/\tau_s$ равный обратному числу Эйлера. Степень влияния учета динамики на протекание процесса определяется соотношением $\text{Eu}^{-1} \sim O(\alpha^\beta)$.
+В рамках исследуемых стадий ($\beta=2$ и $\beta=1$) качественно меняется только функция давления. В случае квазистатической постановки она выражается в следующем виде:
+\begin{equation}
+  p^\text{кв} = p_0 - \tau_{s} \frac{2}{\alpha}\int_0^\theta \mu(\xi) d\xi + s_{rr} + O(1),
+\end{equation}
+где $p_0$ имеет смысл гидростатического давления.
+
+Для стадии перехода от квазистатического режима к динамическому и стадии развитой динамики имеем соответственно выражения:
+\begin{gather}
+  p\lvert_{\beta=2} = p^\text{кв} + \tau_{s} C_2 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right),
+  \\
+  p\lvert_{\beta=1} = p^\text{кв} + \frac{\tau_{s}}{\alpha} C_1 \left(2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - \frac{1}{1+\cos{\left(\theta\right)}}\right) + O(1).
+\end{gather}
+
+При сравнении выражений видно, что в случае динамического сдавливания возникает дополнительное слагаемое, причем с уменьшением показателя $\beta$ его вклад возрастает. Функция
+\begin{equation*}
+  2\log{\left(\cos{\left({\theta / 2}\right)}\right)} - 1/\left(1+\cos{\left(\theta\right)}\right)
+\end{equation*}
+является выпуклой вверх при $\theta \in [0, \pi]$, причем её максимум достигается при $\theta=0$.
+Наличие такого слагаемого качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
+Графики функции давления при $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu=1$ приведены на \cref{fig:ch3/sec3/pressure}.
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.9\linewidth]{./ch3/pressure}
+  }
+  \caption{Эпюры давления для случая сферического слоя}
+  \label{fig:ch3/sec3/pressure}
+\end{figure}
+
+В \underline{\textbf{четвертой главе}} исследуется влияние динамических эффектов в процессе сдавливания плоского нелинейно вязкопластического слоя со степенной функцией упрочнения.
+
+Рассматривается течение несжимаемого вязкопластического материала, происходящее в тонком прямоугольном слое
+\begin{equation}
+  \Omega_{t} = \{-l(t) \le x_{1} \le l(t), -h(t) \le x_{2} < h(t)\}
+\end{equation}
+с границей $\partial\Omega = \Gamma = \Gamma_{1} \cup \Gamma_{2} \cup \Gamma_{3} \cup \Gamma_{4}$, причем $h(t) \ll l(t)$ для любого $t \ge 0$.
+В начальный момент времени область, занятая материалом, имела вид
+\begin{equation}
+  \Omega_{0} = \{-l_{0} \le x_{1} \le l_{0}, -h_{0} \le x_{2} \le h_{0}\}, \quad \partial\Omega_{0} = \Gamma_{0}.
+\end{equation}
+Длинные стороны слоя соприкасаются с движущимися навстречу друг другу с постоянной скоростью $V$ плитами с коэффициентом шероховатости $\mu$ (\cref{fig:ch4/layer}).
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[height=0.2\textheight]{./ch4/layer}
+  }
+  \caption{Представление плоского слоя}
+  \label{fig:ch4/layer}
+\end{figure}
+
+Замкнутая система плоской динамической теории вязкопластического течения состоит из пяти уравнений:
+\begin{gather}
+  -p_{,1}+s_{11,1}+s_{12,2} = \varrho \left(v_{1;t}+v_{1} v_{1,1} + v_{2} v_{1,2} \right),
+  \\
+  -p_{,2}-s_{11,2}+s_{12,1} = \varrho \left(v_{2;t}+v_{1} v_{2,1} + v_{2} v_{2,2} \right),
+  \\
+  \sqrt{s^2_{11}+s^2_{12}}=\sigma_{s} + 2 a v_{u}^\gamma, \quad v_{u} = \sqrt{2 v^2_{1,1}+\left(v_{1,2}+v_{2,1}\right)^2 / 2},
+  \\
+  s_{11} \left(v_{1,2}+v_{2,1}\right) = 2 s_{12} v_{1,1},\quad v_{1,1}+v_{2,2} = 0,
+\end{gather}
+где $\varrho$ -- плотность материала, $a$ -- коэффициент нелинейной вязкости и $\gamma$ -- экспонента упрочнения.
+
+На границах контакта $\Gamma_1$ и $\Gamma_2$ задаются кинематические и силовые граничные условия:
+\begin{equation}
+  \label{eq:ch4/sec1/boundary/kinematic}
+  v_{2}\lvert_{x_2\pm h} = \mp V, \quad \lvert s_{12}\lvert_{x_2=\pm h} = \mu(x_1) \tau_{s}, \quad 0 < \mu \le 1.
+\end{equation}
+
+Вводится малый геометрический параметр $\alpha=\frac{h(t)}{l(t)}\ll 1$, и неизвестные функции раскладываются в ряды по целым степеням параметра:
+\begin{gather}
+  v_{1}\left(x_1, x_2, t\right) = V \sum_{k=-1}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{1}}, \quad v_{2}\left(x_1, x_2, t\right) = V \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{v}{k}_{2}}
+  \\
+  s_{ij}\left(x_1, x_2, t\right) = \tau_{s} \sum_{k=0}^{\infty}{\alpha^{k} \; \uindex{s}{k}_{ij}}, \quad p\left(x_1, x_2, t\right) = \tau_{s} \sum_{k=-1}^{\infty}{\alpha^{k} \; \uindex{p}{k}},
+\end{gather}
+где коэффициенты рядов безразмерны и являются функциями безразмерных координат $\xi_1, \xi_2, \tau$:
+\begin{equation}
+  \xi_1 = x_1 / l = \alpha x_1 / h, \quad \xi_2 = x_2 / h, \quad \tau = V \frac{t}{h}.
+\end{equation}
+
+Подстановка данных разложений в уравнения движения порождает два параметра: малый физический параметр $\text{Eu}^{-1}=\varrho V^2/\tau_s$ равный обратному числу Эйлера -- ключевому безразмерному критерию в динамических задачах механики сплошных сред, и другой критерий подобия, число Сен-Венана  $\text{S}~=~\left(\tau_s/a\right) \left(h/V\right)^\gamma \gg 1$, описывающий отношение пластических и вязких свойств тела.
+Посредством асимптотического интегрирования, с учетом соотношения $\text{Eu}^{-1} \sim O(\alpha^\beta)$, строится решения для двух стадий процесса: этапа перехода от квазистатического к динамическому деформированию ($\beta=2$) и этапу развитого динамического деформирования ($\beta=1$).
+
+Полученные приближенные решения качественно отличаются от квазистатического случая только функцией давления:
+\begin{gather}
+  p^\text{кв}  = p_0 +  \frac{\tau_{s}}{\alpha}\int_{\vert \xi_1\vert}^1 \mu(\xi) d\xi - s_{11} + \int_{-1}^{1}{s_{11} d\xi_2} + O(\alpha),
+  \\
+  p\lvert_{\beta=2} = p^\text{кв} + \tau_{s} C_2 \left(1-\xi_1^2\right),
+  \\
+  p\lvert_{\beta=1} = p^\text{кв} + \frac{\tau_{s}}{\alpha} C_1 \left(1-\xi_1^2\right) + O(1),
+\end{gather}
+где $p_0$ имеет смысл гидростатического давления.
+
+При сравнении выражений видно (\cref{fig:ch4/sec4/pressure}), что в случае динамического сдавливания возникает квадратично зависящее от радиуса слагаемое, причем чем меньше показатель $\beta$, тем более значима становится данная величина. Наличие такой зависимости качественно меняет эпюру давления в слое и увеличивает суммарную силу, действующую со стороны слоя на плиты.
+\begin{figure}[ht]
+  \centerfloat{
+    \includegraphics[width=0.9\linewidth]{./ch4/pressure}
+  }
+  \caption{Эпюры давления для случая плоского вязкопластического слоя при параметрах $\alpha=0.1$, $C_1=1$, $C_2=2$, $\mu=0.9$, $\text{S}=10$}
+  \label{fig:ch4/sec4/pressure}
+\end{figure}
 
 \FloatBarrier
 \pdfbookmark{Заключение}{conclusion}                                  % Закладка pdf
@@ -76,9 +385,6 @@
 \input{common/concl}
 
 \pdfbookmark{Литература}{bibliography}                                % Закладка pdf
-При использовании пакета \verb!biblatex! список публикаций автора по теме
-диссертации формируется в разделе <<\publications>>\ файла
-\verb!common/characteristic.tex!  при помощи команды \verb!\nocite!
 
 \ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=false}}{} % не рекомендуется применять пакет микротипографики к автоматически генерируемому списку литературы
 \urlstyle{rm}                               % ссылки URL обычным шрифтом
@@ -126,29 +432,29 @@
       \fi
     \end{refcontext}
   }{
-  \ifnum \totvalue{citeexternal}>0
-    \begin{refcontext}[labelprefix=A]
+    \ifnum \totvalue{citeexternal}>0
+      \begin{refcontext}[labelprefix=A]
+        \ifnum \value{bibgrouped}>0
+          \insertbiblioauthorgrouped    % Вывод всех работ автора, сгруппированных по источникам
+        \else
+          \insertbiblioauthor      % Вывод всех работ автора
+        \fi
+      \end{refcontext}
+    \else
       \ifnum \value{bibgrouped}>0
         \insertbiblioauthorgrouped    % Вывод всех работ автора, сгруппированных по источникам
       \else
         \insertbiblioauthor      % Вывод всех работ автора
       \fi
-    \end{refcontext}
-  \else
-    \ifnum \value{bibgrouped}>0
-      \insertbiblioauthorgrouped    % Вывод всех работ автора, сгруппированных по источникам
-    \else
-      \insertbiblioauthor      % Вывод всех работ автора
     \fi
-  \fi
-  %  \insertbiblioauthorimportant  % Вывод наиболее значимых работ автора (определяется в файле characteristic во второй section)
-  \begin{refcontext}[labelprefix={}]
+    %  \insertbiblioauthorimportant  % Вывод наиболее значимых работ автора (определяется в файле characteristic во второй section)
+    \begin{refcontext}[labelprefix={}]
       \insertbiblioexternal            % Вывод списка литературы, на которую ссылались в тексте автореферата
-  \end{refcontext}
-  % Невидимый библиографический список для подсчёта количества внешних публикаций
-  % Используется, чтобы убрать приставку "А" у работ автора, если в автореферате нет
-  % цитирований внешних источников.
-  \printbibliography[heading=nobibheading, section=0, env=countexternal, keyword=biblioexternal, resetnumbers=true]%
+    \end{refcontext}
+    % Невидимый библиографический список для подсчёта количества внешних публикаций
+    % Используется, чтобы убрать приставку "А" у работ автора, если в автореферате нет
+    % цитирований внешних источников.
+    \printbibliography[heading=nobibheading, section=0, env=countexternal, keyword=biblioexternal, resetnumbers=true]%
   }
 }
 \ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=true}}{}
